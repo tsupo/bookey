@@ -1,0 +1,37 @@
+﻿
+'bookey' is a tool to manage your entries of social bookmarks.
+
+Target social bookmark sites:
+    Hatena Bookmark
+    delicious.com (del.icio.us)
+    MM/Memo
+    1470.net
+    Drecom RSS (Clip!)
+    Flog
+    livedoor clip
+    Buzzurl
+    @nifty clip
+    POOKMARK Airlines
+    Faves.com (Blue Dot)
+    JoltMark
+    BlogPet bookmark
+    FC2BOOKMARK
+    Yahoo! Bookmarks (yahoo.com)
+    Yahoo! Japan Bookmarks (yahoo.co.jp)
+
+Target social news sites:
+    newsing
+    digg
+
+Target microblogs:
+    Twitter
+    Timelog
+
+Target tumbleblogs:
+    tumblr
+
+
+xmlRPC libraries are necessary for building this application.
+
+  xmlRPC: 
+    http://github.com/tsupo/xmlRPC/tree

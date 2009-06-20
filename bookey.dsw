@@ -1,0 +1,533 @@
+Microsoft Developer Studio Workspace File, Format Version 6.00
+# åxçê: Ç±ÇÃ‹∞∏ΩÕﬂ∞Ω Ãß≤Ÿ Çï“èWÇ‹ÇΩÇÕçÌèúÇµÇ»Ç¢Ç≈Ç≠ÇæÇ≥Ç¢!
+
+###############################################################################
+
+Project: "bookey"=.\bookey.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/comm/bookey", YGBAAAAA
+    .
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "get1470net"=.\get1470net\get1470net.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/comm/bookey/get1470net", FGCAAAAA
+    .\get1470net
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "getBP"=.\getBP\getBP.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/comm/bookey/getBP", LGCAAAAA
+    .\getBP
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "getBPT"=.\getBPT\getBPT.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/comm/bookey/getBPT", OGCAAAAA
+    .\getBPT
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "getBlogPet"=.\getBlogPet\getBlogPet.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/comm/bookey/getBlogPet", HGCAAAAA
+    .\getBlogPet
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "getBlueDot"=.\getBlueDot\getBlueDot.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/comm/bookey/getBlueDot", JGCAAAAA
+    .\getBlueDot
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "getBuzzurl"=.\getBuzzurl\getBuzzurl.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/comm/bookey/getBuzzurl", RGCAAAAA
+    .\getBuzzurl
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "getDRC"=.\getDRC\getDRC.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/comm/bookey/getDRC", UGCAAAAA
+    .\getDRC
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "getDelicious"=.\getDelicious\getDelicious.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/comm/bookey/getDelicious", UPBAAAAA
+    .\getDelicious
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "getFlog"=.\getFlog\getFlog.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/comm/bookey/getFlog", WGCAAAAA
+    .\getFlog
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "getHB"=.\getHB\getHB.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/comm/bookey/getHB", XPBAAAAA
+    .\getHB
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "getJoltMark"=.\getJoltMark\getJoltMark.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/comm/bookey/getJoltMark", ZGCAAAAA
+    .\getJoltMark
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "getLC"=.\getLC\getLC.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/comm/bookey/getLC", BHCAAAAA
+    .\getLC
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "getMMmemo"=.\getMMmemo\getMMmemo.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/comm/bookey/getMMmemo", ZPBAAAAA
+    .\getMMmemo
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "getMyClip"=.\getMyClip\getMyClip.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/comm/bookey/getMyClip", EHCAAAAA
+    .\getMyClip
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "getNC"=.\getNC\getNC.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/comm/bookey/getNC", HHCAAAAA
+    .\getNC
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "getPookmark"=.\getPookmark\getPookmark.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/comm/bookey/getPookmark", JHCAAAAA
+    .\getPookmark
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "put1470net"=.\put1470net\put1470net.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/comm/bookey/put1470net", LHCAAAAA
+    .\put1470net
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "putBPT"=.\putBPT\putBPT.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/comm/bookey/putBPT", RHCAAAAA
+    .\putBPT
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "putBlogPet"=.\putBlogPet\putBlogPet.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/comm/bookey/putBlogPet", NHCAAAAA
+    .\putBlogPet
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "putBlueDot"=.\putBlueDot\putBlueDot.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/comm/bookey/putBlueDot", PHCAAAAA
+    .\putBlueDot
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "putBuzzurl"=.\putBuzzurl\putBuzzurl.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/comm/bookey/putBuzzurl", VHCAAAAA
+    .\putBuzzurl
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "putDRC"=.\putDRC\putDRC.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/comm/bookey/putDRC", YHCAAAAA
+    .\putDRC
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "putDelicious"=.\putDelicious\putDelicious.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/comm/bookey/putDelicious", CQBAAAAA
+    .\putDelicious
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "putFlog"=.\putFlog\putFlog.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/comm/bookey/putFlog", AICAAAAA
+    .\putFlog
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "putHB"=.\putHB\putHB.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/comm/bookey/putHB", FQBAAAAA
+    .\putHB
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "putJoltMark"=.\putJoltMark\putJoltMark.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/comm/bookey/putJoltMark", DICAAAAA
+    .\putJoltMark
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "putLC"=.\putLC\putLC.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/comm/bookey/putLC", FICAAAAA
+    .\putLC
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "putMMmemo"=.\putMMmemo\putMMmemo.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/comm/bookey/putMMmemo", HQBAAAAA
+    .\putMMmemo
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "putNC"=.\putNC\putNC.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/comm/bookey/putNC", IICAAAAA
+    .\putNC
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "putNewsing"=.\putNewsing\putNewsing.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/comm/bookey/putNewsing", KICAAAAA
+    .\putNewsing
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "putPookmark"=.\putPookmark\putPookmark.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/comm/bookey/putPookmark", MICAAAAA
+    .\putPookmark
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Global:
+
+Package=<5>
+{{{
+    begin source code control
+    "$/comm/bookey", YGBAAAAA
+    .
+    end source code control
+}}}
+
+Package=<3>
+{{{
+}}}
+
+###############################################################################
+

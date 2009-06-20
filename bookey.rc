@@ -1,0 +1,4590 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// 日本語 resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_JPN)
+#ifdef _WIN32
+LANGUAGE LANG_JAPANESE, SUBLANG_DEFAULT
+#pragma code_page(932)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_JPN)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 17, 1\r\n"
+    "#pragma code_page(932)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\bookey.rc2""  // Microsoft Visual C++ 以外のツールで編集されたリソース\r\n"
+    "#include ""l.jpn\\afxres.rc""          // 標準のコンポーネント\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\bookey.ico"
+IDR_BOOKEYTYPE          ICON    DISCARDABLE     "res\\bookeyDoc.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU PRELOAD DISCARDABLE 
+BEGIN
+    POPUP "ファイル(&F)"
+    BEGIN
+        MENUITEM "アプリケーションの終了(&X)",  ID_APP_EXIT
+    END
+    POPUP "編集(&E)"
+    BEGIN
+        MENUITEM "貼り付け(&P)\tCtrl+V",        ID_EDIT_PASTE
+    END
+    POPUP "ヘルプ(&H)"
+    BEGIN
+        MENUITEM "サポート情報 (公式ブログ)",   IDS_ABOUT_SUPPORT
+        MENUITEM "サポート情報 (Google Sites)", IDS_ABOUT_SUPPORT2
+        MENUITEM "コミュニティ (はてなブックマーク)", IDS_ABOUT_COMMUNITY
+        MENUITEM "コミュニティ (wakoopa)",      IDS_ABOUT_COMMUNITY2
+        MENUITEM SEPARATOR
+        MENUITEM "bookey について(&A)...",      ID_APP_ABOUT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS PRELOAD MOVEABLE PURE 
+BEGIN
+    "N",            ID_FILE_NEW,            VIRTKEY, CONTROL
+    "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL
+    "S",            ID_FILE_SAVE,           VIRTKEY, CONTROL
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL
+    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL
+    "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL
+    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT
+    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT
+    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL
+    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT
+    VK_F6,          ID_NEXT_PANE,           VIRTKEY 
+    VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 211, 103
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "ソーシャルブックマーク管理ツール バージョン情報"
+FONT 9, "ＭＳ Ｐゴシック"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,21
+    LTEXT           "bookey Version 0.60",IDC_BOOKEY_VERSION,40,10,101,8,
+                    SS_NOPREFIX
+    LTEXT           "Copyright (C) 2005, 2006, 2007, 2008, 2009 by tsupo",
+                    IDC_STATIC,40,25,152,8
+    DEFPUSHBUTTON   "OK",IDOK,155,7,50,14,WS_GROUP
+    LTEXT           "blog: http://watcher.moe-nifty.com/",IDC_BOOKEY_WEB_URL,
+                    45,37,105,8,SS_NOTIFY
+    LTEXT           "mailto: tsupo@na.rim.or.jp",IDC_BOOKEY_MAIL_ADDR,44,47,
+                    73,8,SS_NOTIFY
+    LTEXT           "OpenSSL: ",IDC_OPENSSL,52,60,140,8
+    LTEXT           "iconv: ",IDC_ICONV,52,70,140,8
+    LTEXT           "Webサービス by Yahoo! JAPAN",IDC_CREDIT_YAHOOJAPAN,52,
+                    82,140,8,SS_NOTIFY
+END
+
+IDD_BOOKEY_DIALOG DIALOGEX 0, 0, 291, 191
+STYLE DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
+    WS_SYSMENU
+EXSTYLE WS_EX_ACCEPTFILES | WS_EX_APPWINDOW
+CAPTION "ブックマーク管理ツール"
+FONT 9, "ＭＳ Ｐゴシック", 0, 0, 0x1
+BEGIN
+    GROUPBOX        "ブックマーク取得対象",IDC_STATIC,7,7,105,109,WS_GROUP
+    COMBOBOX        IDC_COMBO_BOOKMARK1,12,21,96,238,CBS_DROPDOWN | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "ユーザ名",IDC_STATIC,14,41,28,8
+    EDITTEXT        IDC_EDIT_USERNAME1,16,55,88,14,ES_AUTOHSCROLL
+    LTEXT           "パスワード",IDC_STATIC,14,79,32,8
+    EDITTEXT        IDC_EDIT_PASSWORD1,16,93,88,14,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    PUSHBUTTON      "ブックマーク取得",IDC_BUTTON_GET,29,124,61,23,WS_GROUP
+    GROUPBOX        "ブックマーク登録先",IDC_STATIC,116,7,105,109,WS_GROUP
+    COMBOBOX        IDC_COMBO_BOOKMARK2,121,21,96,233,CBS_DROPDOWN | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "ユーザ名",IDC_STATIC,123,41,28,8
+    EDITTEXT        IDC_EDIT_USERNAME2,125,55,88,14,ES_AUTOHSCROLL
+    LTEXT           "パスワード",IDC_STATIC,123,79,32,8
+    EDITTEXT        IDC_EDIT_PASSWORD2,125,93,88,14,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    PUSHBUTTON      "ブックマーク登録",IDC_BUTTON_PUT,138,124,61,23,WS_GROUP
+    PUSHBUTTON      "ブックマークの  同期を取る",IDC_BUTTON_SYNC,228,12,56,
+                    37,BS_MULTILINE | WS_GROUP
+    PUSHBUTTON      "ブックマーク削除",IDC_BUTTON_DELETE,228,55,56,23
+    DEFPUSHBUTTON   "終了",IDOK,228,161,56,23
+    LTEXT           "ソーシャルブックマーク管理ツール",IDC_STATIC,94,160,102,
+                    8
+    LTEXT           "bookey Ver 0.31",IDC_BOOKEY_VERSION,120,170,59,8
+    PUSHBUTTON      "タグの置換",IDC_BUTTON_EDIT_TAGS,228,96,56,23
+    PUSHBUTTON      "タグの削除",IDC_BUTTON_DELETE_TAGS,228,123,56,23
+END
+
+IDD_BOOKEY_FORM DIALOG DISCARDABLE  0, 0, 215, 162
+STYLE DS_MODALFRAME | WS_CHILD
+FONT 9, "ＭＳ Ｐゴシック"
+BEGIN
+    LTEXT           "ブラウザのアドレス欄から URL を「このウィンドウ」にドラッグ・アンド・ドロップすると、ソーシャルブックマークに登録することができます。\r\rOpera の場合は、いったんデスクトップにドロップしてショートカットを作成した後、そのショートカットを「このウィンドウ」にドラッグ・アンド・ドロップしてください。また、クリップボードを介してのコピー・アンド・ペーストも使えます。",
+                    IDC_STATIC,7,7,201,60
+    LTEXT           "登録待ち: xxx件",IDC_WAITING,14,74,64,8
+    CONTROL         "タグ候補を表示する",IDC_CHECK_TAG_SUGGESTION,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,97,69,73,10
+    CONTROL         "ブックマーク登録者数を表示する",IDC_CHECK_USERS,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,97,82,111,10
+    CONTROL         "英語モード",IDC_CHECK_LANGUAGE,"Button",BS_AUTOCHECKBOX | 
+                    NOT WS_VISIBLE | WS_TABSTOP,97,95,47,10
+    PUSHBUTTON      "ブックマーク管理ツール起動",IDC_BUTTON_TOOL,7,128,56,27,
+                    BS_MULTILINE
+    PUSHBUTTON      "設定",IDC_BUTTON_SETTING,81,128,56,27
+    PUSHBUTTON      "プロキシサーバ 情報設定",IDC_BUTTON_PROXY,152,97,56,27,
+                    BS_MULTILINE
+    PUSHBUTTON      "終了",IDC_BUTTON_FINISH,152,128,56,27
+END
+
+IDD_DELETE_DIALOG DIALOG DISCARDABLE  0, 0, 161, 149
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "ブックマーク削除"
+FONT 9, "ＭＳ Ｐゴシック"
+BEGIN
+    LTEXT           "削除対象",IDC_STATIC,7,7,28,8
+    COMBOBOX        IDC_COMBO_DELETELIST,12,19,137,156,CBS_DROPDOWN | 
+                    WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "削除方法",IDC_STATIC,7,40,147,77,WS_GROUP
+    PUSHBUTTON      "ブックマークを1つ1つ確認しながら削除する",
+                    IDC_BUTTON_DELETE_INTERACTIVE,12,50,137,30,BS_MULTILINE
+    PUSHBUTTON      "ブックマークを一気に全部削除する",IDC_BUTTON_DELETE_ALL,
+                    12,82,137,30
+    PUSHBUTTON      "キャンセル",IDCANCEL,96,120,53,23,WS_GROUP
+END
+
+IDD_DELETE_DIALOG3 DIALOG DISCARDABLE  0, 0, 147, 125
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "ユーザ名とパスワードの入力"
+FONT 9, "ＭＳ Ｐゴシック"
+BEGIN
+    LTEXT           "ユーザ名とパスワードを入力してください。",
+                    IDC_DESCRIPTION,7,7,131,28
+    LTEXT           "ユーザ名",IDC_STATIC,7,37,60,9
+    EDITTEXT        IDC_EDIT_USERNAME,7,47,133,15,ES_AUTOHSCROLL
+    LTEXT           "パスワード",IDC_STATIC,7,68,60,9
+    EDITTEXT        IDC_EDIT_PASSWORD,7,78,133,15,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,38,104,50,14
+    PUSHBUTTON      "キャンセル",IDCANCEL,90,104,50,14
+END
+
+IDD_DELETE_DIALOG4 DIALOG DISCARDABLE  0, 0, 286, 131
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "ブックマークの削除"
+FONT 9, "ＭＳ Ｐゴシック"
+BEGIN
+    PUSHBUTTON      "削除作業中止",IDCANCEL,227,104,52,20
+    LTEXT           "URL",IDC_STATIC,7,7,14,8
+    EDITTEXT        IDC_EDIT_BM_URL,32,7,247,13,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "title",IDC_STATIC,7,23,12,8
+    EDITTEXT        IDC_EDIT_BM_TITLE,32,23,247,13,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    LTEXT           "コメント",IDC_STATIC,7,39,22,8
+    EDITTEXT        IDC_EDIT_BM_COMMENT,32,39,247,13,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    LTEXT           "タグ",IDC_STATIC,7,55,12,8
+    EDITTEXT        IDC_EDIT_BM_TAGS,32,55,247,13,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    LTEXT           "このブックマークを削除しますか?",IDC_QUERY_MESSAGE,16,
+                    77,199,19
+    PUSHBUTTON      "削除する",IDC_BUTTON_DELETE_YES,7,104,52,20
+    PUSHBUTTON      "一気に削除する",IDC_BUTTON_DELETE_FORCELY,62,104,52,20
+    PUSHBUTTON      "削除しない",IDC_BUTTON_DELETE_NO,117,104,52,20
+    PUSHBUTTON      "1個前に戻る",IDC_BUTTON_BACKWORD,172,104,52,20
+END
+
+IDD_SYNC_DIALOG DIALOG DISCARDABLE  0, 0, 243, 151
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "ブックマークの同期"
+FONT 9, "ＭＳ Ｐゴシック"
+BEGIN
+    GROUPBOX        "はてなブックマーク ←→ del.icio.us",IDC_BMNAMES,7,30,
+                    181,115
+    PUSHBUTTON      "「はてなブックマーク」にのみ存在するブックマークを「del.icio.us」にもインポートする",
+                    IDC_BUTTON_SYNC1,13,41,169,28,BS_MULTILINE
+    PUSHBUTTON      "「del.icio.us」にのみ存在するブックマークを「はてなブックマーク」にもインポートする",
+                    IDC_BUTTON_SYNC2,13,73,169,28,BS_MULTILINE
+    PUSHBUTTON      "「はてなブックマーク」にのみ存在するブックマーク、「del.icio.us」にのみ存在するブックマークを互いにインポートする",
+                    IDC_BUTTON_SYNC3,13,105,169,36,BS_MULTILINE
+    PUSHBUTTON      "キャンセル",IDCANCEL,192,117,44,27
+    COMBOBOX        IDC_BM1,7,7,80,146,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+    LTEXT           "と",IDC_STATIC,90,10,8,8
+    COMBOBOX        IDC_BM2,100,7,80,144,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+    LTEXT           "の間で同期を取る",IDC_STATIC,183,10,53,8
+END
+
+IDD_EDIT_BOOKMARK_DIALOG DIALOG DISCARDABLE  0, 0, 331, 279
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "ブックマークの登録・編集"
+FONT 9, "ＭＳ Ｐゴシック"
+BEGIN
+    LTEXT           "コメント",IDC_STATIC,7,39,22,8
+    EDITTEXT        IDC_EDIT_BM_COMMENT,32,39,248,30,ES_MULTILINE | 
+                    WS_VSCROLL
+    LTEXT           "タグ",IDC_STATIC,7,71,12,8
+    EDITTEXT        IDC_EDIT_BM_TAGS,32,71,248,13,ES_AUTOHSCROLL
+    CONTROL         "このエントリーの作者に「はてなポイント」を送信する",
+                    IDC_CHECK_TIPJAR,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
+                    32,89,172,11
+    COMBOBOX        IDC_COMBO_CATEGORY,209,87,71,70,CBS_DROPDOWN | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "ドリコムRSS",IDC_STATIC_DRECOM,282,90,36,8
+    COMBOBOX        IDC_COMBO_CATEGORY2,209,103,71,70,CBS_DROPDOWN | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Flog",IDC_STATIC_FLOG,282,106,14,8
+    GROUPBOX        "評価",IDC_STATIC,7,109,170,28,WS_GROUP
+    CONTROL         "なし",IDC_RADIO_EVAL00,"Button",BS_AUTORADIOBUTTON,12,
+                    121,25,10
+    CONTROL         "1",IDC_RADIO_EVAL01,"Button",BS_AUTORADIOBUTTON,52,121,
+                    19,10
+    CONTROL         "2",IDC_RADIO_EVAL02,"Button",BS_AUTORADIOBUTTON,76,121,
+                    19,10
+    CONTROL         "3",IDC_RADIO_EVAL03,"Button",BS_AUTORADIOBUTTON,100,121,
+                    19,10
+    CONTROL         "4",IDC_RADIO_EVAL04,"Button",BS_AUTORADIOBUTTON,124,121,
+                    19,10
+    CONTROL         "5",IDC_RADIO_EVAL05,"Button",BS_AUTORADIOBUTTON,148,121,
+                    19,10
+    GROUPBOX        "公開/非公開",IDC_STATIC,7,142,170,28,WS_GROUP
+    CONTROL         "公開する",IDC_RADIO_PUBLIC,"Button",BS_AUTORADIOBUTTON,
+                    12,154,42,10
+    CONTROL         "友達にのみ公開",IDC_RADIO_FRIENDS,"Button",
+                    BS_AUTORADIOBUTTON,58,154,63,10
+    CONTROL         "公開しない",IDC_RADIO_PRIVATE,"Button",
+                    BS_AUTORADIOBUTTON,123,154,47,10
+    CONTROL         139,IDC_ICON_HATENA_BOOKMARK,"Static",SS_BITMAP | 
+                    SS_NOTIFY | WS_GROUP,182,121,9,8
+    LTEXT           "(9999)",IDC_HB_USERS,194,122,19,8,SS_NOTIFY
+    CONTROL         141,IDC_ICON_DELICIOUS,"Static",SS_BITMAP | SS_NOTIFY,
+                    217,121,7,8
+    LTEXT           "(9999)",IDC_DELICIOUS_USERS,226,122,19,8,SS_NOTIFY
+    CONTROL         143,IDC_ICON_MM_MEMO,"Static",SS_BITMAP | SS_NOTIFY,249,
+                    121,12,8
+    LTEXT           "(9999)",IDC_MM_USERS,262,122,19,8,SS_NOTIFY
+    CONTROL         152,IDC_ICON_ECNAVI_CLIP,"Static",SS_BITMAP | SS_NOTIFY,
+                    286,121,7,8
+    LTEXT           "(9999)",IDC_ECNAVI_USERS,294,122,19,8,SS_NOTIFY
+    CONTROL         151,IDC_ICON_LIVEDOOR,"Static",SS_BITMAP | SS_NOTIFY,182,
+                    132,9,11
+    LTEXT           "(9999)",IDC_LIVEDOORCLIP_USERS,194,134,19,8,SS_NOTIFY
+    CONTROL         153,IDC_ICON_NIFTY_CLIP,"Static",SS_BITMAP | SS_NOTIFY,
+                    216,134,8,9
+    LTEXT           "(9999)",IDC_NIFTYCLIP_USERS,226,134,19,8,SS_NOTIFY
+    CONTROL         140,IDC_ICON_DRECOM_RSS,"Static",SS_BITMAP | SS_NOTIFY,
+                    249,134,12,7
+    CONTROL         142,IDC_ICON_FLOG,"Static",SS_BITMAP | SS_NOTIFY,269,134,
+                    9,9
+    CONTROL         154,IDC_ICON_1470NET,"Static",SS_BITMAP | SS_NOTIFY,286,
+                    134,9,11
+    CONTROL         161,IDC_ICON_POOKMARK,"Static",SS_BITMAP | SS_NOTIFY,304,
+                    134,9,10
+    CONTROL         160,IDC_ICON_NEWSING,"Static",SS_BITMAP | SS_NOTIFY,182,
+                    147,9,11
+    CONTROL         162,IDC_ICON_BLUEDOT,"Static",SS_BITMAP | SS_NOTIFY,198,
+                    147,9,11
+    CONTROL         163,IDC_ICON_JOLTMARK,"Static",SS_BITMAP | SS_NOTIFY,214,
+                    147,9,11
+    CONTROL         166,IDC_ICON_BLOGPET,"Static",SS_BITMAP | SS_NOTIFY,230,
+                    147,10,11
+    CONTROL         174,IDC_ICON_FC2BOOKMARK,"Static",SS_BITMAP | SS_NOTIFY,
+                    250,147,9,11
+    CONTROL         176,IDC_ICON_YJBOOKMARK,"Static",SS_BITMAP | SS_NOTIFY,
+                    269,147,10,11
+    CONTROL         177,IDC_ICON_YAHOO_BOOKMARKS,"Static",SS_BITMAP | 
+                    SS_NOTIFY,286,147,10,11
+    CONTROL         175,IDC_ICON_TWITTER,"Static",SS_BITMAP | SS_NOTIFY,304,
+                    147,10,12
+    CONTROL         184,IDC_ICON_DIGG,"Static",SS_BITMAP | SS_NOTIFY,182,162,
+                    10,11
+    LTEXT           "(9999)",IDC_DIGG_USERS,196,164,19,8,SS_NOTIFY
+    CONTROL         187,IDC_ICON_HATENA_STAR,"Static",SS_BITMAP | SS_NOTIFY,
+                    221,162,18,11
+    LTEXT           "(99999)",IDC_HATENA_STAR_USERS,242,164,23,8,SS_NOTIFY
+    CONTROL         181,IDC_ICON_TIMELOG,"Static",SS_BITMAP | SS_NOTIFY,269,
+                    162,9,11
+    CONTROL         188,IDC_ICON_TUMBLR,"Static",SS_BITMAP | SS_NOTIFY,286,
+                    161,10,11
+    CONTROL         191,IDC_ICON_DIIGO,"Static",SS_BITMAP | SS_NOTIFY,304,
+                    162,8,10
+    GROUPBOX        "投票",IDC_POST_EVAL,287,7,37,40,WS_GROUP
+    CONTROL         "○",IDC_NEWS_GOOD,"Button",BS_AUTORADIOBUTTON,296,18,23,
+                    10
+    CONTROL         "×",IDC_NEWS_BAD,"Button",BS_AUTORADIOBUTTON,296,32,23,
+                    10
+    LTEXT           "0/100",IDC_COUNTER,284,53,25,18,SS_CENTERIMAGE
+    GROUPBOX        "タグ候補",IDC_STATIC,7,177,317,75,WS_GROUP
+    LTEXT           "はてなブックマーク",IDC_TAG001,17,189,56,8,SS_NOTIFY | 
+                    NOT WS_GROUP
+    LTEXT           "はてなブックマーク",IDC_TAG002,98,189,56,8,SS_NOTIFY | 
+                    NOT WS_GROUP
+    LTEXT           "はてなブックマーク",IDC_TAG003,179,189,56,8,SS_NOTIFY | 
+                    NOT WS_GROUP
+    LTEXT           "はてなブックマーク",IDC_TAG004,250,189,56,8,SS_NOTIFY | 
+                    NOT WS_GROUP
+    LTEXT           "はてなブックマーク",IDC_TAG005,17,201,56,8,SS_NOTIFY | 
+                    NOT WS_GROUP
+    LTEXT           "はてなブックマーク",IDC_TAG006,98,201,56,8,SS_NOTIFY | 
+                    NOT WS_GROUP
+    LTEXT           "はてなブックマーク",IDC_TAG007,179,201,56,8,SS_NOTIFY | 
+                    NOT WS_GROUP
+    LTEXT           "はてなブックマーク",IDC_TAG008,250,201,56,8,SS_NOTIFY | 
+                    NOT WS_GROUP
+    LTEXT           "はてなブックマーク",IDC_TAG009,17,213,56,8,SS_NOTIFY | 
+                    NOT WS_GROUP
+    LTEXT           "はてなブックマーク",IDC_TAG010,98,213,56,8,SS_NOTIFY | 
+                    NOT WS_GROUP
+    LTEXT           "はてなブックマーク",IDC_TAG011,179,213,56,8,SS_NOTIFY | 
+                    NOT WS_GROUP
+    LTEXT           "はてなブックマーク",IDC_TAG012,250,213,56,8,SS_NOTIFY | 
+                    NOT WS_GROUP
+    LTEXT           "はてなブックマーク",IDC_TAG013,17,225,56,8,SS_NOTIFY | 
+                    NOT WS_GROUP
+    LTEXT           "はてなブックマーク",IDC_TAG014,98,225,56,8,SS_NOTIFY | 
+                    NOT WS_GROUP
+    LTEXT           "はてなブックマーク",IDC_TAG015,179,225,56,8,SS_NOTIFY | 
+                    NOT WS_GROUP
+    LTEXT           "はてなブックマーク",IDC_TAG016,250,225,56,8,SS_NOTIFY | 
+                    NOT WS_GROUP
+    LTEXT           "はてなブックマーク",IDC_TAG017,17,237,56,8,SS_NOTIFY | 
+                    NOT WS_GROUP
+    LTEXT           "はてなブックマーク",IDC_TAG018,98,237,56,8,SS_NOTIFY | 
+                    NOT WS_GROUP
+    LTEXT           "はてなブックマーク",IDC_TAG019,179,237,56,8,SS_NOTIFY | 
+                    NOT WS_GROUP
+    LTEXT           "はてなブックマーク",IDC_TAG020,250,237,56,8,SS_NOTIFY | 
+                    NOT WS_GROUP
+    LTEXT           "URL",IDC_STATIC,7,7,14,8
+    EDITTEXT        IDC_EDIT_BM_URL,32,7,248,13,ES_AUTOHSCROLL
+    LTEXT           "title",IDC_STATIC,7,23,12,8
+    EDITTEXT        IDC_EDIT_BM_TITLE,32,23,248,13,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "登録",IDOK,112,258,50,14,WS_GROUP
+    PUSHBUTTON      "中止",IDCANCEL,172,258,50,14
+END
+
+IDD_PROCEEDING_DIALOG DIALOG DISCARDABLE  0, 0, 173, 50
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
+CAPTION "実行中……"
+FONT 10, "ＭＳ Ｐゴシック"
+BEGIN
+    PUSHBUTTON      "キャンセル",IDCANCEL,62,28,50,14,WS_DISABLED
+    LTEXT           "実行中……",IDC_STATIC_PROCEED_STRING,7,7,159,8
+END
+
+IDD_SETTING_DIALOG DIALOG DISCARDABLE  0, 0, 195, 495
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "設定"
+FONT 9, "ＭＳ Ｐゴシック"
+BEGIN
+    CONTROL         "Tab1",IDC_TAB_SETTING,"SysTabControl32",0x0,7,7,181,463
+    DEFPUSHBUTTON   "OK",IDOK,21,474,50,14
+    PUSHBUTTON      "キャンセル",IDCANCEL,73,474,50,14
+    PUSHBUTTON      "適用",IDC_BUTTON_ACCEPT,125,474,50,14
+END
+
+IDD_TAB_HATENA DIALOG DISCARDABLE  0, 0, 187, 171
+STYLE DS_CONTROL | WS_CHILD
+FONT 9, "ＭＳ Ｐゴシック"
+BEGIN
+    LTEXT           "ユーザ名",IDC_STATIC,7,7,28,8
+    EDITTEXT        IDC_EDIT_USERNAME,17,17,163,15,ES_AUTOHSCROLL
+    LTEXT           "パスワード",IDC_STATIC,7,40,32,8
+    EDITTEXT        IDC_EDIT_PASSWORD,17,50,163,15,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    GROUPBOX        "同時ブックマーク",IDC_STATIC,7,73,173,28,WS_GROUP
+    LTEXT           "同時ブックマークの対象に",IDC_STATIC,15,86,78,8
+    CONTROL         "する",IDC_RADIO_TARGET,"Button",BS_AUTORADIOBUTTON,100,
+                    85,29,10
+    CONTROL         "しない",IDC_RADIO_NONTARGET,"Button",BS_AUTORADIOBUTTON,
+                    136,85,34,10
+    GROUPBOX        "タイトルの設定",IDC_STATIC,7,105,173,59,WS_GROUP
+    LTEXT           "登録しようとしているWebページがすでに誰かによって登録済みの場合",
+                    IDC_STATIC,15,116,158,19
+    CONTROL         "すでに登録済みのものを使用する",IDC_RADIO_NOCHANGE,
+                    "Button",BS_AUTORADIOBUTTON,22,136,114,10
+    CONTROL         "自分が指定するものを使用する",IDC_RADIO_CHANGE,"Button",
+                    BS_AUTORADIOBUTTON,22,149,114,10
+END
+
+IDD_TAB_DELICIOUS DIALOG DISCARDABLE  0, 0, 187, 112
+STYLE DS_CONTROL | WS_CHILD
+FONT 9, "ＭＳ Ｐゴシック"
+BEGIN
+    LTEXT           "ユーザ名",IDC_STATIC,7,7,28,8
+    EDITTEXT        IDC_EDIT_USERNAME,17,17,163,15,ES_AUTOHSCROLL
+    LTEXT           "パスワード",IDC_STATIC,7,40,32,8
+    EDITTEXT        IDC_EDIT_PASSWORD,17,50,163,15,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    GROUPBOX        "同時ブックマーク",IDC_STATIC,7,73,173,28,WS_GROUP
+    LTEXT           "同時ブックマークの対象に",IDC_STATIC,15,86,78,8
+    CONTROL         "する",IDC_RADIO_TARGET,"Button",BS_AUTORADIOBUTTON,100,
+                    85,29,10
+    CONTROL         "しない",IDC_RADIO_NONTARGET,"Button",BS_AUTORADIOBUTTON,
+                    136,85,34,10
+END
+
+IDD_TAB_LIVEDOOR DIALOG DISCARDABLE  0, 0, 187, 143
+STYLE DS_CONTROL | WS_CHILD
+FONT 9, "ＭＳ Ｐゴシック"
+BEGIN
+    LTEXT           "ユーザ名",IDC_STATIC,7,7,28,8
+    EDITTEXT        IDC_EDIT_USERNAME,17,17,163,15,ES_AUTOHSCROLL
+    LTEXT           "パスワード",IDC_STATIC,7,40,32,8
+    EDITTEXT        IDC_EDIT_PASSWORD,17,50,163,15,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    LTEXT           "API キー (del.icio.us互換APIで使用します)",IDC_STATIC,7,
+                    73,124,8
+    EDITTEXT        IDC_EDIT_APIKEY,17,83,116,15,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    PUSHBUTTON      "APIキー取得",IDC_BUTTON_APIKEY,137,83,43,15
+    GROUPBOX        "同時ブックマーク",IDC_STATIC,7,106,173,28,WS_GROUP
+    LTEXT           "同時ブックマークの対象に",IDC_STATIC,15,119,78,8
+    CONTROL         "する",IDC_RADIO_TARGET,"Button",BS_AUTORADIOBUTTON,100,
+                    118,29,10
+    CONTROL         "しない",IDC_RADIO_NONTARGET,"Button",BS_AUTORADIOBUTTON,
+                    136,118,34,10
+END
+
+IDD_TAB_NIFTY DIALOG DISCARDABLE  0, 0, 187, 157
+STYLE DS_CONTROL | WS_CHILD
+FONT 9, "ＭＳ Ｐゴシック"
+BEGIN
+    LTEXT           "@nifty ID または PLEASY ID",IDC_STATIC,7,7,84,8
+    EDITTEXT        IDC_EDIT_USERNAME,17,17,163,15,ES_AUTOHSCROLL
+    LTEXT           "パスワード",IDC_STATIC,7,40,32,8
+    EDITTEXT        IDC_EDIT_PASSWORD,17,50,163,15,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    LTEXT           "API キー (クリップの登録、取得、削除で使用します)",
+                    IDC_STATIC,7,73,152,8
+    EDITTEXT        IDC_EDIT_APIKEY,17,83,116,15,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    PUSHBUTTON      "APIキー取得",IDC_BUTTON_APIKEY,137,83,43,15
+    GROUPBOX        "同時ブックマーク",IDC_STATIC,7,106,173,28,WS_GROUP
+    LTEXT           "同時ブックマークの対象に",IDC_STATIC,15,119,78,8
+    CONTROL         "する",IDC_RADIO_TARGET,"Button",BS_AUTORADIOBUTTON,100,
+                    118,29,10
+    CONTROL         "しない",IDC_RADIO_NONTARGET,"Button",BS_AUTORADIOBUTTON,
+                    136,118,34,10
+    LTEXT           "powered by @niftyクリップ",IDC_POWEREDBY_NIFTYCLIP,104,
+                    137,76,8,SS_NOTIFY
+END
+
+IDD_TAB_ECNAVI DIALOG DISCARDABLE  0, 0, 187, 315
+STYLE DS_CONTROL | WS_CHILD
+FONT 9, "ＭＳ Ｐゴシック"
+BEGIN
+    LTEXT           "Buzzurl は ECナビのアカウント、または Yahoo! Japan のアカウントのどちらかを使ってアクセスします。",
+                    IDC_STATIC,7,7,173,19
+    CONTROL         "「ECナビアカウント」を使ってアクセスする",
+                    IDC_RADIO_USE_ECNAVI,"Button",BS_AUTORADIOBUTTON,22,30,
+                    153,12
+    CONTROL         "「Yahoo! Japan アカウント」を使ってアクセスする",
+                    IDC_RADIO_USE_YJ,"Button",BS_AUTORADIOBUTTON,22,46,153,
+                    12
+    GROUPBOX        "ECナビ アカウント",IDC_STATIC,7,64,173,72
+    LTEXT           "メールアドレス",IDC_STATIC,17,74,43,8
+    EDITTEXT        IDC_EDIT_USERNAME,24,84,148,15,ES_AUTOHSCROLL
+    LTEXT           "パスワード",IDC_STATIC,19,104,32,8
+    EDITTEXT        IDC_EDIT_PASSWORD,24,114,148,15,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    GROUPBOX        "Yahoo! Japan アカウント",IDC_STATIC,7,139,173,72
+    LTEXT           "Yahoo! Japan ID",IDC_STATIC,17,149,49,8
+    EDITTEXT        IDC_EDIT_YJ_USERNAME,24,159,148,15,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    LTEXT           "パスワード",IDC_STATIC,19,179,32,8
+    EDITTEXT        IDC_EDIT_YJ_PASSWORD,24,189,148,15,ES_PASSWORD | 
+                    ES_AUTOHSCROLL | ES_READONLY
+    GROUPBOX        "同時ブックマーク",IDC_STATIC,7,214,173,28,WS_GROUP
+    LTEXT           "同時ブックマークの対象に",IDC_STATIC,15,228,78,8
+    CONTROL         "する",IDC_RADIO_TARGET,"Button",BS_AUTORADIOBUTTON,100,
+                    228,29,10
+    CONTROL         "しない",IDC_RADIO_NONTARGET,"Button",BS_AUTORADIOBUTTON,
+                    136,228,34,10
+    GROUPBOX        "タイトルの設定",IDC_STATIC,7,245,173,61,WS_GROUP
+    LTEXT           "登録しようとしているWebページがすでに誰かによって登録済みの場合",
+                    IDC_STATIC,15,257,158,16
+    CONTROL         "すでに登録済みのものを使用する",IDC_RADIO_NOCHANGE,
+                    "Button",BS_AUTORADIOBUTTON,22,277,114,10
+    CONTROL         "自分が指定するものを使用する",IDC_RADIO_CHANGE,"Button",
+                    BS_AUTORADIOBUTTON,22,291,114,10
+END
+
+IDD_TAB_FLOG DIALOG DISCARDABLE  0, 0, 187, 109
+STYLE DS_CONTROL | WS_CHILD
+FONT 9, "ＭＳ Ｐゴシック"
+BEGIN
+    LTEXT           "メールアドレス",IDC_STATIC,7,7,43,8
+    EDITTEXT        IDC_EDIT_USERNAME,17,17,163,15,ES_AUTOHSCROLL
+    LTEXT           "パスワード",IDC_STATIC,7,40,32,8
+    EDITTEXT        IDC_EDIT_PASSWORD,17,50,163,15,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    GROUPBOX        "同時ブックマーク",IDC_STATIC,7,73,173,28,WS_GROUP
+    LTEXT           "同時ブックマークの対象に",IDC_STATIC,15,86,78,8
+    CONTROL         "する",IDC_RADIO_TARGET,"Button",BS_AUTORADIOBUTTON,100,
+                    85,29,10
+    CONTROL         "しない",IDC_RADIO_NONTARGET,"Button",BS_AUTORADIOBUTTON,
+                    136,85,34,10
+END
+
+IDD_TAB_DRECOM DIALOG DISCARDABLE  0, 0, 187, 110
+STYLE DS_CONTROL | WS_CHILD
+FONT 9, "ＭＳ Ｐゴシック"
+BEGIN
+    LTEXT           "メールアドレス",IDC_STATIC,7,7,43,8
+    EDITTEXT        IDC_EDIT_USERNAME,17,17,163,15,ES_AUTOHSCROLL
+    LTEXT           "パスワード",IDC_STATIC,7,40,32,8
+    EDITTEXT        IDC_EDIT_PASSWORD,17,50,163,15,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    GROUPBOX        "同時ブックマーク",IDC_STATIC,7,73,173,28,WS_GROUP
+    LTEXT           "同時ブックマークの対象に",IDC_STATIC,15,86,78,8
+    CONTROL         "する",IDC_RADIO_TARGET,"Button",BS_AUTORADIOBUTTON,100,
+                    85,29,10
+    CONTROL         "しない",IDC_RADIO_NONTARGET,"Button",BS_AUTORADIOBUTTON,
+                    136,85,34,10
+END
+
+IDD_TAB_MMMEMO DIALOG DISCARDABLE  0, 0, 187, 127
+STYLE DS_CONTROL | WS_CHILD
+FONT 9, "ＭＳ Ｐゴシック"
+BEGIN
+    LTEXT           "TypeKey (TypePad Connect) アカウント名",IDC_STATIC,7,7,
+                    122,8
+    EDITTEXT        IDC_EDIT_USERNAME,17,17,163,15,ES_AUTOHSCROLL
+    LTEXT           "TypeKey パスワード",IDC_STATIC,7,40,59,8
+    EDITTEXT        IDC_EDIT_PASSWORD,17,50,163,15,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    LTEXT           "MM/Memo は TypeKey 認証を利用しています。",IDC_STATIC,
+                    33,73,139,8
+    GROUPBOX        "同時ブックマーク",IDC_STATIC,7,90,173,28,WS_GROUP
+    LTEXT           "同時ブックマークの対象に",IDC_STATIC,15,103,78,8
+    CONTROL         "する",IDC_RADIO_TARGET,"Button",BS_AUTORADIOBUTTON,100,
+                    102,29,10
+    CONTROL         "しない",IDC_RADIO_NONTARGET,"Button",BS_AUTORADIOBUTTON,
+                    136,102,34,10
+END
+
+IDD_TAB_1470NET DIALOG DISCARDABLE  0, 0, 187, 287
+STYLE DS_CONTROL | WS_CHILD
+FONT 9, "ＭＳ Ｐゴシック"
+BEGIN
+    LTEXT           "1470.net は TypeKey 認証、またははてな認証API 経由で\r\nアクセスします。",
+                    IDC_STATIC,7,7,173,19
+    GROUPBOX        "認証方法",IDC_STATIC,7,27,173,96,WS_GROUP
+    CONTROL         "「TypeKey認証」のみを使用する",IDC_RADIO_TYPEKEY,"Button",
+                    BS_AUTORADIOBUTTON,15,41,107,10
+    CONTROL         "「はてな認証」のみを使用する",IDC_RADIO_HATENA,"Button",
+                    BS_AUTORADIOBUTTON,15,58,102,10
+    CONTROL         "まず「TypeKey認証」を試み、駄目な場合は「はてな認証」を試みる",
+                    IDC_RADIO_TYPEKEY_HATENA,"Button",BS_AUTORADIOBUTTON | 
+                    BS_MULTILINE,15,71,159,25
+    CONTROL         "まず「はてな認証」を試み、駄目な場合は「TypeKey認証」を試みる",
+                    IDC_RADIO_HATENA_TYPEKEY,"Button",BS_AUTORADIOBUTTON | 
+                    BS_MULTILINE,15,99,158,21
+    LTEXT           "TypeKey (TypePad Connect) アカウント名",IDC_STATIC,7,
+                    127,122,8
+    EDITTEXT        IDC_EDIT_USERNAME,17,137,163,15,ES_AUTOHSCROLL
+    LTEXT           "TypeKey パスワード",IDC_STATIC,7,157,59,8
+    EDITTEXT        IDC_EDIT_PASSWORD,17,167,163,15,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    LTEXT           "はてな ID",IDC_STATIC,7,190,29,8
+    EDITTEXT        IDC_EDIT_HATENA_USERNAME,17,200,163,15,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    LTEXT           "はてな パスワード",IDC_STATIC,7,220,54,8
+    EDITTEXT        IDC_EDIT_HATENA_PASSWORD,17,230,163,15,ES_PASSWORD | 
+                    ES_AUTOHSCROLL | WS_DISABLED
+    GROUPBOX        "同時ブックマーク",IDC_STATIC,7,253,173,27,WS_GROUP
+    LTEXT           "同時ブックマークの対象に",IDC_STATIC,15,265,78,8
+    CONTROL         "する",IDC_RADIO_TARGET,"Button",BS_AUTORADIOBUTTON,99,
+                    264,29,10
+    CONTROL         "しない",IDC_RADIO_NONTARGET,"Button",BS_AUTORADIOBUTTON,
+                    134,264,34,10
+END
+
+IDD_TAB_NEWSING DIALOG DISCARDABLE  0, 0, 187, 271
+STYLE DS_CONTROL | WS_CHILD
+FONT 9, "ＭＳ Ｐゴシック"
+BEGIN
+    LTEXT           "newsing は newsingのアカウント、または Yahoo! Japan のアカウントのどちらかを使ってアクセスします。",
+                    IDC_STATIC,7,7,173,19
+    CONTROL         "「newsing アカウント」を使ってアクセスする",
+                    IDC_RADIO_USE_NEWSING,"Button",BS_AUTORADIOBUTTON,22,30,
+                    153,12
+    CONTROL         "「Yahoo! Japan アカウント」を使ってアクセスする",
+                    IDC_RADIO_USE_YJ,"Button",BS_AUTORADIOBUTTON,22,46,153,
+                    12
+    GROUPBOX        "newsing アカウント",IDC_STATIC,7,64,173,80
+    LTEXT           "メールアドレス",IDC_STATIC,17,76,43,8
+    EDITTEXT        IDC_EDIT_USERNAME,24,88,148,15,ES_AUTOHSCROLL
+    LTEXT           "パスワード",IDC_STATIC,19,107,32,8
+    EDITTEXT        IDC_EDIT_PASSWORD,24,119,148,15,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    GROUPBOX        "Yahoo! Japan アカウント",IDC_STATIC,7,148,173,80
+    LTEXT           "Yahoo! Japan ID",IDC_STATIC,17,160,49,8
+    EDITTEXT        IDC_EDIT_YJ_USERNAME,24,172,148,15,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    LTEXT           "パスワード",IDC_STATIC,19,191,32,8
+    EDITTEXT        IDC_EDIT_YJ_PASSWORD,24,203,148,15,ES_PASSWORD | 
+                    ES_AUTOHSCROLL | ES_READONLY
+    GROUPBOX        "同時ブックマーク",IDC_STATIC,7,232,173,28,WS_GROUP
+    LTEXT           "同時ブックマークの対象に",IDC_STATIC,15,246,78,8
+    CONTROL         "する",IDC_RADIO_TARGET,"Button",BS_AUTORADIOBUTTON,100,
+                    245,29,10
+    CONTROL         "しない",IDC_RADIO_NONTARGET,"Button",BS_AUTORADIOBUTTON,
+                    136,245,34,10
+END
+
+IDD_TAB_POOKMARK DIALOG DISCARDABLE  0, 0, 187, 110
+STYLE DS_CONTROL | WS_CHILD
+FONT 9, "ＭＳ Ｐゴシック"
+BEGIN
+    LTEXT           "jugemkey",IDC_STATIC,7,7,28,8
+    EDITTEXT        IDC_EDIT_USERNAME,17,17,163,15,ES_AUTOHSCROLL
+    LTEXT           "パスワード",IDC_STATIC,7,40,32,8
+    EDITTEXT        IDC_EDIT_PASSWORD,17,50,163,15,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    GROUPBOX        "同時ブックマーク",IDC_STATIC,7,73,173,28,WS_GROUP
+    LTEXT           "同時ブックマークの対象に",IDC_STATIC,15,86,78,8
+    CONTROL         "する",IDC_RADIO_TARGET,"Button",BS_AUTORADIOBUTTON,100,
+                    85,29,10
+    CONTROL         "しない",IDC_RADIO_NONTARGET,"Button",BS_AUTORADIOBUTTON,
+                    136,85,34,10
+END
+
+IDD_TAB_BLUEDOT DIALOG DISCARDABLE  0, 0, 187, 110
+STYLE DS_CONTROL | WS_CHILD
+FONT 9, "ＭＳ Ｐゴシック"
+BEGIN
+    LTEXT           "ユーザ名",IDC_STATIC,7,7,28,8
+    EDITTEXT        IDC_EDIT_USERNAME,17,17,163,15,ES_AUTOHSCROLL
+    LTEXT           "パスワード",IDC_STATIC,7,40,32,8
+    EDITTEXT        IDC_EDIT_PASSWORD,17,50,163,15,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    GROUPBOX        "同時ブックマーク",IDC_STATIC,7,73,173,28,WS_GROUP
+    LTEXT           "同時ブックマークの対象に",IDC_STATIC,15,86,78,8
+    CONTROL         "する",IDC_RADIO_TARGET,"Button",BS_AUTORADIOBUTTON,100,
+                    85,29,10
+    CONTROL         "しない",IDC_RADIO_NONTARGET,"Button",BS_AUTORADIOBUTTON,
+                    136,85,34,10
+END
+
+IDD_TAB_LOCALOPML DIALOG DISCARDABLE  0, 0, 187, 98
+STYLE DS_CONTROL | WS_CHILD
+FONT 9, "ＭＳ Ｐゴシック"
+BEGIN
+    LTEXT           "OPMLファイル名",IDC_STATIC,7,7,48,8
+    EDITTEXT        IDC_EDIT_LOCALOPML_FILENAME,17,17,163,15,ES_AUTOHSCROLL
+    PUSHBUTTON      "参照",IDC_BUTTON_FILEOPEN,141,38,39,15
+    GROUPBOX        "同時ブックマーク",IDC_STATIC,7,63,173,28,WS_GROUP
+    LTEXT           "同時ブックマークの対象に",IDC_STATIC,15,76,78,8
+    CONTROL         "する",IDC_RADIO_TARGET,"Button",BS_AUTORADIOBUTTON,100,
+                    75,29,10
+    CONTROL         "しない",IDC_RADIO_NONTARGET,"Button",BS_AUTORADIOBUTTON,
+                    136,75,34,10
+END
+
+IDD_TAB_JOLTMARK DIALOG DISCARDABLE  0, 0, 187, 110
+STYLE DS_CONTROL | WS_CHILD
+FONT 9, "ＭＳ Ｐゴシック"
+BEGIN
+    LTEXT           "ユーザ名",IDC_STATIC,7,7,28,8
+    EDITTEXT        IDC_EDIT_USERNAME,17,17,163,15,ES_AUTOHSCROLL
+    LTEXT           "パスワード",IDC_STATIC,7,40,32,8
+    EDITTEXT        IDC_EDIT_PASSWORD,17,50,163,15,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    GROUPBOX        "同時ブックマーク",IDC_STATIC,7,73,173,28,WS_GROUP
+    LTEXT           "同時ブックマークの対象に",IDC_STATIC,15,86,78,8
+    CONTROL         "する",IDC_RADIO_TARGET,"Button",BS_AUTORADIOBUTTON,100,
+                    85,29,10
+    CONTROL         "しない",IDC_RADIO_NONTARGET,"Button",BS_AUTORADIOBUTTON,
+                    136,85,34,10
+END
+
+IDD_TAB_BLOGPET DIALOG DISCARDABLE  0, 0, 187, 171
+STYLE DS_CONTROL | WS_CHILD
+FONT 9, "ＭＳ Ｐゴシック"
+BEGIN
+    LTEXT           "ユーザ名",IDC_STATIC,7,7,28,8
+    EDITTEXT        IDC_EDIT_USERNAME,17,17,163,15,ES_AUTOHSCROLL
+    LTEXT           "パスワード",IDC_STATIC,7,40,32,8
+    EDITTEXT        IDC_EDIT_PASSWORD,17,50,163,15,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    GROUPBOX        "同時ブックマーク",IDC_STATIC,7,73,173,28,WS_GROUP
+    LTEXT           "同時ブックマークの対象に",IDC_STATIC,15,86,78,8
+    CONTROL         "する",IDC_RADIO_TARGET,"Button",BS_AUTORADIOBUTTON,100,
+                    85,29,10
+    CONTROL         "しない",IDC_RADIO_NONTARGET,"Button",BS_AUTORADIOBUTTON,
+                    136,85,34,10
+    GROUPBOX        "タイトルの設定",IDC_STATIC,7,105,173,59,WS_GROUP
+    LTEXT           "登録しようとしているWebページがすでに誰かによって登録済みの場合",
+                    IDC_STATIC,15,116,158,19
+    CONTROL         "すでに登録済みのものを使用する",IDC_RADIO_NOCHANGE,
+                    "Button",BS_AUTORADIOBUTTON,22,136,114,10
+    CONTROL         "自分が指定するものを使用する",IDC_RADIO_CHANGE,"Button",
+                    BS_AUTORADIOBUTTON,22,149,114,10
+END
+
+IDD_DELETE_TAGS_DIALOG DIALOG DISCARDABLE  0, 0, 191, 111
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "タグの削除"
+FONT 9, "ＭＳ Ｐゴシック"
+BEGIN
+    LTEXT           "作業対象",IDC_STATIC,7,32,28,8
+    COMBOBOX        IDC_COMBO_DELETELIST_TAGS,7,42,116,90,CBS_DROPDOWN | 
+                    WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "タグ情報取得",IDC_BUTTON_GET_TAGS,130,38,54,22
+    LTEXT           "削除するタグを選択してください",IDC_STATIC,7,74,91,8
+    COMBOBOX        IDC_COMBO_DELETE_TAGLIST,7,86,116,136,CBS_DROPDOWN | 
+                    CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "削除実行",IDOK,130,82,54,22
+    PUSHBUTTON      "中止",IDCANCEL,130,7,54,22
+END
+
+IDD_REPLACE_TAGS_DIALOG DIALOG DISCARDABLE  0, 0, 203, 180
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "タグの置換"
+FONT 10, "ＭＳ Ｐゴシック"
+BEGIN
+    LTEXT           "(1) 作業対象ブックマークを選択し、タグ情       報取得ボタンを押してください",
+                    IDC_STATIC,7,20,132,17
+    COMBOBOX        IDC_COMBO_DELETELIST_TAGS,19,42,116,74,CBS_DROPDOWN | 
+                    WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "タグ情報取得",IDC_BUTTON_GET_TAGS,142,39,54,22
+    LTEXT           "(2) 置換したいタグを選択してください",IDC_STATIC,7,60,
+                    116,8
+    COMBOBOX        IDC_COMBO_DELETE_TAGLIST,19,74,116,136,CBS_DROPDOWN | 
+                    CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "(3) 上記のタグをどういうタグに置き換える       か、指定してください",
+                    IDC_STATIC,7,98,132,19
+    EDITTEXT        IDC_EDIT_NEW_TAG,19,121,116,15,ES_AUTOHSCROLL
+    LTEXT           "(4) 置換実行ボタンを押すと、(2) で指定し       たタグを(3)で指定したタグで置き換え        ます。",
+                    IDC_STATIC,7,145,132,27
+    DEFPUSHBUTTON   "置換実行",IDOK,142,147,54,22
+    PUSHBUTTON      "中止",IDCANCEL,142,7,54,22
+END
+
+IDD_DIALOG_PROXY_INFO DIALOG DISCARDABLE  0, 0, 183, 159
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "proxy情報設定"
+FONT 9, "ＭＳ Ｐゴシック"
+BEGIN
+    LTEXT           "proxyサーバの URL(または IPアドレス)",IDC_STATIC,7,7,
+                    114,8
+    EDITTEXT        IDC_EDIT_PROXY_SERVER_NAME,20,17,138,14,ES_AUTOHSCROLL
+    LTEXT           "proxyサーバのポート番号",IDC_STATIC,7,39,76,8
+    EDITTEXT        IDC_EDIT_PROXY_PORT_NUMBER,20,49,138,14,ES_AUTOHSCROLL
+    LTEXT           "proxyサーバのユーザ名 (必要な場合のみ)",IDC_STATIC,7,71,
+                    126,8
+    EDITTEXT        IDC_EDIT_PROXY_USER_NAME,20,81,138,14,ES_AUTOHSCROLL
+    LTEXT           "proxyサーバのパスワード (必要な場合のみ)",IDC_STATIC,7,
+                    103,130,8
+    EDITTEXT        IDC_EDIT_PROXY_PASSWORD,20,113,138,14,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,65,138,50,14
+END
+
+IDD_TAB_FC2BOOKMARK DIALOG DISCARDABLE  0, 0, 187, 110
+STYLE DS_CONTROL | WS_CHILD
+FONT 9, "ＭＳ Ｐゴシック"
+BEGIN
+    LTEXT           "メールアドレス",IDC_STATIC,7,7,43,8
+    EDITTEXT        IDC_EDIT_USERNAME,17,17,163,15,ES_AUTOHSCROLL
+    LTEXT           "パスワード",IDC_STATIC,7,40,32,8
+    EDITTEXT        IDC_EDIT_PASSWORD,17,50,163,15,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    GROUPBOX        "同時ブックマーク",IDC_STATIC,7,73,173,28,WS_GROUP
+    LTEXT           "同時ブックマークの対象に",IDC_STATIC,15,86,78,8
+    CONTROL         "する",IDC_RADIO_TARGET,"Button",BS_AUTORADIOBUTTON,100,
+                    85,29,10
+    CONTROL         "しない",IDC_RADIO_NONTARGET,"Button",BS_AUTORADIOBUTTON,
+                    136,85,34,10
+END
+
+IDD_TAB_TWITTER DIALOG DISCARDABLE  0, 0, 187, 236
+STYLE DS_CONTROL | WS_CHILD
+FONT 9, "ＭＳ Ｐゴシック"
+BEGIN
+    GROUPBOX        "認証方法",IDC_STATIC,7,7,173,187,WS_GROUP
+    CONTROL         "OAuth 認証を使う",IDC_RADIO_OAUTH,"Button",
+                    BS_AUTORADIOBUTTON,14,18,69,10
+    PUSHBUTTON      "アクセストークンを取得",IDC_BUTTON_GET_TOKEN,22,32,98,
+                    15
+    LTEXT           "アクセストークン取得済み",IDC_TOKEN_STATUS,27,54,89,8
+    LTEXT           "注意: proxyサーバ経由でインターネットにアクセスしている場合は、事前にproxyサーバ関連の設定をしておいてください。未設定のままだと、アクセストークンの取得ができません。",
+                    IDC_STATIC,17,69,158,35
+    CONTROL         "BASIC 認証を使う (従来のアクセス方法)",IDC_RADIO_BASIC,
+                    "Button",BS_AUTORADIOBUTTON,14,113,134,10
+    LTEXT           "メールアドレス または ユーザID",IDC_STATIC,22,129,94,8
+    EDITTEXT        IDC_EDIT_USERNAME,27,139,145,15,ES_AUTOHSCROLL
+    LTEXT           "パスワード",IDC_STATIC,22,161,32,8
+    EDITTEXT        IDC_EDIT_PASSWORD,27,171,145,15,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    GROUPBOX        "同時ブックマーク",IDC_STATIC,7,198,173,28,WS_GROUP
+    LTEXT           "同時ブックマークの対象に",IDC_STATIC,15,211,78,8
+    CONTROL         "する",IDC_RADIO_TARGET,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,100,210,29,10
+    CONTROL         "しない",IDC_RADIO_NONTARGET,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,136,210,34,10
+END
+
+IDD_TAB_YJ_BOOKMARK DIALOG DISCARDABLE  0, 0, 187, 110
+STYLE DS_CONTROL | WS_CHILD
+FONT 9, "ＭＳ Ｐゴシック"
+BEGIN
+    LTEXT           "Yahoo! Japan ID",IDC_STATIC,7,7,49,8
+    EDITTEXT        IDC_EDIT_USERNAME,17,17,163,15,ES_AUTOHSCROLL
+    LTEXT           "パスワード",IDC_STATIC,7,40,32,8
+    EDITTEXT        IDC_EDIT_PASSWORD,17,50,163,15,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    GROUPBOX        "同時ブックマーク",IDC_STATIC,7,73,173,28,WS_GROUP
+    LTEXT           "同時ブックマークの対象に",IDC_STATIC,15,86,78,8
+    CONTROL         "する",IDC_RADIO_TARGET,"Button",BS_AUTORADIOBUTTON,100,
+                    85,29,10
+    CONTROL         "しない",IDC_RADIO_NONTARGET,"Button",BS_AUTORADIOBUTTON,
+                    136,85,34,10
+END
+
+IDD_TAB_YAHOO_BOOKMARKS DIALOG DISCARDABLE  0, 0, 187, 110
+STYLE DS_CONTROL | WS_CHILD
+FONT 9, "ＭＳ Ｐゴシック"
+BEGIN
+    LTEXT           "Yahoo! ID (Yahoo! Japan ではなく yahoo.com の ID)",
+                    IDC_STATIC,7,7,151,8
+    EDITTEXT        IDC_EDIT_USERNAME,17,17,163,15,ES_AUTOHSCROLL
+    LTEXT           "パスワード",IDC_STATIC,7,40,32,8
+    EDITTEXT        IDC_EDIT_PASSWORD,17,50,163,15,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    GROUPBOX        "同時ブックマーク",IDC_STATIC,7,73,173,28,WS_GROUP
+    LTEXT           "同時ブックマークの対象に",IDC_STATIC,15,86,78,8
+    CONTROL         "する",IDC_RADIO_TARGET,"Button",BS_AUTORADIOBUTTON,100,
+                    85,29,10
+    CONTROL         "しない",IDC_RADIO_NONTARGET,"Button",BS_AUTORADIOBUTTON,
+                    136,85,34,10
+END
+
+IDD_TAB_TIMELOG DIALOG DISCARDABLE  0, 0, 187, 110
+STYLE DS_CONTROL | WS_CHILD
+FONT 9, "ＭＳ Ｐゴシック"
+BEGIN
+    LTEXT           "ユーザ名",IDC_STATIC,7,7,28,8
+    EDITTEXT        IDC_EDIT_USERNAME,17,17,163,15,ES_AUTOHSCROLL
+    LTEXT           "パスワード",IDC_STATIC,7,40,32,8
+    EDITTEXT        IDC_EDIT_PASSWORD,17,50,163,15,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    GROUPBOX        "同時ブックマーク",IDC_STATIC,7,73,173,28,WS_GROUP
+    LTEXT           "同時ブックマークの対象に",IDC_STATIC,15,86,78,8
+    CONTROL         "する",IDC_RADIO_TARGET,"Button",BS_AUTORADIOBUTTON,100,
+                    85,29,10
+    CONTROL         "しない",IDC_RADIO_NONTARGET,"Button",BS_AUTORADIOBUTTON,
+                    136,85,34,10
+END
+
+IDD_CAPTCHA_DIALOG DIALOG DISCARDABLE  0, 0, 139, 243
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Are You Human? (Sorry, We Have to Ask)"
+FONT 9, "ＭＳ Ｐゴシック"
+BEGIN
+    CONTROL         183,IDC_BITMAP_CAPTCHA,"Static",SS_BITMAP | SS_NOTIFY,7,
+                    7,126,33
+    LTEXT           "上の画像に書かれている文字列を入力してください",
+                    IDC_STATIC,7,45,125,18
+    EDITTEXT        IDC_EDIT_CAPTCHA,7,65,125,15,ES_AUTOHSCROLL
+    LTEXT           "タイトル (英語で書いてください)",IDC_STATIC,7,87,91,8
+    EDITTEXT        IDC_EDIT_TITLE,7,97,125,15,ES_AUTOHSCROLL
+    LTEXT           "コメント (英語で書いてください)",IDC_STATIC,7,119,90,8
+    EDITTEXT        IDC_EDIT_COMMENT,7,129,125,54,ES_MULTILINE | 
+                    ES_WANTRETURN | WS_VSCROLL
+    LTEXT           "トピック",IDC_STATIC,7,189,22,8
+    COMBOBOX        IDC_COMBO_TOPIC,7,199,125,197,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+    DEFPUSHBUTTON   "OK",IDOK,44,221,50,15
+END
+
+IDD_TAB_DIGG DIALOG DISCARDABLE  0, 0, 187, 110
+STYLE DS_CONTROL | WS_CHILD
+FONT 9, "ＭＳ Ｐゴシック"
+BEGIN
+    LTEXT           "ユーザ名",IDC_STATIC,7,7,28,8
+    EDITTEXT        IDC_EDIT_USERNAME,17,17,163,15,ES_AUTOHSCROLL
+    LTEXT           "パスワード",IDC_STATIC,7,40,32,8
+    EDITTEXT        IDC_EDIT_PASSWORD,17,50,163,15,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    GROUPBOX        "同時ブックマーク",IDC_STATIC,7,73,173,28,WS_GROUP
+    LTEXT           "同時ブックマークの対象に",IDC_STATIC,15,86,78,8
+    CONTROL         "する",IDC_RADIO_TARGET,"Button",BS_AUTORADIOBUTTON,100,
+                    85,29,10
+    CONTROL         "しない",IDC_RADIO_NONTARGET,"Button",BS_AUTORADIOBUTTON,
+                    136,85,34,10
+END
+
+IDD_TAB_TUMBLR DIALOG DISCARDABLE  0, 0, 187, 140
+STYLE DS_CONTROL | WS_CHILD
+FONT 9, "ＭＳ Ｐゴシック"
+BEGIN
+    LTEXT           "メールアドレス",IDC_STATIC,7,7,43,8
+    EDITTEXT        IDC_EDIT_USERNAME,17,17,163,15,ES_AUTOHSCROLL
+    LTEXT           "パスワード",IDC_STATIC,7,40,32,8
+    EDITTEXT        IDC_EDIT_PASSWORD,17,50,163,15,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    LTEXT           "投稿先 tumbleblog",IDC_STATIC,7,73,55,8
+    EDITTEXT        IDC_EDIT_BLOGNAME,17,83,111,15,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_BORDER
+    PUSHBUTTON      "変更",IDC_BUTTON_SELECT_TARGET,140,81,33,15
+    GROUPBOX        "同時ブックマーク",IDC_STATIC,7,102,173,28,WS_GROUP
+    LTEXT           "同時ブックマークの対象に",IDC_STATIC,15,116,78,8
+    CONTROL         "する",IDC_RADIO_TARGET,"Button",BS_AUTORADIOBUTTON,100,
+                    114,29,10
+    CONTROL         "しない",IDC_RADIO_NONTARGET,"Button",BS_AUTORADIOBUTTON,
+                    136,114,34,10
+END
+
+IDD_TAB_DIIGO DIALOG DISCARDABLE  0, 0, 187, 110
+STYLE DS_CONTROL | WS_CHILD
+FONT 9, "ＭＳ Ｐゴシック"
+BEGIN
+    LTEXT           "ユーザ名",IDC_STATIC,7,7,28,8
+    EDITTEXT        IDC_EDIT_USERNAME,17,17,163,15,ES_AUTOHSCROLL
+    LTEXT           "パスワード",IDC_STATIC,7,40,32,8
+    EDITTEXT        IDC_EDIT_PASSWORD,17,50,163,15,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    GROUPBOX        "同時ブックマーク",IDC_STATIC,7,73,173,28,WS_GROUP
+    LTEXT           "同時ブックマークの対象に",IDC_STATIC,15,86,78,8
+    CONTROL         "する",IDC_RADIO_TARGET,"Button",BS_AUTORADIOBUTTON,100,
+                    85,29,10
+    CONTROL         "しない",IDC_RADIO_NONTARGET,"Button",BS_AUTORADIOBUTTON,
+                    136,85,34,10
+END
+
+IDD_BLOGID_DIALOG DIALOG DISCARDABLE  0, 0, 187, 139
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "blog ID 選択"
+FONT 9, "ＭＳ Ｐゴシック"
+BEGIN
+    LTEXT           "記事を投稿する blog を選択してください。",IDC_STATIC,7,
+                    7,120,8
+    LISTBOX         IDC_LIST_BLOGID,7,19,173,91,LBS_NOINTEGRALHEIGHT | 
+                    LBS_WANTKEYBOARDINPUT | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "OK",IDOK,78,118,50,14
+    PUSHBUTTON      "キャンセル",IDCANCEL,130,118,50,14
+END
+
+IDD_INPUT_PIN DIALOG DISCARDABLE  0, 0, 201, 117
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Twitter への OAuth 経由でのアクセス許可手続き"
+FONT 9, "ＭＳ Ｐゴシック"
+BEGIN
+    LTEXT           "ブラウザが起動したら、bookey が Twitter にアクセスする許可を与えてください。\r\n\r\n許可を与え終わったら、6桁 の数字が表示されますので、その数字を以下の入力欄に入力し、OK ボタンを押してください。",
+                    IDC_STATIC,7,7,187,41
+    EDITTEXT        IDC_EDIT_PIN,26,57,121,14,ES_AUTOHSCROLL
+    LTEXT           "許可を与えたくない場合は キャンセル ボタンを押してください。",
+                    IDC_STATIC,7,81,180,8
+    DEFPUSHBUTTON   "OK",IDOK,49,98,50,14
+    PUSHBUTTON      "キャンセル",IDCANCEL,102,98,50,14
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,21,9
+ PRODUCTVERSION 1,0,21,9
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "041104b0"
+        BEGIN
+            VALUE "Comments", "はてなブックマーク、del.icio.us、MM/Memo、ドリコムRSS、Flog、Buzzurl、ニフティクリップ、livedoorクリップ、1470.netリニューアル版、newsing、POOKMARK Airlines、Faves.com、JoltMark、Blogpetブックマーク、Yahoo! ブックマークなどに対応。\0"
+            VALUE "CompanyName", "観測気球  http://watcher.moe-nifty.com/\0"
+            VALUE "FileDescription", "ソーシャルブックマーク管理ツール bookey\0"
+            VALUE "FileVersion", "1, 0, 21, 9\0"
+            VALUE "InternalName", "bookey\0"
+            VALUE "LegalCopyright", "Copyright (C) 2005, 2006, 2007, 2008, 2009 tsupo\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "bookey.EXE\0"
+            VALUE "PrivateBuild", "\0"
+            VALUE "ProductName", "bookey: written by H.Tsujimura (a.k.a. tsupo)\0"
+            VALUE "ProductVersion", "1, 0, 21, 9\0"
+            VALUE "SpecialBuild", "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x411, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 204
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 96
+    END
+
+    IDD_BOOKEY_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 284
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 184
+    END
+
+    IDD_BOOKEY_FORM, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 208
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 155
+    END
+
+    IDD_DELETE_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 154
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 142
+    END
+
+    IDD_DELETE_DIALOG3, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 140
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 118
+    END
+
+    IDD_DELETE_DIALOG4, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 279
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 124
+    END
+
+    IDD_SYNC_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 236
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 144
+    END
+
+    IDD_EDIT_BOOKMARK_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 324
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 272
+    END
+
+    IDD_PROCEEDING_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 166
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 42
+    END
+
+    IDD_SETTING_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 188
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 488
+    END
+
+    IDD_TAB_HATENA, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 164
+    END
+
+    IDD_TAB_DELICIOUS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 105
+    END
+
+    IDD_TAB_LIVEDOOR, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 136
+    END
+
+    IDD_TAB_NIFTY, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 150
+    END
+
+    IDD_TAB_ECNAVI, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 308
+    END
+
+    IDD_TAB_FLOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 102
+    END
+
+    IDD_TAB_DRECOM, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 103
+    END
+
+    IDD_TAB_MMMEMO, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 120
+    END
+
+    IDD_TAB_1470NET, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 280
+    END
+
+    IDD_TAB_NEWSING, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 264
+    END
+
+    IDD_TAB_POOKMARK, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 103
+    END
+
+    IDD_TAB_BLUEDOT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 103
+    END
+
+    IDD_TAB_LOCALOPML, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 91
+    END
+
+    IDD_TAB_JOLTMARK, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 103
+    END
+
+    IDD_TAB_BLOGPET, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 164
+    END
+
+    IDD_DELETE_TAGS_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 184
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 104
+    END
+
+    IDD_REPLACE_TAGS_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 196
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 173
+    END
+
+    IDD_DIALOG_PROXY_INFO, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 176
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 152
+    END
+
+    IDD_TAB_FC2BOOKMARK, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 103
+    END
+
+    IDD_TAB_TWITTER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 229
+    END
+
+    IDD_TAB_YJ_BOOKMARK, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 103
+    END
+
+    IDD_TAB_YAHOO_BOOKMARKS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 103
+    END
+
+    IDD_TAB_TIMELOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 103
+    END
+
+    IDD_CAPTCHA_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 132
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 236
+    END
+
+    IDD_TAB_DIGG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 103
+    END
+
+    IDD_TAB_TUMBLR, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 133
+    END
+
+    IDD_TAB_DIIGO, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 103
+    END
+
+    IDD_BLOGID_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 132
+    END
+
+    IDD_INPUT_PIN, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 194
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 112
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_BOOKEY_DIALOG DLGINIT
+BEGIN
+    IDC_COMBO_BOOKMARK1, 0x403, 19, 0
+0xcd82, 0xc482, 0xc882, 0x7583, 0x6283, 0x4e83, 0x7d83, 0x5b81, 0x4e83, 
+"\000" 
+    IDC_COMBO_BOOKMARK1, 0x403, 12, 0
+0x6564, 0x2e6c, 0x6369, 0x6f69, 0x752e, 0x0073, 
+    IDC_COMBO_BOOKMARK1, 0x403, 8, 0
+0x4d4d, 0x4d2f, 0x6d65, 0x006f, 
+    IDC_COMBO_BOOKMARK1, 0x403, 19, 0
+0x6883, 0x8a83, 0x5283, 0x8083, 0x5352, 0x2853, 0x6c43, 0x7069, 0x2921, 
+"\000" 
+    IDC_COMBO_BOOKMARK1, 0x403, 5, 0
+0x6c46, 0x676f, "\000" 
+    IDC_COMBO_BOOKMARK1, 0x403, 17, 0
+0x696c, 0x6576, 0x6f64, 0x726f, 0x4e83, 0x8a83, 0x6283, 0x7683, "\000" 
+    IDC_COMBO_BOOKMARK1, 0x403, 8, 0
+0x7542, 0x7a7a, 0x7275, 0x006c, 
+    IDC_COMBO_BOOKMARK1, 0x403, 16, 0
+0x6e40, 0x6669, 0x7974, 0x8320, 0x834e, 0x838a, 0x8362, 0x0076, 
+    IDC_COMBO_BOOKMARK1, 0x403, 23, 0
+0x3431, 0x3037, 0x6e2e, 0x7465, 0x8a83, 0x6a83, 0x8583, 0x5b81, 0x4183, 
+0x8b83, 0xc594, "\000" 
+    IDC_COMBO_BOOKMARK1, 0x403, 18, 0
+0x4f50, 0x4b4f, 0x414d, 0x4b52, 0x4120, 0x7269, 0x696c, 0x656e, 0x0073, 
+
+    IDC_COMBO_BOOKMARK1, 0x403, 21, 0
+0x6c42, 0x6575, 0x4420, 0x746f, 0x2820, 0x6146, 0x6576, 0x2e73, 0x6f63, 
+0x296d, "\000" 
+    IDC_COMBO_BOOKMARK1, 0x403, 9, 0
+0x6f4a, 0x746c, 0x614d, 0x6b72, "\000" 
+    IDC_COMBO_BOOKMARK1, 0x403, 20, 0
+0x6c42, 0x676f, 0x6550, 0x8374, 0x8375, 0x8362, 0x834e, 0x817d, 0x835b, 
+0x004e, 
+    IDC_COMBO_BOOKMARK1, 0x403, 12, 0
+0x4346, 0x4232, 0x4f4f, 0x4d4b, 0x5241, 0x004b, 
+    IDC_COMBO_BOOKMARK1, 0x403, 20, 0
+0x6159, 0x6f68, 0x216f, 0x8320, 0x8375, 0x8362, 0x834e, 0x817d, 0x835b, 
+0x004e, 
+    IDC_COMBO_BOOKMARK1, 0x403, 17, 0
+0x6159, 0x6f68, 0x216f, 0x4220, 0x6f6f, 0x6d6b, 0x7261, 0x736b, "\000" 
+    IDC_COMBO_BOOKMARK1, 0x403, 6, 0
+0x6944, 0x6769, 0x006f, 
+    IDC_COMBO_BOOKMARK1, 0x403, 13, 0
+0x504f, 0x4c4d, 0x7483, 0x4083, 0x4383, 0x8b83, "\000" 
+    IDC_COMBO_BOOKMARK1, 0x403, 25, 0
+0x454e, 0x5354, 0x4143, 0x4550, 0xdd8c, 0xb78a, 0x7468, 0x6c6d, 0x7483, 
+0x4083, 0x4383, 0x8b83, "\000" 
+    IDC_COMBO_BOOKMARK1, 0x403, 19, 0
+0x706f, 0x7265, 0x3661, 0x612e, 0x7264, 0x7483, 0x4083, 0x4383, 0x8b83, 
+"\000" 
+    IDC_COMBO_BOOKMARK1, 0x403, 23, 0
+0xcd82, 0xc482, 0x7583, 0x5352, 0x2f53, 0x7441, 0x6d6f, 0x7483, 0x4283, 
+0x5b81, 0x6883, "\000" 
+    IDC_COMBO_BOOKMARK1, 0x403, 28, 0
+0x696c, 0x6576, 0x6f64, 0x726f, 0x4e83, 0x8a83, 0x6283, 0x7683, 0x5352, 
+0x8353, 0x8374, 0x8142, 0x835b, 0x0068, 
+    IDC_COMBO_BOOKMARK1, 0x403, 28, 0
+0x6564, 0x2e6c, 0x6369, 0x6f69, 0x752e, 0x2073, 0x7028, 0x736f, 0x7374, 
+0x612f, 0x6c6c, 0x2029, 0x4d58, 0x004c, 
+    IDC_COMBO_BOOKMARK2, 0x403, 19, 0
+0xcd82, 0xc482, 0xc882, 0x7583, 0x6283, 0x4e83, 0x7d83, 0x5b81, 0x4e83, 
+"\000" 
+    IDC_COMBO_BOOKMARK2, 0x403, 12, 0
+0x6564, 0x2e6c, 0x6369, 0x6f69, 0x752e, 0x0073, 
+    IDC_COMBO_BOOKMARK2, 0x403, 8, 0
+0x4d4d, 0x4d2f, 0x6d65, 0x006f, 
+    IDC_COMBO_BOOKMARK2, 0x403, 19, 0
+0x6883, 0x8a83, 0x5283, 0x8083, 0x5352, 0x2853, 0x6c43, 0x7069, 0x2921, 
+"\000" 
+    IDC_COMBO_BOOKMARK2, 0x403, 5, 0
+0x6c46, 0x676f, "\000" 
+    IDC_COMBO_BOOKMARK2, 0x403, 17, 0
+0x696c, 0x6576, 0x6f64, 0x726f, 0x4e83, 0x8a83, 0x6283, 0x7683, "\000" 
+    IDC_COMBO_BOOKMARK2, 0x403, 8, 0
+0x7542, 0x7a7a, 0x7275, 0x006c, 
+    IDC_COMBO_BOOKMARK2, 0x403, 16, 0
+0x6e40, 0x6669, 0x7974, 0x8320, 0x834e, 0x838a, 0x8362, 0x0076, 
+    IDC_COMBO_BOOKMARK2, 0x403, 23, 0
+0x3431, 0x3037, 0x6e2e, 0x7465, 0x8a83, 0x6a83, 0x8583, 0x5b81, 0x4183, 
+0x8b83, 0xc594, "\000" 
+    IDC_COMBO_BOOKMARK2, 0x403, 18, 0
+0x4f50, 0x4b4f, 0x414d, 0x4b52, 0x4120, 0x7269, 0x696c, 0x656e, 0x0073, 
+
+    IDC_COMBO_BOOKMARK2, 0x403, 21, 0
+0x6c42, 0x6575, 0x4420, 0x746f, 0x2820, 0x6146, 0x6576, 0x2e73, 0x6f63, 
+0x296d, "\000" 
+    IDC_COMBO_BOOKMARK2, 0x403, 9, 0
+0x6f4a, 0x746c, 0x614d, 0x6b72, "\000" 
+    IDC_COMBO_BOOKMARK2, 0x403, 20, 0
+0x6c42, 0x676f, 0x6550, 0x8374, 0x8375, 0x8362, 0x834e, 0x817d, 0x835b, 
+0x004e, 
+    IDC_COMBO_BOOKMARK2, 0x403, 12, 0
+0x4346, 0x4232, 0x4f4f, 0x4d4b, 0x5241, 0x004b, 
+    IDC_COMBO_BOOKMARK2, 0x403, 20, 0
+0x6159, 0x6f68, 0x216f, 0x8320, 0x8375, 0x8362, 0x834e, 0x817d, 0x835b, 
+0x004e, 
+    IDC_COMBO_BOOKMARK2, 0x403, 17, 0
+0x6159, 0x6f68, 0x216f, 0x4220, 0x6f6f, 0x6d6b, 0x7261, 0x736b, "\000" 
+    IDC_COMBO_BOOKMARK2, 0x403, 6, 0
+0x6944, 0x6769, 0x006f, 
+    IDC_COMBO_BOOKMARK2, 0x403, 13, 0
+0x504f, 0x4c4d, 0x7483, 0x4083, 0x4383, 0x8b83, "\000" 
+    IDC_COMBO_BOOKMARK2, 0x403, 25, 0
+0x454e, 0x5354, 0x4143, 0x4550, 0xdd8c, 0xb78a, 0x7468, 0x6c6d, 0x7483, 
+0x4083, 0x4383, 0x8b83, "\000" 
+    IDC_COMBO_BOOKMARK2, 0x403, 19, 0
+0x706f, 0x7265, 0x3661, 0x612e, 0x7264, 0x7483, 0x4083, 0x4383, 0x8b83, 
+"\000" 
+    IDC_COMBO_BOOKMARK2, 0x403, 28, 0
+0x6564, 0x2e6c, 0x6369, 0x6f69, 0x752e, 0x2073, 0x7028, 0x736f, 0x7374, 
+0x612f, 0x6c6c, 0x2029, 0x4d58, 0x004c, 
+    0
+END
+
+IDD_SYNC_DIALOG DLGINIT
+BEGIN
+    IDC_BM1, 0x403, 19, 0
+0xcd82, 0xc482, 0xc882, 0x7583, 0x6283, 0x4e83, 0x7d83, 0x5b81, 0x4e83, 
+"\000" 
+    IDC_BM1, 0x403, 12, 0
+0x6564, 0x2e6c, 0x6369, 0x6f69, 0x752e, 0x0073, 
+    IDC_BM1, 0x403, 8, 0
+0x4d4d, 0x4d2f, 0x6d65, 0x006f, 
+    IDC_BM1, 0x403, 19, 0
+0x6883, 0x8a83, 0x5283, 0x8083, 0x5352, 0x2853, 0x6c43, 0x7069, 0x2921, 
+"\000" 
+    IDC_BM1, 0x403, 5, 0
+0x6c46, 0x676f, "\000" 
+    IDC_BM1, 0x403, 17, 0
+0x696c, 0x6576, 0x6f64, 0x726f, 0x4e83, 0x8a83, 0x6283, 0x7683, "\000" 
+    IDC_BM1, 0x403, 8, 0
+0x7542, 0x7a7a, 0x7275, 0x006c, 
+    IDC_BM1, 0x403, 17, 0
+0x6a83, 0x7483, 0x6583, 0x4283, 0x4e83, 0x8a83, 0x6283, 0x7683, "\000" 
+    IDC_BM1, 0x403, 23, 0
+0x3431, 0x3037, 0x6e2e, 0x7465, 0x8a83, 0x6a83, 0x8583, 0x5b81, 0x4183, 
+0x8b83, 0xc594, "\000" 
+    IDC_BM1, 0x403, 18, 0
+0x4f50, 0x4b4f, 0x414d, 0x4b52, 0x4120, 0x7269, 0x696c, 0x656e, 0x0073, 
+
+    IDC_BM1, 0x403, 21, 0
+0x6c42, 0x6575, 0x4420, 0x746f, 0x2820, 0x6146, 0x6576, 0x2e73, 0x6f63, 
+0x296d, "\000" 
+    IDC_BM1, 0x403, 9, 0
+0x6f4a, 0x746c, 0x614d, 0x6b72, "\000" 
+    IDC_BM1, 0x403, 20, 0
+0x6c42, 0x676f, 0x6550, 0x8374, 0x8375, 0x8362, 0x834e, 0x817d, 0x835b, 
+0x004e, 
+    IDC_BM1, 0x403, 12, 0
+0x4346, 0x4232, 0x4f4f, 0x4d4b, 0x5241, 0x004b, 
+    IDC_BM1, 0x403, 20, 0
+0x6159, 0x6f68, 0x216f, 0x8320, 0x8375, 0x8362, 0x834e, 0x817d, 0x835b, 
+0x004e, 
+    IDC_BM1, 0x403, 17, 0
+0x6159, 0x6f68, 0x216f, 0x4220, 0x6f6f, 0x6d6b, 0x7261, 0x736b, "\000" 
+    IDC_BM1, 0x403, 6, 0
+0x6944, 0x6769, 0x006f, 
+    IDC_BM1, 0x403, 13, 0
+0x8d83, 0x5b81, 0x4a83, 0x8b83, 0x504f, 0x4c4d, "\000" 
+    IDC_BM2, 0x403, 19, 0
+0xcd82, 0xc482, 0xc882, 0x7583, 0x6283, 0x4e83, 0x7d83, 0x5b81, 0x4e83, 
+"\000" 
+    IDC_BM2, 0x403, 12, 0
+0x6564, 0x2e6c, 0x6369, 0x6f69, 0x752e, 0x0073, 
+    IDC_BM2, 0x403, 8, 0
+0x4d4d, 0x4d2f, 0x6d65, 0x006f, 
+    IDC_BM2, 0x403, 19, 0
+0x6883, 0x8a83, 0x5283, 0x8083, 0x5352, 0x2853, 0x6c43, 0x7069, 0x2921, 
+"\000" 
+    IDC_BM2, 0x403, 5, 0
+0x6c46, 0x676f, "\000" 
+    IDC_BM2, 0x403, 17, 0
+0x696c, 0x6576, 0x6f64, 0x726f, 0x4e83, 0x8a83, 0x6283, 0x7683, "\000" 
+    IDC_BM2, 0x403, 8, 0
+0x7542, 0x7a7a, 0x7275, 0x006c, 
+    IDC_BM2, 0x403, 17, 0
+0x6a83, 0x7483, 0x6583, 0x4283, 0x4e83, 0x8a83, 0x6283, 0x7683, "\000" 
+    IDC_BM2, 0x403, 23, 0
+0x3431, 0x3037, 0x6e2e, 0x7465, 0x8a83, 0x6a83, 0x8583, 0x5b81, 0x4183, 
+0x8b83, 0xc594, "\000" 
+    IDC_BM2, 0x403, 18, 0
+0x4f50, 0x4b4f, 0x414d, 0x4b52, 0x4120, 0x7269, 0x696c, 0x656e, 0x0073, 
+
+    IDC_BM2, 0x403, 21, 0
+0x6c42, 0x6575, 0x4420, 0x746f, 0x2820, 0x6146, 0x6576, 0x2e73, 0x6f63, 
+0x296d, "\000" 
+    IDC_BM2, 0x403, 9, 0
+0x6f4a, 0x746c, 0x614d, 0x6b72, "\000" 
+    IDC_BM2, 0x403, 20, 0
+0x6c42, 0x676f, 0x6550, 0x8374, 0x8375, 0x8362, 0x834e, 0x817d, 0x835b, 
+0x004e, 
+    IDC_BM2, 0x403, 12, 0
+0x4346, 0x4232, 0x4f4f, 0x4d4b, 0x5241, 0x004b, 
+    IDC_BM2, 0x403, 20, 0
+0x6159, 0x6f68, 0x216f, 0x8320, 0x8375, 0x8362, 0x834e, 0x817d, 0x835b, 
+0x004e, 
+    IDC_BM2, 0x403, 17, 0
+0x6159, 0x6f68, 0x216f, 0x4220, 0x6f6f, 0x6d6b, 0x7261, 0x736b, "\000" 
+    IDC_BM2, 0x403, 6, 0
+0x6944, 0x6769, 0x006f, 
+    IDC_BM2, 0x403, 13, 0
+0x8d83, 0x5b81, 0x4a83, 0x8b83, 0x504f, 0x4c4d, "\000" 
+    0
+END
+
+IDD_EDIT_BOOKMARK_DIALOG DLGINIT
+BEGIN
+    IDC_COMBO_CATEGORY, 0x403, 3, 0
+0x5449, "\000" 
+    IDC_COMBO_CATEGORY, 0x403, 19, 0
+0x4783, 0x9383, 0x5e83, 0x5b81, 0x6583, 0x4383, 0x8183, 0x9383, 0x6783, 
+"\000" 
+    IDC_COMBO_CATEGORY, 0x403, 11, 0
+0x5483, 0x4383, 0x4783, 0x9383, 0x5883, "\000" 
+    IDC_COMBO_CATEGORY, 0x403, 5, 0
+0x6e92, 0xe688, "\000" 
+    IDC_COMBO_CATEGORY, 0x403, 5, 0
+0xd08e, 0xef89, "\000" 
+    IDC_COMBO_CATEGORY, 0x403, 7, 0
+0x5283, 0x8983, 0x8083, "\000" 
+    IDC_COMBO_CATEGORY, 0x403, 5, 0
+0x5de6, 0xf195, "\000" 
+    IDC_COMBO_CATEGORY, 0x403, 11, 0
+0xb695, 0xbb89, 0x4581, 0x7c8c, 0x5c94, "\000" 
+    IDC_COMBO_CATEGORY, 0x403, 5, 0
+0x6c62, 0x676f, "\000" 
+    IDC_COMBO_CATEGORY, 0x403, 11, 0
+0x6f8c, 0xcf8d, 0x4581, 0x6f8c, 0x6389, "\000" 
+    IDC_COMBO_CATEGORY, 0x403, 5, 0
+0xad90, 0xa18e, "\000" 
+    IDC_COMBO_CATEGORY, 0x403, 9, 0
+0x5883, 0x7c83, 0x5b81, 0x6383, "\000" 
+    IDC_COMBO_CATEGORY, 0x403, 15, 0
+0x7583, 0x6283, 0x4e83, 0x8c83, 0x7283, 0x8583, 0x5b81, "\000" 
+    IDC_COMBO_CATEGORY, 0x403, 5, 0
+0x918d, 0xdb8d, "\000" 
+    IDC_COMBO_CATEGORY, 0x403, 13, 0
+0x6583, 0x4e83, 0x6d83, 0x8d83, 0x5783, 0x5b81, "\000" 
+    IDC_COMBO_CATEGORY2, 0x403, 13, 0
+0x5283, 0x9383, 0x7383, 0x8583, 0x5b81, 0x5e83, "\000" 
+    IDC_COMBO_CATEGORY2, 0x403, 14, 0
+0x7283, 0x5783, 0x6c83, 0x5883, 0x902f, 0x8ead, 0x00a1, 
+    IDC_COMBO_CATEGORY2, 0x403, 9, 0
+0x6a83, 0x8583, 0x5b81, 0x5883, "\000" 
+    IDC_COMBO_CATEGORY2, 0x403, 5, 0
+0xfa93, 0x4c8b, "\000" 
+    IDC_COMBO_CATEGORY2, 0x403, 14, 0
+0x7c8c, 0x5c94, 0x832f, 0x8341, 0x8343, 0x8368, 0x008b, 
+    IDC_COMBO_CATEGORY2, 0x403, 18, 0
+0x7783, 0x8b83, 0x5883, 0x832f, 0x8372, 0x8185, 0x835b, 0x8365, 0x0042, 
+
+    IDC_COMBO_CATEGORY2, 0x403, 10, 0
+0x418f, 0x4590, 0x932f, 0x905d, 0x0045, 
+    IDC_COMBO_CATEGORY2, 0x403, 7, 0
+0x4f83, 0x8b83, 0x8183, "\000" 
+    IDC_COMBO_CATEGORY2, 0x403, 5, 0
+0xb989, 0x798a, "\000" 
+    IDC_COMBO_CATEGORY2, 0x403, 5, 0
+0x6689, 0xe689, "\000" 
+    IDC_COMBO_CATEGORY2, 0x403, 13, 0
+0x7b96, 0x8e2f, 0x8e47, 0x2f8f, 0x5690, 0xb795, "\000" 
+    IDC_COMBO_CATEGORY2, 0x403, 12, 0
+0x9f96, 0xe689, 0x832f, 0x8341, 0x836a, 0x0081, 
+    IDC_COMBO_CATEGORY2, 0x403, 7, 0
+0x6583, 0x8c83, 0x7283, "\000" 
+    IDC_COMBO_CATEGORY2, 0x403, 7, 0
+0x5183, 0x5b81, 0x8083, "\000" 
+    IDC_COMBO_CATEGORY2, 0x403, 12, 0
+0x7983, 0x6283, 0x6783, 0x932f, 0x95ae, 0x00a8, 
+    IDC_COMBO_CATEGORY2, 0x403, 14, 0
+0xef8e, 0xa196, 0x832f, 0x8358, 0x817c, 0x835b, 0x0063, 
+    IDC_COMBO_CATEGORY2, 0x403, 10, 0
+0xd48e, 0x832f, 0x836f, 0x8343, 0x004e, 
+    IDC_COMBO_CATEGORY2, 0x403, 12, 0
+0xad82, 0xe782, 0xb582, 0x892f, 0x93c6, 0x0064, 
+    IDC_COMBO_CATEGORY2, 0x403, 14, 0
+0xb797, 0x738d, 0x922f, 0x886e, 0x8fe6, 0x95ee, 0x00f1, 
+    IDC_COMBO_CATEGORY2, 0x403, 14, 0
+0x7c8c, 0x708f, 0x832f, 0x8366, 0x8355, 0x8343, 0x0093, 
+    IDC_COMBO_CATEGORY2, 0x403, 15, 0
+0xb38b, 0xe788, 0x8a2f, 0x9677, 0x2fe2, 0x918e, 0xbf97, "\000" 
+    IDC_COMBO_CATEGORY2, 0x403, 16, 0
+0xae93, 0xe689, 0x832f, 0x8374, 0x8389, 0x8362, 0x8356, 0x0085, 
+    IDC_COMBO_CATEGORY2, 0x403, 11, 0
+0xd695, 0x9897, 0x6383, 0x5b81, 0x8b83, "\000" 
+    IDC_COMBO_CATEGORY2, 0x403, 13, 0
+0xdc82, 0xc682, 0xdf82, 0x5483, 0x4383, 0x6783, "\000" 
+    IDC_COMBO_CATEGORY2, 0x403, 14, 0
+0x6c83, 0x5e83, 0x832f, 0x8357, 0x8187, 0x835b, 0x004e, 
+    IDC_COMBO_CATEGORY2, 0x403, 5, 0
+0xf697, 0xa488, "\000" 
+    IDC_COMBO_CATEGORY2, 0x403, 22, 0
+0x7483, 0x4083, 0x6283, 0x5683, 0x8783, 0x9383, 0x832f, 0x8375, 0x8389, 
+0x8393, 0x0068, 
+    IDC_COMBO_CATEGORY2, 0x403, 5, 0
+0x438a, 0x4f8a, "\000" 
+    0
+END
+
+IDD_DELETE_DIALOG DLGINIT
+BEGIN
+    IDC_COMBO_DELETELIST, 0x403, 19, 0
+0xcd82, 0xc482, 0xc882, 0x7583, 0x6283, 0x4e83, 0x7d83, 0x5b81, 0x4e83, 
+"\000" 
+    IDC_COMBO_DELETELIST, 0x403, 12, 0
+0x6564, 0x2e6c, 0x6369, 0x6f69, 0x752e, 0x0073, 
+    IDC_COMBO_DELETELIST, 0x403, 8, 0
+0x4d4d, 0x4d2f, 0x6d65, 0x006f, 
+    IDC_COMBO_DELETELIST, 0x403, 19, 0
+0x6883, 0x8a83, 0x5283, 0x8083, 0x5352, 0x2853, 0x6c43, 0x7069, 0x2921, 
+"\000" 
+    IDC_COMBO_DELETELIST, 0x403, 5, 0
+0x6c46, 0x676f, "\000" 
+    IDC_COMBO_DELETELIST, 0x403, 17, 0
+0x696c, 0x6576, 0x6f64, 0x726f, 0x4e83, 0x8a83, 0x6283, 0x7683, "\000" 
+    IDC_COMBO_DELETELIST, 0x403, 8, 0
+0x7542, 0x7a7a, 0x7275, 0x006c, 
+    IDC_COMBO_DELETELIST, 0x403, 16, 0
+0x6e40, 0x6669, 0x7974, 0x8320, 0x834e, 0x838a, 0x8362, 0x0076, 
+    IDC_COMBO_DELETELIST, 0x403, 23, 0
+0x3431, 0x3037, 0x6e2e, 0x7465, 0x8a83, 0x6a83, 0x8583, 0x5b81, 0x4183, 
+0x8b83, 0xc594, "\000" 
+    IDC_COMBO_DELETELIST, 0x403, 18, 0
+0x4f50, 0x4b4f, 0x414d, 0x4b52, 0x4120, 0x7269, 0x696c, 0x656e, 0x0073, 
+
+    IDC_COMBO_DELETELIST, 0x403, 21, 0
+0x6c42, 0x6575, 0x4420, 0x746f, 0x2820, 0x6146, 0x6576, 0x2e73, 0x6f63, 
+0x296d, "\000" 
+    IDC_COMBO_DELETELIST, 0x403, 9, 0
+0x6f4a, 0x746c, 0x614d, 0x6b72, "\000" 
+    IDC_COMBO_DELETELIST, 0x403, 20, 0
+0x6c42, 0x676f, 0x6550, 0x8374, 0x8375, 0x8362, 0x834e, 0x817d, 0x835b, 
+0x004e, 
+    IDC_COMBO_DELETELIST, 0x403, 12, 0
+0x4346, 0x4232, 0x4f4f, 0x4d4b, 0x5241, 0x004b, 
+    IDC_COMBO_DELETELIST, 0x403, 20, 0
+0x6159, 0x6f68, 0x216f, 0x8320, 0x8375, 0x8362, 0x834e, 0x817d, 0x835b, 
+0x004e, 
+    IDC_COMBO_DELETELIST, 0x403, 17, 0
+0x6159, 0x6f68, 0x216f, 0x4220, 0x6f6f, 0x6d6b, 0x7261, 0x736b, "\000" 
+    IDC_COMBO_DELETELIST, 0x403, 6, 0
+0x6944, 0x6769, 0x006f, 
+    IDC_COMBO_DELETELIST, 0x403, 13, 0
+0x8d83, 0x5b81, 0x4a83, 0x8b83, 0x504f, 0x4c4d, "\000" 
+    0
+END
+
+IDD_DELETE_TAGS_DIALOG DLGINIT
+BEGIN
+    IDC_COMBO_DELETELIST_TAGS, 0x403, 19, 0
+0xcd82, 0xc482, 0xc882, 0x7583, 0x6283, 0x4e83, 0x7d83, 0x5b81, 0x4e83, 
+"\000" 
+    IDC_COMBO_DELETELIST_TAGS, 0x403, 12, 0
+0x6564, 0x2e6c, 0x6369, 0x6f69, 0x752e, 0x0073, 
+    IDC_COMBO_DELETELIST_TAGS, 0x403, 16, 0
+0x6e40, 0x6669, 0x7974, 0x8320, 0x834e, 0x838a, 0x8362, 0x0076, 
+    0
+END
+
+IDD_REPLACE_TAGS_DIALOG DLGINIT
+BEGIN
+    IDC_COMBO_DELETELIST_TAGS, 0x403, 19, 0
+0xcd82, 0xc482, 0xc882, 0x7583, 0x6283, 0x4e83, 0x7d83, 0x5b81, 0x4e83, 
+"\000" 
+    IDC_COMBO_DELETELIST_TAGS, 0x403, 12, 0
+0x6564, 0x2e6c, 0x6369, 0x6f69, 0x752e, 0x0073, 
+    IDC_COMBO_DELETELIST_TAGS, 0x403, 16, 0
+0x6e40, 0x6669, 0x7974, 0x8320, 0x834e, 0x838a, 0x8362, 0x0076, 
+    IDC_COMBO_DELETELIST_TAGS, 0x403, 21, 0
+0x6c42, 0x6575, 0x4420, 0x746f, 0x2820, 0x6146, 0x6576, 0x2e73, 0x6f63, 
+0x296d, "\000" 
+    0
+END
+
+IDD_CAPTCHA_DIALOG DLGINIT
+BEGIN
+    IDC_COMBO_TOPIC, 0x403, 19, 0
+0x6554, 0x6863, 0x6f6e, 0x6f6c, 0x7967, 0x2d20, 0x4120, 0x7070, 0x656c, 
+"\000" 
+    IDC_COMBO_TOPIC, 0x403, 20, 0
+0x6554, 0x6863, 0x6f6e, 0x6f6c, 0x7967, 0x2d20, 0x4420, 0x7365, 0x6769, 
+0x006e, 
+    IDC_COMBO_TOPIC, 0x403, 21, 0
+0x6554, 0x6863, 0x6f6e, 0x6f6c, 0x7967, 0x2d20, 0x4720, 0x6461, 0x6567, 
+0x7374, "\000" 
+    IDC_COMBO_TOPIC, 0x403, 22, 0
+0x6554, 0x6863, 0x6f6e, 0x6f6c, 0x7967, 0x2d20, 0x4820, 0x7261, 0x7764, 
+0x7261, 0x0065, 
+    IDC_COMBO_TOPIC, 0x403, 32, 0
+0x6554, 0x6863, 0x6f6e, 0x6f6c, 0x7967, 0x2d20, 0x5420, 0x6365, 0x2068, 
+0x6e49, 0x7564, 0x7473, 0x7972, 0x4e20, 0x7765, 0x0073, 
+    IDC_COMBO_TOPIC, 0x403, 24, 0
+0x6554, 0x6863, 0x6f6e, 0x6f6c, 0x7967, 0x2d20, 0x4c20, 0x6e69, 0x7875, 
+0x552f, 0x696e, 0x0078, 
+    IDC_COMBO_TOPIC, 0x403, 23, 0
+0x6554, 0x6863, 0x6f6e, 0x6f6c, 0x7967, 0x2d20, 0x4d20, 0x6369, 0x6f72, 
+0x6f73, 0x7466, "\000" 
+    IDC_COMBO_TOPIC, 0x403, 18, 0
+0x6554, 0x6863, 0x6f6e, 0x6f6c, 0x7967, 0x2d20, 0x4d20, 0x646f, 0x0073, 
+
+    IDC_COMBO_TOPIC, 0x403, 25, 0
+0x6554, 0x6863, 0x6f6e, 0x6f6c, 0x7967, 0x2d20, 0x5020, 0x6f72, 0x7267, 
+0x6d61, 0x696d, 0x676e, "\000" 
+    IDC_COMBO_TOPIC, 0x403, 22, 0
+0x6554, 0x6863, 0x6f6e, 0x6f6c, 0x7967, 0x2d20, 0x5320, 0x6365, 0x7275, 
+0x7469, 0x0079, 
+    IDC_COMBO_TOPIC, 0x403, 22, 0
+0x6554, 0x6863, 0x6f6e, 0x6f6c, 0x7967, 0x2d20, 0x5320, 0x666f, 0x7774, 
+0x7261, 0x0065, 
+    IDC_COMBO_TOPIC, 0x403, 24, 0
+0x6554, 0x6863, 0x6f6e, 0x6f6c, 0x7967, 0x2d20, 0x5420, 0x6365, 0x2068, 
+0x6544, 0x6c61, 0x0073, 
+    IDC_COMBO_TOPIC, 0x403, 38, 0
+0x6f57, 0x6c72, 0x2064, 0x2026, 0x7542, 0x6973, 0x656e, 0x7373, 0x2d20, 
+0x4220, 0x7375, 0x6e69, 0x7365, 0x2073, 0x2026, 0x6946, 0x616e, 0x636e, 
+0x0065, 
+    IDC_COMBO_TOPIC, 0x403, 34, 0
+0x6f57, 0x6c72, 0x2064, 0x2026, 0x7542, 0x6973, 0x656e, 0x7373, 0x2d20, 
+0x5020, 0x6c6f, 0x7469, 0x6369, 0x6c61, 0x4e20, 0x7765, 0x0073, 
+    IDC_COMBO_TOPIC, 0x403, 39, 0
+0x6f57, 0x6c72, 0x2064, 0x2026, 0x7542, 0x6973, 0x656e, 0x7373, 0x2d20, 
+0x3220, 0x3030, 0x2038, 0x2e55, 0x2e53, 0x4520, 0x656c, 0x7463, 0x6f69, 
+0x736e, "\000" 
+    IDC_COMBO_TOPIC, 0x403, 37, 0
+0x6f57, 0x6c72, 0x2064, 0x2026, 0x7542, 0x6973, 0x656e, 0x7373, 0x2d20, 
+0x5020, 0x6c6f, 0x7469, 0x6369, 0x6c61, 0x4f20, 0x6970, 0x696e, 0x6e6f, 
+"\000" 
+    IDC_COMBO_TOPIC, 0x403, 30, 0
+0x6f57, 0x6c72, 0x2064, 0x2026, 0x7542, 0x6973, 0x656e, 0x7373, 0x2d20, 
+0x5720, 0x726f, 0x646c, 0x4e20, 0x7765, 0x0073, 
+    IDC_COMBO_TOPIC, 0x403, 32, 0
+0x6f57, 0x6c72, 0x2064, 0x2026, 0x7542, 0x6973, 0x656e, 0x7373, 0x2d20, 
+0x4f20, 0x6666, 0x6562, 0x7461, 0x4e20, 0x7765, 0x0073, 
+    IDC_COMBO_TOPIC, 0x403, 19, 0
+0x6956, 0x6564, 0x736f, 0x2d20, 0x4120, 0x696e, 0x616d, 0x6974, 0x6e6f, 
+"\000" 
+    IDC_COMBO_TOPIC, 0x403, 16, 0
+0x6956, 0x6564, 0x736f, 0x2d20, 0x4320, 0x6d6f, 0x6465, 0x0079, 
+    IDC_COMBO_TOPIC, 0x403, 21, 0
+0x6956, 0x6564, 0x736f, 0x2d20, 0x4520, 0x7564, 0x6163, 0x6974, 0x6e6f, 
+0x6c61, "\000" 
+    IDC_COMBO_TOPIC, 0x403, 16, 0
+0x6956, 0x6564, 0x736f, 0x2d20, 0x4720, 0x6d61, 0x6e69, 0x0067, 
+    IDC_COMBO_TOPIC, 0x403, 15, 0
+0x6956, 0x6564, 0x736f, 0x2d20, 0x4d20, 0x7375, 0x6369, "\000" 
+    IDC_COMBO_TOPIC, 0x403, 16, 0
+0x6956, 0x6564, 0x736f, 0x2d20, 0x5020, 0x6f65, 0x6c70, 0x0065, 
+    IDC_COMBO_TOPIC, 0x403, 16, 0
+0x6956, 0x6564, 0x736f, 0x2d20, 0x5320, 0x6f70, 0x7472, 0x0073, 
+    IDC_COMBO_TOPIC, 0x403, 18, 0
+0x7053, 0x726f, 0x7374, 0x2d20, 0x4220, 0x7361, 0x6265, 0x6c61, 0x006c, 
+
+    IDC_COMBO_TOPIC, 0x403, 20, 0
+0x7053, 0x726f, 0x7374, 0x2d20, 0x4220, 0x7361, 0x656b, 0x6274, 0x6c61, 
+0x006c, 
+    IDC_COMBO_TOPIC, 0x403, 17, 0
+0x7053, 0x726f, 0x7374, 0x2d20, 0x4520, 0x7478, 0x6572, 0x656d, "\000" 
+    IDC_COMBO_TOPIC, 0x403, 30, 0
+0x7053, 0x726f, 0x7374, 0x2d20, 0x4620, 0x6f6f, 0x6274, 0x6c61, 0x206c, 
+0x202d, 0x5355, 0x432f, 0x6e61, 0x6461, 0x0061, 
+    IDC_COMBO_TOPIC, 0x403, 14, 0
+0x7053, 0x726f, 0x7374, 0x2d20, 0x4720, 0x6c6f, 0x0066, 
+    IDC_COMBO_TOPIC, 0x403, 16, 0
+0x7053, 0x726f, 0x7374, 0x2d20, 0x4820, 0x636f, 0x656b, 0x0079, 
+    IDC_COMBO_TOPIC, 0x403, 20, 0
+0x7053, 0x726f, 0x7374, 0x2d20, 0x4d20, 0x746f, 0x726f, 0x7073, 0x726f, 
+0x0074, 
+    IDC_COMBO_TOPIC, 0x403, 16, 0
+0x7053, 0x726f, 0x7374, 0x2d20, 0x5320, 0x636f, 0x6563, 0x0072, 
+    IDC_COMBO_TOPIC, 0x403, 16, 0
+0x7053, 0x726f, 0x7374, 0x2d20, 0x5420, 0x6e65, 0x696e, 0x0073, 
+    IDC_COMBO_TOPIC, 0x403, 22, 0
+0x7053, 0x726f, 0x7374, 0x2d20, 0x4f20, 0x6874, 0x7265, 0x5320, 0x6f70, 
+0x7472, 0x0073, 
+    IDC_COMBO_TOPIC, 0x403, 16, 0
+0x6353, 0x6569, 0x636e, 0x2065, 0x202d, 0x7053, 0x6361, 0x0065, 
+    IDC_COMBO_TOPIC, 0x403, 22, 0
+0x6353, 0x6569, 0x636e, 0x2065, 0x202d, 0x6e45, 0x6976, 0x6f72, 0x6d6e, 
+0x6e65, 0x0074, 
+    IDC_COMBO_TOPIC, 0x403, 17, 0
+0x6353, 0x6569, 0x636e, 0x2065, 0x202d, 0x6548, 0x6c61, 0x6874, "\000" 
+    IDC_COMBO_TOPIC, 0x403, 27, 0
+0x6353, 0x6569, 0x636e, 0x2065, 0x202d, 0x6547, 0x656e, 0x6172, 0x206c, 
+0x6353, 0x6569, 0x636e, 0x7365, "\000" 
+    IDC_COMBO_TOPIC, 0x403, 26, 0
+0x6e45, 0x6574, 0x7472, 0x6961, 0x6d6e, 0x6e65, 0x2074, 0x202d, 0x6543, 
+0x656c, 0x7262, 0x7469, 0x0079, 
+    IDC_COMBO_TOPIC, 0x403, 23, 0
+0x6e45, 0x6574, 0x7472, 0x6961, 0x6d6e, 0x6e65, 0x2074, 0x202d, 0x6f4d, 
+0x6976, 0x7365, "\000" 
+    IDC_COMBO_TOPIC, 0x403, 22, 0
+0x6e45, 0x6574, 0x7472, 0x6961, 0x6d6e, 0x6e65, 0x2074, 0x202d, 0x754d, 
+0x6973, 0x0063, 
+    IDC_COMBO_TOPIC, 0x403, 27, 0
+0x6e45, 0x6574, 0x7472, 0x6961, 0x6d6e, 0x6e65, 0x2074, 0x202d, 0x6554, 
+0x656c, 0x6976, 0x6973, 0x6e6f, "\000" 
+    IDC_COMBO_TOPIC, 0x403, 23, 0
+0x6147, 0x696d, 0x676e, 0x2d20, 0x4920, 0x646e, 0x7375, 0x7274, 0x2079, 
+0x654e, 0x7377, "\000" 
+    IDC_COMBO_TOPIC, 0x403, 28, 0
+0x6147, 0x696d, 0x676e, 0x2d20, 0x5020, 0x616c, 0x6179, 0x6c62, 0x2065, 
+0x6557, 0x2062, 0x6147, 0x656d, 0x0073, 
+    IDC_COMBO_TOPIC, 0x403, 18, 0
+0x6147, 0x696d, 0x676e, 0x2d20, 0x5020, 0x2043, 0x6147, 0x656d, 0x0073, 
+
+    IDC_COMBO_TOPIC, 0x403, 22, 0
+0x6147, 0x696d, 0x676e, 0x2d20, 0x4e20, 0x6e69, 0x6574, 0x646e, 0x206f, 
+0x6957, 0x0069, 
+    IDC_COMBO_TOPIC, 0x403, 23, 0
+0x6147, 0x696d, 0x676e, 0x2d20, 0x5020, 0x616c, 0x5379, 0x6174, 0x6974, 
+0x6e6f, 0x3320, "\000" 
+    IDC_COMBO_TOPIC, 0x403, 18, 0
+0x6147, 0x696d, 0x676e, 0x2d20, 0x5820, 0x6f62, 0x2078, 0x3633, 0x0030, 
+
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_BITMAP_HATENA_BOOKMARK BITMAP  DISCARDABLE     "res\\b_entry16.bmp"
+IDB_BITMAP_DRECOM_RSS   BITMAP  DISCARDABLE     "res\\clip_icon16.bmp"
+IDB_BITMAP_DELICIOUS    BITMAP  DISCARDABLE     "res\\delicious.bmp"
+IDB_BITMAP_FLOG         BITMAP  DISCARDABLE     "res\\icon_flog.bmp"
+IDB_BITMAP_MM_MEMO      BITMAP  DISCARDABLE     "res\\mm_icon16.bmp"
+IDB_BITMAP_LIVEDOOR_CLIP BITMAP  DISCARDABLE     "res\\livedoorClip.bmp"
+IDB_BITMAP_ECNAVI_CLIP  BITMAP  DISCARDABLE     "res\\ecNaviPencil.bmp"
+IDB_BITMAP_NIFTY_CLIP   BITMAP  DISCARDABLE     "res\\niftyClip.bmp"
+IDB_BITMAP_1470NET      BITMAP  DISCARDABLE     "res\\1470.bmp"
+IDB_BITMAP_NEWSING      BITMAP  DISCARDABLE     "res\\newsing.bmp"
+IDB_BITMAP_POOKMARK     BITMAP  DISCARDABLE     "res\\pookmark.bmp"
+IDB_BITMAP_BLUEDOT      BITMAP  DISCARDABLE     "res\\blueDot.bmp"
+IDB_BITMAP_JOLTMARK     BITMAP  DISCARDABLE     "res\\joltMark.bmp"
+IDB_BITMAP_BLOGPET      BITMAP  DISCARDABLE     "res\\blogPet.bmp"
+IDB_BITMAP_FC2BOOKMARK  BITMAP  DISCARDABLE     "res\\fc2bookmark.bmp"
+IDB_BITMAP_TWITTER      BITMAP  DISCARDABLE     "res\\twitterFavicon.bmp"
+IDB_BITMAP_YJBOOKMARK   BITMAP  DISCARDABLE     "res\\yjBookmark.bmp"
+IDB_YAHOO_BOOKMARK      BITMAP  DISCARDABLE     "res\\yahooBookmark.bmp"
+IDB_BITMAP_TIMELOG      BITMAP  DISCARDABLE     "res\\timelog.bmp"
+IDB_BITMAP_CAPTCHA      BITMAP  DISCARDABLE     "res\\digg_captcha.bmp"
+IDB_BITMAP_DIGG         BITMAP  DISCARDABLE     "res\\digg.bmp"
+IDB_BITMAP_HATENA_STAR  BITMAP  DISCARDABLE     "res\\hatenaStarGray.bmp"
+IDB_BITMAP_TUMBLR       BITMAP  DISCARDABLE     "res\\tumblr.bmp"
+IDB_BITMAP_DIIGO        BITMAP  DISCARDABLE     "res\\diigo.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Cursor
+//
+
+IDC_HAND2               CURSOR  DISCARDABLE     "res\\cur00001.cur"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDP_OLE_INIT_FAILED     "OLE の初期化に失敗しました。 OLE ライブラリのバージョンが正しいことを確認してください。"
+    IDS_ABOUTBOX            "bookey について(&A)..."
+    IDS_REGISTER            "登録"
+    IDS_DELETE              "削除"
+    IDS_SYNCHRONIZE         "同期"
+    IDS_REGISTER4           "登録"
+    IDS_DIRECTION           " → "
+    IDS_DOUBLE_DIRECTION    "←→"
+    IDS_MENU_TURN_ON        "ON に戻す(&A)"
+    IDS_MENU_TURN_OFF       "一時的に OFF にする(&Z)"
+    IDS_MENU_PASTE          "貼り付け(&P)"
+    IDS_BTN_PUT_BOOKMARKS   "ブックマーク登録"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_FILETYPE_OPML       "OPMLファイル (*.opml)|*.opml||"
+    IDS_OPFAIL_OPML         "OPMLファイルをオープンできませんでした    "
+    IDS_RDFAIL_OPML         "OPMLファイル読み取り失敗"
+    IDS_WRFAIL_OPML         "OPMLファイル書き出し失敗"
+    IDS_FILETYPE_HTML       "HTMLファイル (*.html;*.htm)|*.html; *.htm||"
+    IDS_OPFAIL_HTML         "HTMLファイルをオープンできませんでした    "
+    IDS_RDFAIL_HTML         "HTMLファイル読み取り失敗"
+    IDS_WRFAIL_HTML         "HTMLファイル書き出し失敗"
+    IDS_FILETYPE_OPERA_6    "Opera ブックマークファイル (*.adr)|*.adr||"
+    IDS_OPFAIL_ADR          "ADRファイルをオープンできませんでした    "
+    IDS_RDFAIL_ADR          "ADRファイル読み取り失敗"
+    IDS_WRFAIL_ADR          "ADRファイル書き出し失敗"
+    IDS_FILETYPE_XML        "XMLファイル (*.xml)|*.xml||"
+    IDS_OPFAIL_XML          "XMLファイルをオープンできませんでした    "
+    IDS_RDFAIL_XML          "XMLファイル読み取り失敗"
+    IDS_WRFAIL_XML          "XMLファイル書き出し失敗"
+END
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    IDR_MAINFRAME           "bookey\n\nBookey\n\n\nBookey.Document\nBookey Document"
+    IDS_ABOUT_SUPPORT       "サポート情報 (公式ブログ)"
+    IDS_ABOUT_COMMUNITY     "コミュニティ (はてなブックマーク)"
+    IDS_ABOUT_COMMUNITY2    "コミュニティ (wakoopa)"
+    IDS_ABOUT_SUPPORT2      "サポート情報 (Google Sites)"
+    IDS_MANAGE_BOOKMARKS    "ブックマーク管理ツール起動"
+    IDS_EDIT_SETTING        "設定"
+END
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    AFX_IDS_APP_TITLE       "bookey"
+    AFX_IDS_IDLEMESSAGE     "レディ"
+    IDS_BOOKEY_MAIL_ADDR    "mailto:tsupo@na.rim.or.jp"
+    IDS_BOOKEY_WEB_URL      "http://watcher.moe-nifty.com/memo/2005/10/bookey.html"
+    IDS_BOOKEY_VERSION      "0.63b"
+    IDS_BOOKEY_RESOURCE_XML "http://watcher.moe-nifty.com/memo/files/bookey.xml"
+    IDS_BOOKEY_COMMUNITY    "http://b.hatena.ne.jp/entry/http://watcher.moe-nifty.com/memo/2005/10/bookey.html"
+    IDS_BOOKEY_COMMUNITY2   "http://wakoopa.com/software/bookey"
+    IDS_BOOKEY_SUPPORT      "http://sites.google.com/site/tsujimura543/bookey"
+    IDS_BOOKEY_API_ID       "50NP47Gxg66ooD6dCztU.vFKbF7Q66X.bkQFoB0Dv_5cQryvB3smnpCO8Mw-"
+    IDS_CREDIT_YAHOOJAPAN_URL "http://developer.yahoo.co.jp/about"
+    IDS_TWITTER_OA001       "=<:+RSES5%a;W3wHx&<z3g3WsK.{%7;^lItt_JZ4G%:uH4zB)\\XwH.7>h]K""7/OHaaCVf:"
+    IDS_TWITTER_OA002       "Q\\g|/-G@XeSRi>Nzsw}.Ca]<d7+w9w(5RM?lMVd"
+    IDS_URL_TWITTER_REQUEST_TOKEN "http://twitter.com/oauth/request_token"
+    IDS_URL_TWITTER_ACCESS_TOKEN "http://twitter.com/oauth/access_token"
+    IDS_URL_TWITTER_AUTHORIZE "http://twitter.com/oauth/authorize"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "上書"
+    ID_INDICATOR_REC        "記録"
+    ID_INDICATOR_KANA       "カナ"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_FILE_NEW             "新規にファイルを作成\n新規ファイル"
+    ID_FILE_OPEN            "既存のファイルを開く\n開く"
+    ID_FILE_CLOSE           "作業中のファイルを閉じる\n閉じる"
+    ID_FILE_SAVE            "作業中のファイルを上書きして保存\n保存"
+    ID_FILE_SAVE_AS         "作業中のファイルを新しい名前で保存\n名前をつけて保存"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_APP_ABOUT            "プログラムの情報、バージョンそして著作権を表示\nバージョン情報"
+    ID_APP_EXIT             "アプリケーションを終了し、ファイルの保存を指示\n終了"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_FILE_MRU_FILE1       "指定のファイルを開く"
+    ID_FILE_MRU_FILE2       "指定のファイルを開く"
+    ID_FILE_MRU_FILE3       "指定のファイルを開く"
+    ID_FILE_MRU_FILE4       "指定のファイルを開く"
+    ID_FILE_MRU_FILE5       "指定のファイルを開く"
+    ID_FILE_MRU_FILE6       "指定のファイルを開く"
+    ID_FILE_MRU_FILE7       "指定のファイルを開く"
+    ID_FILE_MRU_FILE8       "指定のファイルを開く"
+    ID_FILE_MRU_FILE9       "指定のファイルを開く"
+    ID_FILE_MRU_FILE10      "指定のファイルを開く"
+    ID_FILE_MRU_FILE11      "指定のファイルを開く"
+    ID_FILE_MRU_FILE12      "指定のファイルを開く"
+    ID_FILE_MRU_FILE13      "指定のファイルを開く"
+    ID_FILE_MRU_FILE14      "指定のファイルを開く"
+    ID_FILE_MRU_FILE15      "指定のファイルを開く"
+    ID_FILE_MRU_FILE16      "指定のファイルを開く"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_NEXT_PANE            "次のウィンドウに切り替える\n次のペイン"
+    ID_PREV_PANE            "前のウィンドウに切り替える\n前のペイン"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_WINDOW_SPLIT         "作業中のウィンドウを分割\n分割"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_EDIT_CLEAR           "選択範囲を消去\n消去"
+    ID_EDIT_CLEAR_ALL       "すべて消去\nすべて消去"
+    ID_EDIT_COPY            "選択範囲をコピーしてクリップボードに保存\nコピー"
+    ID_EDIT_CUT             "選択範囲を切り取ってクリップボードに保存\n切り取り"
+    ID_EDIT_FIND            "指定した文字列の検索\n検索"
+    ID_EDIT_PASTE           "クリップボードの内容を貼り付け\n貼り付け"
+    ID_EDIT_REPEAT          "直前に行った動作を繰り返す\n繰り返し"
+    ID_EDIT_REPLACE         "指定した文字列を他の文字列で置換\n置換"
+    ID_EDIT_SELECT_ALL      "ファイル内のすべてを選択\nすべて選択"
+    ID_EDIT_UNDO            "直前に行った動作を元に戻す\n元に戻す"
+    ID_EDIT_REDO            "直前に行った動作を繰り返す\n繰り返す"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_SCSIZE          "ウィンドウのサイズを変更"
+    AFX_IDS_SCMOVE          "ウィンドウの位置を変更"
+    AFX_IDS_SCMINIMIZE      "ウィンドウを最小化する"
+    AFX_IDS_SCMAXIMIZE      "ウィンドウを最大化する"
+    AFX_IDS_SCNEXTWINDOW    "次のウィンドウに切り替える"
+    AFX_IDS_SCPREVWINDOW    "前のウィンドウに切り替える"
+    AFX_IDS_SCCLOSE         "作業中のウィンドウを閉じ、変更したファイルの保存を指示"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_SCRESTORE       "ウィンドウを通常のサイズに戻す"
+    AFX_IDS_SCTASKLIST      "アプリケーションの切り替え"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_TGT_HATENA_BOOKMARK "はてなブックマーク"
+    IDS_TGT_DELICIOUS       "del.icio.us"
+    IDS_TGT_MMMEMO          "MM/Memo"
+    IDS_TGT_DRECOM_RSS      "ドリコムRSS(Clip!)"
+    IDS_TGT_FLOG            "Flog"
+    IDS_TGT_LIVEDOOR_CLIP   "livedoorクリップ"
+    IDS_TGT_ECNAVI_CLIP     "Buzzurl"
+    IDS_TGT_NIFTY_CLIP      "@nifty クリップ"
+    IDS_TGT_1470NET         "1470.netリニューアル版"
+    IDS_TGT_NEWSING         "newsing"
+    IDS_TGT_POOKMARK        "POOKMARK Airlines"
+    IDS_TGT_BLUEDOT         "Blue Dot (Faves.com)"
+    IDS_TGT_JOLTMARK        "JoltMark"
+    IDS_TGT_BLOGPET         "BlogPetブックマーク"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_TGT_OPML            "OPMLファイル"
+    IDS_TGT_LOCAL_OPML      "ローカルOPML"
+    IDS_TGT_NETSCAPE_1      "NETSCAPE互換htmlファイル"
+    IDS_TGT_OPERA_6         "opera6.adrファイル"
+    IDS_TGT_HATENA_FEED     "はてブRSS/Atomフィード"
+    IDS_TGT_LIVEDOOR_FEED   "livedoorクリップRSSフィード"
+    IDS_TGT_FC2_BOOKMARK    "FC2BOOKMARK"
+    IDS_TGT_TWITTER         "Twitter"
+    IDS_TGT_DELICIOUS_XML   "del.icio.us (posts/all) XML"
+    IDS_TGT_YJ_BOOKMARK     "Yahoo! ブックマーク"
+    IDS_TGT_YAHOO_BOOKMARKS "Yahoo! Bookmarks"
+    IDS_TGT_TIMELOG         "Timelog"
+    IDS_TGT_DIGG            "digg"
+    IDS_TGT_HATENA_STAR     "はてなスター"
+    IDS_TGT_TUMBLR          "tumblr"
+    IDS_TGT_DIIGO           "Diigo"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_DSC_YJBOOKMARKS     "Yahoo! Japan の ID とパスワードを入力してください"
+    IDS_DSC_YAHOO_BOOKMARK  "Yahoo! (Yahoo! Japan ではなく、yahoo.com の方) の ID とパスワードを入力してください"
+    IDS_DSC_TIMELOG         "Timelog のユーザ名とパスワードを入力してください"
+    IDS_DSC_TUMBLR          "tumblr に login するときのユーザ名(メールアドレス)とパスワードを入力してください"
+    IDS_DSC_DIGG            "digg のユーザ名とパスワードを入力してください"
+    IDS_DSC_DIIGO           "Diigo のユーザ名とパスワードを入力してください"
+    IDS_TTL_SYNC_TARGET     "ブックマーク同時登録対象設定"
+    IDS_TXT_SYNC_TARGET     "%s をブックマーク同時登録対象にしますか?    "
+    IDS_TTL_BROKEN_SETTING  "設定ファイル異常"
+    IDS_TXT_BROKEN_SETTING  "設定ファイルが壊れているようです。\r\n「%s」の login 用パスワードを再設定してください。  "
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_TTL_CANCEL_LOGIN_INFO "ログイン情報設定中止"
+    IDS_TXT_CANCEL_LOGIN_INFO "ユーザ名、パスワードの設定を中止しますか?    "
+    IDS_TTL_CANCEL_PROCEDURE "%s実行中止"
+    IDS_TXT_CANCEL_PROCEDURE "ブックマークの%sを中止しますか?    "
+    IDS_TTL_EXECUTE_PROCEDURE "ブックマークの%s"
+    IDS_TXT_EXECUTE_PROCEDURE "このブックマークを%sしますか?    "
+    IDS_BTN_EXECUTE_PROCEDURE "%sする"
+    IDS_BTN_EXECUTE_PROCEDURE_ALL "一気に%sする"
+    IDS_BTN_SKIP_PROCEDURE  "%sしない"
+    IDS_BTN_CANCEL_PROCEDURE "%s作業中止"
+    IDS_TTL_NO_SETTING_LOCAL_OPML "ローカルOPMLファイル名未設定"
+    IDS_TXT_NO_SETTING_LOCAL_OPML 
+                            "ローカルOPMLファイル名が設定されていません。\r\nローカルOPMLファイル名を設定しておいてください。   "
+    IDS_TTL_SYNCHRONIZE     "ブックマークの同期"
+    IDS_TXT_SYNCHRONIZE     "同期する必要のあるブックマークを探索中 ……"
+    IDS_TXT_START_SYNCHRONIZING "%s 方向のブックマークの同期を行ないます    "
+    IDS_TXT_CONTINUE_SYNCHRONIZING "%s 転送中 ……"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_TXT_NO_SYNCHRONIZING 
+                            "%s 方向へ転送する必要のあるブックマークは見つかりませんでした    "
+    IDS_TXT_END_SYNCHONIZING "%s 方向への同期が終わりました    "
+    IDS_TTL_PUT_ALL_BOOKMARKS "( %s ) ブックマーク一括登録確認"
+    IDS_TXT_PUT_ALL_BOOKMARKS 
+                            "残りのブックマークを全部一気に登録してしまっても構わないですね?    "
+    IDS_TTL_FAILURE_GET_BOOKMARKS_NOT_EXIST 
+                            "ブックマーク取得失敗(またはブックマークが存在しない)"
+    IDS_TXT_FAILURE_GET_BOOKMARKS_NOT_EXIST 
+                            "%s: ブックマーク情報を取得できませんでした。\r\n\r\nもう一度、取得を試みますか?　　　(→ 「はい」を押してください)\r\n取得せずに、同期を開始しますか?　(→ 「いいえ」を押してください)\r\n同期を中止しますか?　　　　　　　(→ 「キャンセル」を押してください)   "
+    IDS_TTL_FAILURE_GET_BOOKMARKS "ブックマーク取得失敗"
+    IDS_TXT_FAILURE_GET_BOOKMARKS "ブックマーク情報を取得できませんでした    "
+    IDS_TTL_DELETE_ALL_BOOKMARKS "ブックマーク削除確認"
+    IDS_TXT_DELETE_ALL_BOOKMARKS 
+                            "本当にブックマークを全部削除してしまっても構わないんですね?    "
+    IDS_TTL_DELETE_ALL      "ブックマーク一括削除確認"
+    IDS_TXT_DELETE_ALL      "残りのブックマークを全部一気に削除してしまっても構わないですね?    "
+    IDS_TXT_CONTINUE_DELETING "ブックマーク削除中 ……"
+    IDS_TTL_FAILURE_DELETE_BOOKMARKS "ブックマーク削除失敗"
+    IDS_TXT_FAILURE_DELETE_BOOKMARKS 
+                            "ブックマークの削除に失敗しました    \r\n処理を続行しますか?"
+    IDS_TXT_GET_BOOKMARKS   "ブックマーク取得準備中 ……"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_TXT_CONTINUE_GETTING_BOOKMARKS "ブックマーク情報取得中 ……"
+    IDS_TXT_CONTINUE_LOGIN  "ログイン中 ……"
+    IDS_TXT_CONTINUE_GETTING_FOLDER "フォルダ一覧取得中 ……"
+    IDS_TXT_CONTINUE_CHECKING_TYPEKEY "TypeKey 認証中 ……"
+    IDS_TTL_MEMORY_EXHAUSTED "メモリ確保失敗"
+    IDS_TXT_MEMORY_EXHAUSTED "作業に必要なメモリが確保できませんでした。  "
+    IDS_TTL_FAILURE_GET_BOOKMARK_INFO "ブックマーク情報取得失敗"
+    IDS_TXT_FAILURE_GET_BOOKMARK_INFO 
+                            "全 %d 件中 %d 件しか取得できませんでした。  "
+    IDS_TTL_CONTINUE_PUTTING_BOOKMARKS "ブックマーク登録中"
+    IDS_TXT_CONTINUE_PUTTING_BOOKMARKS "「%s」に登録中……"
+    IDS_TXT_CONTINUE_PUTTING_BOOKMARK_INFO "ブックマーク情報登録中 ……"
+    IDS_TTL_CONTINUE_ANALYSING "タグ候補抽出中"
+    IDS_TXT_CONTINUE_ANALYSING "タグ候補抽出中……"
+    IDS_TTL_GETTING_BOOKMARK_USERS "ブックマーク登録者数取得中"
+    IDS_TXT_GETTING_HATENA_USERS "はてなブックマーク 調査中……"
+    IDS_TXT_GETTING_DELICIOUS_USERS "del.icio.us 調査中……"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_BTN_SAVE_BOOKMARKS  "ブックマーク保存"
+    IDS_BTN_IMPORT_A        "「%s」にのみ存在するブックマークを\r\n「%s」にもインポートする"
+    IDS_BTN_IMPORT_AB       "「%s」にのみ存在するブックマーク、\r\n「%s」にのみ存在するブックマークを\r\n互いにインポートする"
+    IDS_MENU_TURN_ON2       "一時的に ON にする(&A)"
+    IDS_MENU_TURN_OFF2      "OFF に戻す(&Z)"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_TXT_GETTING_MMMEMO_USERS "MM/Memo 調査中……"
+    IDS_TXT_GETTING_ECNAVI_USERS "Buzzurl 調査中……"
+    IDS_TTL_URL_CHECK_RESULT "URL チェック結果"
+    IDS_TXT_INVALID_URL     "URL として有効な文字列ではありません    \r\n"
+    IDS_TXT_ADD_COLLECTON   "この商品をコレクションに加える"
+    IDS_TXT_TEMPORARY_OFF   "一時的に OFF"
+    IDS_TTL_UNSETTING       "ログイン情報 未入力"
+    IDS_TXT_UNSETTING       "ブックマーク同時登録機能を使いたい場合は、「設定」を行なってください    "
+    IDS_TTL_CONTINUE_GETTING_TITLE "タイトル取得中"
+    IDS_TXT_CONTINUE_GETTING_TITLE "タイトル取得中……"
+    IDS_TTL_BUSY_GETTING    "登録作業中"
+    IDS_TXT_BUSY_GETTING    "まだ前のブックマーク登録作業中です。  \r\nあとでやり直してください。"
+    IDS_TXT_BUSY_BUSY       "まだ前のブックマーク登録作業が終了していません。    \r\nもうしばらくお待ちください。\r\n\r\nどれだけ待っても終わらない場合は、申し訳ありませ\r\nんが bookey を強制終了させてください。"
+    IDS_TXT_CONTINUE_PROCEEDING "実行中……"
+    IDS_TTL_CONTINUE_GET_TAG_LIST "タグ一覧取得"
+    IDS_TXT_CONTINUE_GET_TAG_LIST "タグ一覧取得中……"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_DSC_HATENA_BOOKMARK "「はてな」に login するときのユーザ名(はてなID)とパスワードを入力してください"
+    IDS_DSC_DELICIOUS       "del.icio.us に login するときのユーザ名とパスワードを入力してください"
+    IDS_DSC_MMMEMO          "MM/Memo(TypeKey 認証用)のユーザ名とパスワードを入力してください"
+    IDS_DSC_DRECOM_RSS      "ドリコムRSS  に  login  するときのユーザ名  (メールアドレス) とパスワードを入力してください"
+    IDS_DSC_FLOG            "Flog に login するときのユーザ名(メールアドレス)とパスワードを入力してください"
+    IDS_DSC_LIVEDOOR_CLIP   "livedoorクリップ に login するときのユーザ名(livedoor ID)とパスワードを入力してください"
+    IDS_DSC_ECNAVI_CLIP     "Buzzurl に login するときのユーザ名(メールアドレス)とパスワードを入力してください"
+    IDS_DSC_NIFTY_CLIP      "ニフティクリップ に login するときのユーザ名(@nifty ID または PLEASY ID)とパスワードを入力してください"
+    IDS_DSC_1470NET         "1470.net(TypeKey 認証用)のユーザ名とパスワードを入力してください"
+    IDS_DSC_POOKMARK        "POOKMARK Airlines に login するときのユーザ名(JugemKey ID)とパスワードを入力してください"
+    IDS_DSC_BLUEDOT         "Blue Dot (Faves.com) に login するときのユーザ名とパスワードを入力してください"
+    IDS_DSC_JOLTMARK        "JoltMark に login するときのユーザ名とパスワードを入力してください"
+    IDS_DSC_FC2_BOOKMARK    "FC2BOOKMARK(FC2ID) に login するときのユーザ名(メールアドレス)とパスワードを入力してください"
+    IDS_DSC_BLOGPET         "BlogPet 管理画面 に login するときのユーザ名とパスワードを入力してください"
+    IDS_DSC_TWITTER         "Twitter に登録したメールアドレスとパスワードを入力してください"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_TTL_CONTINUE_DELETE_TAGS "指定されたタグの削除"
+    IDS_TXT_CONTINUE_DELETE_TAGS "指定されたタグの削除中……"
+    IDS_TTL_CONTINUE_REPLACE_TAGS "指定されたタグの置換"
+    IDS_TXT_CONTINUE_REPLACE_TAGS "指定されたタグの置換中……"
+    IDS_TXT_GETTING_LIVEDOORCLIP_USERS "livedoorクリップ 調査中……"
+    IDS_TXT_GETTING_DIGG_USERS "digg 調査中……"
+    IDS_TXT_TEMPORARY_ON    "一時的に ON"
+    IDS_TTL_GETTING_NUM_OF_STARS "☆の数 取得中"
+    IDS_TXT_GETTING_HATENA_STAR_USERS "はてなスター調査中……    "
+    IDS_TXT_GETTING_NIFTYCLIP_USERS "@niftyクリップ調査中……"
+    IDS_URL_NIFTYCLIP       "http://clip.nifty.com/"
+    IDS_ACCESSTOKEN_ACQUIRED "[アクセストークン: 取得済み]"
+    IDS_ACCESSTOKEN_UNTAKEN "[アクセストークン: 未取得]"
+    IDS_TXT_TWITTER_STOP_OAUTH "Twitter へのアクセスを中止します。  "
+    IDS_TXT_TWITTER_ALLOW_OAUTH 
+                            "bookey が Twitter にアクセスする許可を与えてください。  \r\n許可を与え終わったら、OK ボタンを押してください。  \r\n許可を与えたくない場合は キャンセル ボタンを押してください。  "
+    IDS_TXT_SELECT_BLOG     "blog を選択してください    "
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_TWITTER_ALLOW_OAUTH "Twitter へのアクセス許可"
+    IDS_TWITTER_STOP_OAUTH  "Twitter へのアクセス中止"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_TTL_SELECT_BLOG     "blog 未選択"
+    IDS_DEFAULT_TARGET      "(プライマリ)"
+    IDS_TXT_INPUT_PIN       "6桁の数字を入力してください。   "
+    IDS_TTL_INPUT_PIN       "数字の入力"
+END
+
+#endif    // 日本語 resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// 英語 (ｱﾒﾘｶ) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU PRELOAD DISCARDABLE 
+BEGIN
+    POPUP "File (&F)"
+    BEGIN
+        MENUITEM "Exit (&X)",                   ID_APP_EXIT
+    END
+    POPUP "Edit (&E)"
+    BEGIN
+        MENUITEM "Paste (&P)\tCtrl+V",          ID_EDIT_PASTE
+    END
+    POPUP "Help (&H)"
+    BEGIN
+        MENUITEM "Support (Official Blog)",     IDS_ABOUT_SUPPORT
+        MENUITEM "Support (Google Sites)",      IDS_ABOUT_SUPPORT2
+        MENUITEM "Community (Hatene Bookmark)", IDS_ABOUT_COMMUNITY
+        MENUITEM "Community (wakoopa)",         IDS_ABOUT_COMMUNITY2
+        MENUITEM SEPARATOR
+        MENUITEM "About bookey (&A)...",        ID_APP_ABOUT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 231, 104
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "bookey - management tool for social bookmarks"
+FONT 9, "Tahoma"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "bookey Version 0.60",IDC_BOOKEY_VERSION,40,10,101,8,
+                    SS_NOPREFIX
+    LTEXT           "Copyright (C) 2005, 2006, 2007, 2008, 2009 by tsupo",
+                    IDC_STATIC,40,25,173,8
+    DEFPUSHBUTTON   "OK",IDOK,174,7,50,14,WS_GROUP
+    LTEXT           "blog: http://watcher.moe-nifty.com/",IDC_BOOKEY_WEB_URL,
+                    45,37,159,8,SS_NOTIFY
+    LTEXT           "mailto: tsupo@na.rim.or.jp",IDC_BOOKEY_MAIL_ADDR,44,47,
+                    160,8,SS_NOTIFY
+    LTEXT           "OpenSSL: ",IDC_OPENSSL,52,60,140,8
+    LTEXT           "iconv: ",IDC_ICONV,52,70,140,8
+    LTEXT           "Web Services by Yahoo! JAPAN",IDC_CREDIT_YAHOOJAPAN,52,
+                    82,140,8,SS_NOTIFY
+END
+
+IDD_SETTING_DIALOG DIALOG DISCARDABLE  0, 0, 195, 451
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Configure settings"
+FONT 9, "Tahoma"
+BEGIN
+    CONTROL         "Tab1",IDC_TAB_SETTING,"SysTabControl32",0x0,7,7,181,421
+    DEFPUSHBUTTON   "OK",IDOK,21,430,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,73,430,50,14
+    PUSHBUTTON      "Apply",IDC_BUTTON_ACCEPT,125,430,50,14
+END
+
+IDD_PROCEEDING_DIALOG DIALOG DISCARDABLE  0, 0, 173, 50
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
+CAPTION "Proceeding ..."
+FONT 9, "Tahoma"
+BEGIN
+    PUSHBUTTON      "Cancel",IDCANCEL,62,28,50,14,WS_DISABLED
+    LTEXT           "Proceeding ...",IDC_STATIC_PROCEED_STRING,7,7,159,19
+END
+
+IDD_BOOKEY_FORM DIALOG DISCARDABLE  0, 0, 215, 158
+STYLE DS_MODALFRAME | WS_CHILD
+FONT 9, "Tahoma"
+BEGIN
+    LTEXT           "Drag and drop the URL from browser's address bar into this window, and you can register in social bookmarks.  \r\n\r\nOr, copy and paste the URL through the clipboard.",
+                    IDC_STATIC,7,7,201,41
+    LTEXT           "Waiting: xxx URL(s)",IDC_WAITING,15,54,89,8
+    CONTROL         "Display tag suggestions",IDC_CHECK_TAG_SUGGESTION,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,51,66,157,10
+    CONTROL         "Display the number of bookmark registrants",
+                    IDC_CHECK_USERS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,51,
+                    79,157,10
+    CONTROL         "Japanese Mode",IDC_CHECK_LANGUAGE,"Button",
+                    BS_AUTOCHECKBOX | NOT WS_VISIBLE | WS_TABSTOP,51,92,61,9
+    PUSHBUTTON      "Proxy Server Configure settings",IDC_BUTTON_PROXY,81,
+                    104,127,16,BS_MULTILINE
+    PUSHBUTTON      "Manage bookmarks",IDC_BUTTON_TOOL,7,124,56,27,
+                    BS_MULTILINE
+    PUSHBUTTON      "Edit settings",IDC_BUTTON_SETTING,81,124,56,27,
+                    BS_MULTILINE
+    PUSHBUTTON      "Exit",IDC_BUTTON_FINISH,152,124,56,27
+END
+
+IDD_BOOKEY_DIALOG DIALOGEX 0, 0, 291, 191
+STYLE DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
+    WS_SYSMENU
+EXSTYLE WS_EX_ACCEPTFILES | WS_EX_APPWINDOW
+CAPTION "bookey - management tool for social bookmarks"
+FONT 9, "Tahoma", 0, 0, 0x1
+BEGIN
+    GROUPBOX        "Export from:",IDC_STATIC,7,7,105,109,WS_GROUP
+    COMBOBOX        IDC_COMBO_BOOKMARK1,12,21,96,227,CBS_DROPDOWN | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "User Name or ID",IDC_STATIC,14,41,52,8
+    EDITTEXT        IDC_EDIT_USERNAME1,16,55,88,14,ES_AUTOHSCROLL
+    LTEXT           "Password",IDC_STATIC,14,79,32,8
+    EDITTEXT        IDC_EDIT_PASSWORD1,16,93,88,14,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    PUSHBUTTON      "Get bookmarks",IDC_BUTTON_GET,29,124,61,23,WS_GROUP
+    GROUPBOX        "Import to:",IDC_STATIC,116,7,105,109,WS_GROUP
+    COMBOBOX        IDC_COMBO_BOOKMARK2,121,21,96,224,CBS_DROPDOWN | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "User Name or ID",IDC_STATIC,123,41,52,8
+    EDITTEXT        IDC_EDIT_USERNAME2,125,55,88,14,ES_AUTOHSCROLL
+    LTEXT           "Password",IDC_STATIC,123,79,32,8
+    EDITTEXT        IDC_EDIT_PASSWORD2,125,93,88,14,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    PUSHBUTTON      "Put bookmarks",IDC_BUTTON_PUT,138,124,61,23,WS_GROUP
+    PUSHBUTTON      "Synchronize between bookmarks",IDC_BUTTON_SYNC,228,12,
+                    56,37,BS_MULTILINE | WS_GROUP
+    PUSHBUTTON      "Delete bookmarks",IDC_BUTTON_DELETE,228,55,56,23,
+                    BS_MULTILINE
+    DEFPUSHBUTTON   "Exit",IDOK,228,161,56,23
+    LTEXT           "the management tool for social bookmarks",IDC_STATIC,85,
+                    160,143,8
+    LTEXT           "bookey Ver 0.31",IDC_BOOKEY_VERSION,120,170,74,8
+    PUSHBUTTON      "Replace tags",IDC_BUTTON_EDIT_TAGS,228,94,56,20
+    PUSHBUTTON      "Delete tags",IDC_BUTTON_DELETE_TAGS,228,118,56,20
+END
+
+IDD_DELETE_DIALOG DIALOG DISCARDABLE  0, 0, 161, 149
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Delete bookmarks"
+FONT 9, "Tahoma"
+BEGIN
+    LTEXT           "Target",IDC_STATIC,7,7,28,8
+    COMBOBOX        IDC_COMBO_DELETELIST,12,19,137,156,CBS_DROPDOWN | 
+                    WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "Method",IDC_STATIC,7,40,147,77,WS_GROUP
+    PUSHBUTTON      "Delete bookmarks interactive",
+                    IDC_BUTTON_DELETE_INTERACTIVE,12,50,137,30,BS_MULTILINE
+    PUSHBUTTON      "Delete all bookmarks",IDC_BUTTON_DELETE_ALL,12,82,137,
+                    30
+    PUSHBUTTON      "Cancel",IDCANCEL,96,120,53,23,WS_GROUP
+END
+
+IDD_DELETE_DIALOG3 DIALOG DISCARDABLE  0, 0, 147, 125
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Input your accout information"
+FONT 9, "Tahoma"
+BEGIN
+    LTEXT           "Input your ID and password",IDC_DESCRIPTION,7,7,131,28
+    LTEXT           "User Name or ID",IDC_STATIC,7,37,60,9
+    EDITTEXT        IDC_EDIT_USERNAME,7,47,133,15,ES_AUTOHSCROLL
+    LTEXT           "password",IDC_STATIC,7,68,60,9
+    EDITTEXT        IDC_EDIT_PASSWORD,7,78,133,15,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,38,104,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,90,104,50,14
+END
+
+IDD_DELETE_DIALOG4 DIALOG DISCARDABLE  0, 0, 286, 131
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Delete a bookmark"
+FONT 9, "Tahoma"
+BEGIN
+    PUSHBUTTON      "Abort",IDCANCEL,227,104,52,20
+    LTEXT           "URL",IDC_STATIC,7,7,14,8
+    EDITTEXT        IDC_EDIT_BM_URL,38,7,241,13,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Title",IDC_STATIC,7,23,15,8
+    EDITTEXT        IDC_EDIT_BM_TITLE,38,23,241,13,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    LTEXT           "Comment",IDC_STATIC,7,39,31,8
+    EDITTEXT        IDC_EDIT_BM_COMMENT,39,39,240,13,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    LTEXT           "Tags",IDC_STATIC,7,55,16,8
+    EDITTEXT        IDC_EDIT_BM_TAGS,39,55,240,13,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    LTEXT           "Do you delete this bookmark?",IDC_QUERY_MESSAGE,16,77,
+                    199,19
+    PUSHBUTTON      "Delete this",IDC_BUTTON_DELETE_YES,7,104,52,20
+    PUSHBUTTON      "Delete all",IDC_BUTTON_DELETE_FORCELY,62,104,52,20
+    PUSHBUTTON      "Skip",IDC_BUTTON_DELETE_NO,117,104,52,20
+    PUSHBUTTON      "go to Previous",IDC_BUTTON_BACKWORD,172,104,52,20
+END
+
+IDD_EDIT_BOOKMARK_DIALOG DIALOG DISCARDABLE  0, 0, 331, 279
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Edit a bookmark"
+FONT 9, "Tahoma"
+BEGIN
+    LTEXT           "Comment",IDC_STATIC,7,39,31,8
+    EDITTEXT        IDC_EDIT_BM_COMMENT,39,39,241,30,ES_MULTILINE | 
+                    WS_VSCROLL
+    LTEXT           "Tags",IDC_STATIC,7,71,16,8
+    EDITTEXT        IDC_EDIT_BM_TAGS,39,71,241,13,ES_AUTOHSCROLL
+    CONTROL         "Send Hatena point to the writer of this article",
+                    IDC_CHECK_TIPJAR,"Button",BS_AUTOCHECKBOX | BS_MULTILINE | 
+                    WS_TABSTOP,32,87,145,22
+    COMBOBOX        IDC_COMBO_CATEGORY,183,87,97,70,CBS_DROPDOWN | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Drecom RSS",IDC_STATIC_DRECOM,282,90,39,8
+    COMBOBOX        IDC_COMBO_CATEGORY2,183,103,97,70,CBS_DROPDOWN | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Flog",IDC_STATIC_FLOG,282,106,14,8
+    GROUPBOX        "Evaluation",IDC_STATIC,7,109,170,28,WS_GROUP
+    CONTROL         "Reservation",IDC_RADIO_EVAL00,"Button",
+                    BS_AUTORADIOBUTTON,12,121,48,10
+    CONTROL         "1",IDC_RADIO_EVAL01,"Button",BS_AUTORADIOBUTTON,68,121,
+                    16,10
+    CONTROL         "2",IDC_RADIO_EVAL02,"Button",BS_AUTORADIOBUTTON,88,121,
+                    16,10
+    CONTROL         "3",IDC_RADIO_EVAL03,"Button",BS_AUTORADIOBUTTON,108,121,
+                    16,10
+    CONTROL         "4",IDC_RADIO_EVAL04,"Button",BS_AUTORADIOBUTTON,128,121,
+                    16,10
+    CONTROL         "5",IDC_RADIO_EVAL05,"Button",BS_AUTORADIOBUTTON,148,121,
+                    16,10
+    GROUPBOX        "Public/Private",IDC_STATIC,7,142,170,28,WS_GROUP
+    CONTROL         "Public",IDC_RADIO_PUBLIC,"Button",BS_AUTORADIOBUTTON,12,
+                    154,42,10
+    CONTROL         "Friends only",IDC_RADIO_FRIENDS,"Button",
+                    BS_AUTORADIOBUTTON,58,154,63,10
+    CONTROL         "Private",IDC_RADIO_PRIVATE,"Button",BS_AUTORADIOBUTTON,
+                    123,154,47,10
+    CONTROL         139,IDC_ICON_HATENA_BOOKMARK,"Static",SS_BITMAP | 
+                    SS_NOTIFY | WS_GROUP,182,121,9,8
+    LTEXT           "(9999)",IDC_HB_USERS,194,121,23,8,SS_NOTIFY
+    CONTROL         141,IDC_ICON_DELICIOUS,"Static",SS_BITMAP | SS_NOTIFY,
+                    219,121,7,8
+    LTEXT           "(9999)",IDC_DELICIOUS_USERS,228,121,23,8,SS_NOTIFY
+    CONTROL         143,IDC_ICON_MM_MEMO,"Static",SS_BITMAP | SS_NOTIFY,253,
+                    121,12,8
+    LTEXT           "(9999)",IDC_MM_USERS,266,121,23,8,SS_NOTIFY
+    CONTROL         152,IDC_ICON_ECNAVI_CLIP,"Static",SS_BITMAP | SS_NOTIFY,
+                    292,121,7,8
+    LTEXT           "(9999)",IDC_ECNAVI_USERS,300,121,23,8,SS_NOTIFY
+    CONTROL         151,IDC_ICON_LIVEDOOR,"Static",SS_BITMAP | SS_NOTIFY,182,
+                    135,9,9
+    LTEXT           "(9999)",IDC_LIVEDOORCLIP_USERS,194,135,23,8,SS_NOTIFY
+    CONTROL         153,IDC_ICON_NIFTY_CLIP,"Static",SS_BITMAP | SS_NOTIFY,
+                    218,135,8,8
+    LTEXT           "(9999)",IDC_NIFTYCLIP_USERS,228,135,23,8,SS_NOTIFY
+    CONTROL         140,IDC_ICON_DRECOM_RSS,"Static",SS_BITMAP | SS_NOTIFY,
+                    253,135,12,6
+    CONTROL         142,IDC_ICON_FLOG,"Static",SS_BITMAP | SS_NOTIFY,269,135,
+                    9,8
+    CONTROL         154,IDC_ICON_1470NET,"Static",SS_BITMAP | SS_NOTIFY,285,
+                    135,9,9
+    CONTROL         161,IDC_ICON_POOKMARK,"Static",SS_BITMAP | SS_NOTIFY,302,
+                    135,9,9
+    CONTROL         160,IDC_ICON_NEWSING,"Static",SS_BITMAP | SS_NOTIFY,182,
+                    151,9,9
+    CONTROL         162,IDC_ICON_BLUEDOT,"Static",SS_BITMAP | SS_NOTIFY,200,
+                    151,9,9
+    CONTROL         163,IDC_ICON_JOLTMARK,"Static",SS_BITMAP | SS_NOTIFY,218,
+                    151,9,9
+    CONTROL         166,IDC_ICON_BLOGPET,"Static",SS_BITMAP | SS_NOTIFY,236,
+                    151,10,10
+    CONTROL         174,IDC_ICON_FC2BOOKMARK,"Static",SS_BITMAP | SS_NOTIFY,
+                    252,151,9,9
+    CONTROL         176,IDC_ICON_YJBOOKMARK,"Static",SS_BITMAP | SS_NOTIFY,
+                    269,151,9,9
+    CONTROL         177,IDC_ICON_YAHOO_BOOKMARKS,"Static",SS_BITMAP | 
+                    SS_NOTIFY,285,151,10,9
+    CONTROL         175,IDC_ICON_TWITTER,"Static",SS_BITMAP | SS_NOTIFY,302,
+                    151,9,9
+    CONTROL         184,IDC_ICON_DIGG,"Static",SS_BITMAP | SS_NOTIFY,183,167,
+                    10,9
+    LTEXT           "(9999)",IDC_DIGG_USERS,196,167,23,8,SS_NOTIFY
+    CONTROL         187,IDC_ICON_HATENA_STAR,"Static",SS_BITMAP | SS_NOTIFY,
+                    220,167,18,9
+    LTEXT           "(99999)",IDC_HATENA_STAR_USERS,241,167,27,8,SS_NOTIFY
+    CONTROL         181,IDC_ICON_TIMELOG,"Static",SS_BITMAP | SS_NOTIFY,269,
+                    167,9,9
+    CONTROL         188,IDC_ICON_TUMBLR,"Static",SS_BITMAP | SS_NOTIFY,285,
+                    166,10,10
+    CONTROL         191,IDC_ICON_DIIGO,"Static",SS_BITMAP | SS_NOTIFY,302,
+                    166,9,9
+    GROUPBOX        "Vote",IDC_POST_EVAL,282,7,42,40,WS_GROUP
+    CONTROL         "Good",IDC_NEWS_GOOD,"Button",BS_AUTORADIOBUTTON,288,18,
+                    31,10
+    CONTROL         "Bad",IDC_NEWS_BAD,"Button",BS_AUTORADIOBUTTON,288,32,31,
+                    10
+    LTEXT           "0/100",IDC_COUNTER,284,53,25,18,SS_CENTERIMAGE
+    GROUPBOX        "Tag suggestions",IDC_STATIC,7,177,317,75,WS_GROUP
+    LTEXT           "Bookmark Tag",IDC_TAG001,17,189,56,8,SS_NOTIFY | NOT 
+                    WS_GROUP
+    LTEXT           "Bookmark Tag",IDC_TAG002,98,189,56,8,SS_NOTIFY | NOT 
+                    WS_GROUP
+    LTEXT           "Bookmark Tag",IDC_TAG003,179,189,56,8,SS_NOTIFY | NOT 
+                    WS_GROUP
+    LTEXT           "Bookmark Tag",IDC_TAG004,250,189,56,8,SS_NOTIFY | NOT 
+                    WS_GROUP
+    LTEXT           "Bookmark Tag",IDC_TAG005,17,201,56,8,SS_NOTIFY | NOT 
+                    WS_GROUP
+    LTEXT           "Bookmark Tag",IDC_TAG006,98,201,56,8,SS_NOTIFY | NOT 
+                    WS_GROUP
+    LTEXT           "Bookmark Tag",IDC_TAG007,179,201,56,8,SS_NOTIFY | NOT 
+                    WS_GROUP
+    LTEXT           "Bookmark Tag",IDC_TAG008,250,201,56,8,SS_NOTIFY | NOT 
+                    WS_GROUP
+    LTEXT           "Bookmark Tag",IDC_TAG009,17,213,56,8,SS_NOTIFY | NOT 
+                    WS_GROUP
+    LTEXT           "Bookmark Tag",IDC_TAG010,98,213,56,8,SS_NOTIFY | NOT 
+                    WS_GROUP
+    LTEXT           "Bookmark Tag",IDC_TAG011,179,213,56,8,SS_NOTIFY | NOT 
+                    WS_GROUP
+    LTEXT           "Bookmark Tag",IDC_TAG012,250,213,56,8,SS_NOTIFY | NOT 
+                    WS_GROUP
+    LTEXT           "Bookmark Tag",IDC_TAG013,17,225,56,8,SS_NOTIFY | NOT 
+                    WS_GROUP
+    LTEXT           "Bookmark Tag",IDC_TAG014,98,225,56,8,SS_NOTIFY | NOT 
+                    WS_GROUP
+    LTEXT           "Bookmark Tag",IDC_TAG015,179,225,56,8,SS_NOTIFY | NOT 
+                    WS_GROUP
+    LTEXT           "Bookmark Tag",IDC_TAG016,250,225,56,8,SS_NOTIFY | NOT 
+                    WS_GROUP
+    LTEXT           "Bookmark Tag",IDC_TAG017,17,237,56,8,SS_NOTIFY | NOT 
+                    WS_GROUP
+    LTEXT           "Bookmark Tag",IDC_TAG018,98,237,56,8,SS_NOTIFY | NOT 
+                    WS_GROUP
+    LTEXT           "Bookmark Tag",IDC_TAG019,179,237,56,8,SS_NOTIFY | NOT 
+                    WS_GROUP
+    LTEXT           "Bookmark Tag",IDC_TAG020,250,237,56,8,SS_NOTIFY | NOT 
+                    WS_GROUP
+    LTEXT           "URL",IDC_STATIC,7,7,14,8
+    EDITTEXT        IDC_EDIT_BM_URL,39,7,241,13,ES_AUTOHSCROLL
+    LTEXT           "Title",IDC_STATIC,7,23,15,8
+    EDITTEXT        IDC_EDIT_BM_TITLE,39,23,241,13,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "Register",IDOK,112,258,50,14,WS_GROUP
+    PUSHBUTTON      "Cancel",IDCANCEL,172,258,50,14
+END
+
+IDD_SYNC_DIALOG DIALOG DISCARDABLE  0, 0, 243, 160
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Synchronize bookmarks"
+FONT 9, "Tahoma"
+BEGIN
+    GROUPBOX        "Hatena Bookmark <--> del.icio.us",IDC_BMNAMES,7,38,181,
+                    115
+    PUSHBUTTON      "Import to 'del.icio.us' from bookmarks existed 'Hatena Bookmark' only",
+                    IDC_BUTTON_SYNC1,13,50,169,28,BS_MULTILINE
+    PUSHBUTTON      "Import to 'Hatena Bookmark' from bookmarks existed 'del.icio.us' only",
+                    IDC_BUTTON_SYNC2,13,82,169,28,BS_MULTILINE
+    PUSHBUTTON      "Import to 'del.icio.us' from 'Hatena Bookmark', and import to 'Hatena Bookmark' from 'del.icio.us'",
+                    IDC_BUTTON_SYNC3,13,114,169,36,BS_MULTILINE
+    LTEXT           "Synchronize bookmarks between",IDC_STATIC,7,7,104,8
+    COMBOBOX        IDC_BM1,23,17,80,144,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+    LTEXT           "and",IDC_STATIC,109,18,12,8
+    COMBOBOX        IDC_BM2,125,17,80,144,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+    PUSHBUTTON      "Cancel",IDCANCEL,192,126,44,27
+END
+
+IDD_TAB_POOKMARK DIALOG DISCARDABLE  0, 0, 187, 110
+STYLE DS_CONTROL | WS_CHILD
+FONT 9, "Tahoma"
+BEGIN
+    LTEXT           "jugemkey",IDC_STATIC,7,7,31,8
+    EDITTEXT        IDC_EDIT_USERNAME,17,17,163,15,ES_AUTOHSCROLL
+    LTEXT           "Password",IDC_STATIC,7,40,32,8
+    EDITTEXT        IDC_EDIT_PASSWORD,17,50,163,15,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    GROUPBOX        "Simultaneous bookmark target",IDC_STATIC,7,73,173,28,
+                    WS_GROUP
+    CONTROL         "Yes",IDC_RADIO_TARGET,"Button",BS_AUTORADIOBUTTON,20,85,
+                    29,10
+    CONTROL         "No",IDC_RADIO_NONTARGET,"Button",BS_AUTORADIOBUTTON,56,
+                    85,34,10
+END
+
+IDD_TAB_NIFTY DIALOG DISCARDABLE  0, 0, 187, 157
+STYLE DS_CONTROL | WS_CHILD
+FONT 9, "Tahoma"
+BEGIN
+    LTEXT           "@nifty ID or PLEASY ID",IDC_STATIC,7,7,84,8
+    EDITTEXT        IDC_EDIT_USERNAME,17,17,163,15,ES_AUTOHSCROLL
+    LTEXT           "Password",IDC_STATIC,7,40,32,8
+    EDITTEXT        IDC_EDIT_PASSWORD,17,50,163,15,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    LTEXT           "API key (to register, get, and delete clip)",IDC_STATIC,
+                    7,73,131,8
+    EDITTEXT        IDC_EDIT_APIKEY,17,83,113,15,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    PUSHBUTTON      "Get API key",IDC_BUTTON_APIKEY,135,83,45,15
+    GROUPBOX        "Simultaneous bookmark target",IDC_STATIC,7,106,173,28,
+                    WS_GROUP
+    CONTROL         "Yes",IDC_RADIO_TARGET,"Button",BS_AUTORADIOBUTTON,20,
+                    118,29,10
+    CONTROL         "No",IDC_RADIO_NONTARGET,"Button",BS_AUTORADIOBUTTON,56,
+                    118,34,10
+    LTEXT           "powered by @nifty Clip",IDC_POWEREDBY_NIFTYCLIP,106,137,
+                    74,8,SS_NOTIFY
+END
+
+IDD_TAB_NEWSING DIALOG DISCARDABLE  0, 0, 187, 240
+STYLE DS_CONTROL | WS_CHILD
+FONT 9, "Tahoma"
+BEGIN
+    LTEXT           "You can use either newsing account or Yahoo! Japan account for newsing.",
+                    IDC_STATIC,7,6,173,17
+    CONTROL         "Use newsing account",IDC_RADIO_USE_NEWSING,"Button",
+                    BS_AUTORADIOBUTTON,20,27,153,10
+    CONTROL         "Use ""Yahoo! Japan"" accout",IDC_RADIO_USE_YJ,"Button",
+                    BS_AUTORADIOBUTTON,20,41,153,10
+    GROUPBOX        "your account of newsing",IDC_STATIC,7,55,173,69
+    LTEXT           "E-mail address",IDC_STATIC,17,67,44,8
+    EDITTEXT        IDC_EDIT_USERNAME,24,77,148,13,ES_AUTOHSCROLL
+    LTEXT           "Password",IDC_STATIC,19,94,30,8
+    EDITTEXT        IDC_EDIT_PASSWORD,24,104,148,13,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    GROUPBOX        "your account of ""Yahoo! Japan""",IDC_STATIC,7,128,173,
+                    69
+    LTEXT           "Yahoo! Japan ID",IDC_STATIC,17,140,52,8
+    EDITTEXT        IDC_EDIT_YJ_USERNAME,24,150,148,13,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    LTEXT           "Password",IDC_STATIC,19,167,30,8
+    EDITTEXT        IDC_EDIT_YJ_PASSWORD,24,177,148,13,ES_PASSWORD | 
+                    ES_AUTOHSCROLL | ES_READONLY
+    GROUPBOX        "Simultaneous bookmark target",IDC_STATIC,7,201,173,28,
+                    WS_GROUP
+    CONTROL         "Yes",IDC_RADIO_TARGET,"Button",BS_AUTORADIOBUTTON,20,
+                    213,29,10
+    CONTROL         "No",IDC_RADIO_NONTARGET,"Button",BS_AUTORADIOBUTTON,56,
+                    213,34,10
+END
+
+IDD_TAB_MMMEMO DIALOG DISCARDABLE  0, 0, 187, 127
+STYLE DS_CONTROL | WS_CHILD
+FONT 9, "Tahoma"
+BEGIN
+    LTEXT           "TypeKey (TypePad Connect) Account",IDC_STATIC,7,7,121,8
+    EDITTEXT        IDC_EDIT_USERNAME,17,17,163,15,ES_AUTOHSCROLL
+    LTEXT           "TypeKey Password",IDC_STATIC,7,40,59,8
+    EDITTEXT        IDC_EDIT_PASSWORD,17,50,163,15,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    LTEXT           "'MM/Memo' is using the 'Typekey' authentication.",
+                    IDC_STATIC,24,73,156,8
+    GROUPBOX        "Simultaneous bookmark target",IDC_STATIC,7,90,173,28,
+                    WS_GROUP
+    CONTROL         "Yes",IDC_RADIO_TARGET,"Button",BS_AUTORADIOBUTTON,20,
+                    102,29,10
+    CONTROL         "No",IDC_RADIO_NONTARGET,"Button",BS_AUTORADIOBUTTON,56,
+                    102,34,10
+END
+
+IDD_TAB_LOCALOPML DIALOG DISCARDABLE  0, 0, 187, 98
+STYLE DS_CONTROL | WS_CHILD
+FONT 9, "Tahoma"
+BEGIN
+    LTEXT           "OPML file name",IDC_STATIC,7,7,49,8
+    EDITTEXT        IDC_EDIT_LOCALOPML_FILENAME,17,17,163,15,ES_AUTOHSCROLL
+    PUSHBUTTON      "Browse",IDC_BUTTON_FILEOPEN,141,38,39,15
+    GROUPBOX        "Simultaneous bookmark target",IDC_STATIC,7,63,173,28,
+                    WS_GROUP
+    CONTROL         "Yes",IDC_RADIO_TARGET,"Button",BS_AUTORADIOBUTTON,20,75,
+                    29,10
+    CONTROL         "No",IDC_RADIO_NONTARGET,"Button",BS_AUTORADIOBUTTON,56,
+                    75,34,10
+END
+
+IDD_TAB_LIVEDOOR DIALOG DISCARDABLE  0, 0, 187, 143
+STYLE DS_CONTROL | WS_CHILD
+FONT 9, "Tahoma"
+BEGIN
+    LTEXT           "User Name",IDC_STATIC,7,7,35,8
+    EDITTEXT        IDC_EDIT_USERNAME,17,17,163,15,ES_AUTOHSCROLL
+    LTEXT           "Password",IDC_STATIC,7,40,32,8
+    EDITTEXT        IDC_EDIT_PASSWORD,17,50,163,15,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    LTEXT           "API key (for del.icio.us compatible API)",IDC_STATIC,7,
+                    73,123,8
+    EDITTEXT        IDC_EDIT_APIKEY,17,83,113,15,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    PUSHBUTTON      "Get API key",IDC_BUTTON_APIKEY,135,83,45,15
+    GROUPBOX        "Simultaneous bookmark target",IDC_STATIC,7,106,173,28,
+                    WS_GROUP
+    CONTROL         "Yes",IDC_RADIO_TARGET,"Button",BS_AUTORADIOBUTTON,20,
+                    118,29,10
+    CONTROL         "No",IDC_RADIO_NONTARGET,"Button",BS_AUTORADIOBUTTON,56,
+                    118,34,10
+END
+
+IDD_TAB_JOLTMARK DIALOG DISCARDABLE  0, 0, 187, 110
+STYLE DS_CONTROL | WS_CHILD
+FONT 9, "Tahoma"
+BEGIN
+    LTEXT           "User Name",IDC_STATIC,7,7,35,8
+    EDITTEXT        IDC_EDIT_USERNAME,17,17,163,15,ES_AUTOHSCROLL
+    LTEXT           "Password",IDC_STATIC,7,40,32,8
+    EDITTEXT        IDC_EDIT_PASSWORD,17,50,163,15,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    GROUPBOX        "Simultaneous bookmark target",IDC_STATIC,7,73,173,28,
+                    WS_GROUP
+    CONTROL         "Yes",IDC_RADIO_TARGET,"Button",BS_AUTORADIOBUTTON,20,85,
+                    29,10
+    CONTROL         "No",IDC_RADIO_NONTARGET,"Button",BS_AUTORADIOBUTTON,56,
+                    85,34,10
+END
+
+IDD_TAB_HATENA DIALOG DISCARDABLE  0, 0, 187, 171
+STYLE DS_CONTROL | WS_CHILD
+FONT 9, "Tahoma"
+BEGIN
+    LTEXT           "User Name",IDC_STATIC,7,7,28,8
+    EDITTEXT        IDC_EDIT_USERNAME,17,17,163,15,ES_AUTOHSCROLL
+    LTEXT           "Password",IDC_STATIC,7,40,32,8
+    EDITTEXT        IDC_EDIT_PASSWORD,17,50,163,15,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    GROUPBOX        "Simultaneous bookmark target",IDC_STATIC,7,73,173,28,
+                    WS_GROUP
+    CONTROL         "Yes",IDC_RADIO_TARGET,"Button",BS_AUTORADIOBUTTON,20,85,
+                    29,10
+    CONTROL         "No",IDC_RADIO_NONTARGET,"Button",BS_AUTORADIOBUTTON,56,
+                    85,34,10
+    GROUPBOX        "Edit Title",IDC_STATIC,7,105,173,59,WS_GROUP
+    LTEXT           "If the Web page of your trying to register has already registered by someone:",
+                    IDC_STATIC,15,116,158,19
+    CONTROL         "Use the existed title",IDC_RADIO_NOCHANGE,"Button",
+                    BS_AUTORADIOBUTTON,22,136,150,10
+    CONTROL         "Use the specified title by yourself (overwrite)",
+                    IDC_RADIO_CHANGE,"Button",BS_AUTORADIOBUTTON,22,149,152,
+                    10
+END
+
+IDD_TAB_FLOG DIALOG DISCARDABLE  0, 0, 187, 109
+STYLE DS_CONTROL | WS_CHILD
+FONT 9, "Tahoma"
+BEGIN
+    LTEXT           "E-mail address",IDC_STATIC,7,7,44,8
+    EDITTEXT        IDC_EDIT_USERNAME,17,17,163,15,ES_AUTOHSCROLL
+    LTEXT           "Password",IDC_STATIC,7,40,32,8
+    EDITTEXT        IDC_EDIT_PASSWORD,17,50,163,15,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    GROUPBOX        "Simultaneous bookmark target",IDC_STATIC,7,73,173,28,
+                    WS_GROUP
+    CONTROL         "Yes",IDC_RADIO_TARGET,"Button",BS_AUTORADIOBUTTON,20,85,
+                    29,10
+    CONTROL         "No",IDC_RADIO_NONTARGET,"Button",BS_AUTORADIOBUTTON,56,
+                    85,34,10
+END
+
+IDD_TAB_ECNAVI DIALOG DISCARDABLE  0, 0, 187, 302
+STYLE DS_CONTROL | WS_CHILD
+FONT 9, "Tahoma"
+BEGIN
+    LTEXT           "You can use either ECnavi account or Yahoo! Japan account for Buzzurl.",
+                    IDC_STATIC,7,6,173,17
+    CONTROL         "Use ECnavi account",IDC_RADIO_USE_ECNAVI,"Button",
+                    BS_AUTORADIOBUTTON,20,27,153,10
+    CONTROL         "Use ""Yahoo! Japan"" accout",IDC_RADIO_USE_YJ,"Button",
+                    BS_AUTORADIOBUTTON,20,41,153,10
+    GROUPBOX        "your account of ECnavi",IDC_STATIC,7,55,173,69
+    LTEXT           "E-mail address",IDC_STATIC,17,67,44,8
+    EDITTEXT        IDC_EDIT_USERNAME,24,77,148,13,ES_AUTOHSCROLL
+    LTEXT           "Password",IDC_STATIC,19,94,30,8
+    EDITTEXT        IDC_EDIT_PASSWORD,24,104,148,13,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    GROUPBOX        "your account of ""Yahoo! Japan""",IDC_STATIC,7,128,173,
+                    69
+    LTEXT           "Yahoo! Japan ID",IDC_STATIC,17,140,52,8
+    EDITTEXT        IDC_EDIT_YJ_USERNAME,24,150,148,13,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    LTEXT           "Password",IDC_STATIC,19,167,30,8
+    EDITTEXT        IDC_EDIT_YJ_PASSWORD,24,177,148,13,ES_PASSWORD | 
+                    ES_AUTOHSCROLL | ES_READONLY
+    GROUPBOX        "Simultaneous bookmark target",IDC_STATIC,7,201,173,28,
+                    WS_GROUP
+    CONTROL         "Yes",IDC_RADIO_TARGET,"Button",BS_AUTORADIOBUTTON,20,
+                    213,29,10
+    CONTROL         "No",IDC_RADIO_NONTARGET,"Button",BS_AUTORADIOBUTTON,56,
+                    213,34,10
+    GROUPBOX        "Edit Title",IDC_STATIC,7,233,173,59,WS_GROUP
+    LTEXT           "If the Web page of your trying to register has already registered by someone:",
+                    IDC_STATIC,15,245,158,19
+    CONTROL         "Use the existed title",IDC_RADIO_NOCHANGE,"Button",
+                    BS_AUTORADIOBUTTON,20,265,152,10
+    CONTROL         "Use the specified title by yourself (overwrite)",
+                    IDC_RADIO_CHANGE,"Button",BS_AUTORADIOBUTTON,20,277,152,
+                    10
+END
+
+IDD_TAB_DRECOM DIALOG DISCARDABLE  0, 0, 187, 110
+STYLE DS_CONTROL | WS_CHILD
+FONT 9, "Tahoma"
+BEGIN
+    LTEXT           "E-mail address",IDC_STATIC,7,7,44,8
+    EDITTEXT        IDC_EDIT_USERNAME,17,17,163,15,ES_AUTOHSCROLL
+    LTEXT           "Password",IDC_STATIC,7,40,32,8
+    EDITTEXT        IDC_EDIT_PASSWORD,17,50,163,15,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    GROUPBOX        "Simultaneous bookmark target",IDC_STATIC,7,73,173,28,
+                    WS_GROUP
+    CONTROL         "Yes",IDC_RADIO_TARGET,"Button",BS_AUTORADIOBUTTON,20,85,
+                    29,10
+    CONTROL         "No",IDC_RADIO_NONTARGET,"Button",BS_AUTORADIOBUTTON,56,
+                    85,34,10
+END
+
+IDD_TAB_DELICIOUS DIALOG DISCARDABLE  0, 0, 187, 110
+STYLE DS_CONTROL | WS_CHILD
+FONT 9, "Tahoma"
+BEGIN
+    LTEXT           "User Name",IDC_STATIC,7,7,35,8
+    EDITTEXT        IDC_EDIT_USERNAME,17,17,163,15,ES_AUTOHSCROLL
+    LTEXT           "Password",IDC_STATIC,7,40,32,8
+    EDITTEXT        IDC_EDIT_PASSWORD,17,50,163,15,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    GROUPBOX        "Simultaneous bookmark target",IDC_STATIC,7,73,173,28,
+                    WS_GROUP
+    CONTROL         "Yes",IDC_RADIO_TARGET,"Button",BS_AUTORADIOBUTTON,20,85,
+                    29,10
+    CONTROL         "No",IDC_RADIO_NONTARGET,"Button",BS_AUTORADIOBUTTON,56,
+                    85,34,10
+END
+
+IDD_TAB_BLUEDOT DIALOG DISCARDABLE  0, 0, 187, 110
+STYLE DS_CONTROL | WS_CHILD
+FONT 9, "Tahoma"
+BEGIN
+    LTEXT           "User Name",IDC_STATIC,7,7,35,8
+    EDITTEXT        IDC_EDIT_USERNAME,17,17,163,15,ES_AUTOHSCROLL
+    LTEXT           "Password",IDC_STATIC,7,40,32,8
+    EDITTEXT        IDC_EDIT_PASSWORD,17,50,163,15,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    GROUPBOX        "Simultaneous bookmark target",IDC_STATIC,7,73,173,28,
+                    WS_GROUP
+    CONTROL         "Yes",IDC_RADIO_TARGET,"Button",BS_AUTORADIOBUTTON,20,85,
+                    29,10
+    CONTROL         "No",IDC_RADIO_NONTARGET,"Button",BS_AUTORADIOBUTTON,56,
+                    85,34,10
+END
+
+IDD_TAB_BLOGPET DIALOG DISCARDABLE  0, 0, 187, 171
+STYLE DS_CONTROL | WS_CHILD
+FONT 9, "Tahoma"
+BEGIN
+    LTEXT           "User Name",IDC_STATIC,7,7,35,8
+    EDITTEXT        IDC_EDIT_USERNAME,17,17,163,15,ES_AUTOHSCROLL
+    LTEXT           "Password",IDC_STATIC,7,40,32,8
+    EDITTEXT        IDC_EDIT_PASSWORD,17,50,163,15,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    GROUPBOX        "Simultaneous bookmark target",IDC_STATIC,7,73,173,28,
+                    WS_GROUP
+    CONTROL         "Yes",IDC_RADIO_TARGET,"Button",BS_AUTORADIOBUTTON,20,85,
+                    29,10
+    CONTROL         "No",IDC_RADIO_NONTARGET,"Button",BS_AUTORADIOBUTTON,56,
+                    85,34,10
+    GROUPBOX        "Edit Title",IDC_STATIC,7,105,173,59,WS_GROUP
+    LTEXT           "If the Web page of your trying to register has already registered by someone:",
+                    IDC_STATIC,15,116,158,19
+    CONTROL         "Use the existed title",IDC_RADIO_NOCHANGE,"Button",
+                    BS_AUTORADIOBUTTON,22,136,151,10
+    CONTROL         "Use the specified title by yourself (overwrite)",
+                    IDC_RADIO_CHANGE,"Button",BS_AUTORADIOBUTTON,22,149,152,
+                    10
+END
+
+IDD_TAB_1470NET DIALOG DISCARDABLE  0, 0, 187, 287
+STYLE DS_CONTROL | WS_CHILD
+FONT 9, "Tahoma"
+BEGIN
+    LTEXT           "Both 'TypeKey' authentication and 'Hatena'  authentication can be used at 1470.net.",
+                    IDC_STATIC,7,7,173,19
+    GROUPBOX        "Authentication Method",IDC_STATIC,7,27,173,96,WS_GROUP
+    CONTROL         "Use 'TypeKey' authentication only.",IDC_RADIO_TYPEKEY,
+                    "Button",BS_AUTORADIOBUTTON,15,41,123,10
+    CONTROL         "Use 'Hatena' authentication only.",IDC_RADIO_HATENA,
+                    "Button",BS_AUTORADIOBUTTON,15,58,118,10
+    CONTROL         "Use 'TypeKey' authentication first. If 'TypeKey' failure, then try 'Hatena' authentication.",
+                    IDC_RADIO_TYPEKEY_HATENA,"Button",BS_AUTORADIOBUTTON | 
+                    BS_MULTILINE,15,71,159,25
+    CONTROL         "Use 'Hatena' authentication first. If 'Hatena' falure, then try 'TypeKey' authentication.",
+                    IDC_RADIO_HATENA_TYPEKEY,"Button",BS_AUTORADIOBUTTON | 
+                    BS_MULTILINE,15,99,158,21
+    LTEXT           "TypeKey (TypePad Connect) Account",IDC_STATIC,7,127,121,
+                    8
+    EDITTEXT        IDC_EDIT_USERNAME,17,137,163,15,ES_AUTOHSCROLL
+    LTEXT           "TypeKey Password",IDC_STATIC,7,157,60,8
+    EDITTEXT        IDC_EDIT_PASSWORD,17,167,163,15,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    LTEXT           "Hatena ID",IDC_STATIC,7,190,32,8
+    EDITTEXT        IDC_EDIT_HATENA_USERNAME,17,200,163,15,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    LTEXT           "Hatena Password",IDC_STATIC,7,220,55,8
+    EDITTEXT        IDC_EDIT_HATENA_PASSWORD,17,230,163,15,ES_PASSWORD | 
+                    ES_AUTOHSCROLL | WS_DISABLED
+    GROUPBOX        "Simultaneous bookmark target",IDC_STATIC,7,253,173,27,
+                    WS_GROUP
+    CONTROL         "Yes",IDC_RADIO_TARGET,"Button",BS_AUTORADIOBUTTON,20,
+                    264,29,10
+    CONTROL         "No",IDC_RADIO_NONTARGET,"Button",BS_AUTORADIOBUTTON,56,
+                    264,34,10
+END
+
+IDD_DELETE_TAGS_DIALOG DIALOG DISCARDABLE  0, 0, 191, 111
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Delete tags"
+FONT 9, "Tahoma"
+BEGIN
+    LTEXT           "Target bookmark",IDC_STATIC,7,32,28,8
+    COMBOBOX        IDC_COMBO_DELETELIST_TAGS,7,42,116,90,CBS_DROPDOWN | 
+                    WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Get list of tags",IDC_BUTTON_GET_TAGS,130,38,54,22
+    LTEXT           "tag to delete",IDC_STATIC,7,74,91,8
+    COMBOBOX        IDC_COMBO_DELETE_TAGLIST,7,86,116,136,CBS_DROPDOWN | 
+                    CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "Delete tag",IDOK,130,82,54,22
+    PUSHBUTTON      "Cancel",IDCANCEL,130,7,54,22
+END
+
+IDD_REPLACE_TAGS_DIALOG DIALOG DISCARDABLE  0, 0, 203, 180
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Replace tags"
+FONT 10, "Tahoma"
+BEGIN
+    LTEXT           "(1) Select a target bookmark.",IDC_STATIC,7,20,132,12
+    COMBOBOX        IDC_COMBO_DELETELIST_TAGS,18,35,116,74,CBS_DROPDOWN | 
+                    WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Get list of tags",IDC_BUTTON_GET_TAGS,142,69,54,22
+    LTEXT           "(2) Get list of tags from target bookmark.",IDC_STATIC,
+                    7,59,136,9
+    COMBOBOX        IDC_COMBO_DELETE_TAGLIST,19,74,116,136,CBS_DROPDOWN | 
+                    CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "(3) Input a new tag.",IDC_STATIC,7,98,132,19
+    EDITTEXT        IDC_EDIT_NEW_TAG,19,121,116,15,ES_AUTOHSCROLL
+    LTEXT           "(4) Push 'Replace tags' Button, and         replace old tag to new tag.",
+                    IDC_STATIC,7,151,123,21
+    DEFPUSHBUTTON   "Replace tags",IDOK,142,147,54,22
+    PUSHBUTTON      "Cancel",IDCANCEL,142,7,54,22
+END
+
+IDD_DIALOG_PROXY_INFO DIALOG DISCARDABLE  0, 0, 183, 159
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Configure setting of proxy server"
+FONT 9, "Tahoma"
+BEGIN
+    LTEXT           "proxy server's URL(or IP address)",IDC_STATIC,7,7,116,8
+    EDITTEXT        IDC_EDIT_PROXY_SERVER_NAME,20,17,138,14,ES_AUTOHSCROLL
+    LTEXT           "proxy port number",IDC_STATIC,7,39,76,8
+    EDITTEXT        IDC_EDIT_PROXY_PORT_NUMBER,20,49,138,14,ES_AUTOHSCROLL
+    LTEXT           "user name for proxy (if necessary)",IDC_STATIC,7,71,126,
+                    8
+    EDITTEXT        IDC_EDIT_PROXY_USER_NAME,20,81,138,14,ES_AUTOHSCROLL
+    LTEXT           "password for proxy (if necessary)",IDC_STATIC,7,103,130,
+                    8
+    EDITTEXT        IDC_EDIT_PROXY_PASSWORD,20,113,138,14,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,65,138,50,14
+END
+
+IDD_TAB_FC2BOOKMARK DIALOG DISCARDABLE  0, 0, 187, 110
+STYLE DS_CONTROL | WS_CHILD
+FONT 9, "Tahoma"
+BEGIN
+    LTEXT           "E-mail address",IDC_STATIC,7,7,44,8
+    EDITTEXT        IDC_EDIT_USERNAME,17,17,163,15,ES_AUTOHSCROLL
+    LTEXT           "Password",IDC_STATIC,7,40,32,8
+    EDITTEXT        IDC_EDIT_PASSWORD,17,50,163,15,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    GROUPBOX        "Simultaneous bookmark target",IDC_STATIC,7,73,173,28,
+                    WS_GROUP
+    CONTROL         "Yes",IDC_RADIO_TARGET,"Button",BS_AUTORADIOBUTTON,20,85,
+                    29,10
+    CONTROL         "No",IDC_RADIO_NONTARGET,"Button",BS_AUTORADIOBUTTON,56,
+                    85,34,10
+END
+
+IDD_TAB_TWITTER DIALOG DISCARDABLE  0, 0, 187, 204
+STYLE DS_CONTROL | WS_CHILD
+FONT 9, "Tahoma"
+BEGIN
+    GROUPBOX        "Authentication type",IDC_STATIC,7,7,173,156,WS_GROUP
+    CONTROL         "use OAuth authentication",IDC_RADIO_OAUTH,"Button",
+                    BS_AUTORADIOBUTTON,14,17,97,10
+    PUSHBUTTON      "Get 'access token'",IDC_BUTTON_GET_TOKEN,22,29,98,13
+    LTEXT           "getting 'access token'",IDC_TOKEN_STATUS,27,46,112,8
+    LTEXT           "Note: If using proxy server to access the Internet, set up proxy server information before getting 'access token'.",
+                    IDC_STATIC,16,58,160,28
+    CONTROL         "use BASIC authentication (traditional method)",
+                    IDC_RADIO_BASIC,"Button",BS_AUTORADIOBUTTON,14,92,161,10
+    LTEXT           "E-mail address or User ID",IDC_STATIC,27,104,78,8
+    EDITTEXT        IDC_EDIT_USERNAME,35,114,138,15,ES_AUTOHSCROLL
+    LTEXT           "Password",IDC_STATIC,27,132,32,8
+    EDITTEXT        IDC_EDIT_PASSWORD,35,142,138,15,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    GROUPBOX        "Simultaneous bookmark target",IDC_STATIC,7,167,173,28,
+                    WS_GROUP
+    CONTROL         "Yes",IDC_RADIO_TARGET,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,20,179,29,10
+    CONTROL         "No",IDC_RADIO_NONTARGET,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,56,179,34,10
+END
+
+IDD_TAB_YJ_BOOKMARK DIALOG DISCARDABLE  0, 0, 187, 110
+STYLE DS_CONTROL | WS_CHILD
+FONT 9, "Tahoma"
+BEGIN
+    LTEXT           "Yahoo! Japan ID (*not* Yahoo! ID)",IDC_STATIC,7,7,113,8
+    EDITTEXT        IDC_EDIT_USERNAME,17,17,163,15,ES_AUTOHSCROLL
+    LTEXT           "Password",IDC_STATIC,7,40,32,8
+    EDITTEXT        IDC_EDIT_PASSWORD,17,50,163,15,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    GROUPBOX        "Simultaneous bookmark target",IDC_STATIC,7,73,173,28,
+                    WS_GROUP
+    CONTROL         "Yes",IDC_RADIO_TARGET,"Button",BS_AUTORADIOBUTTON,20,85,
+                    29,10
+    CONTROL         "No",IDC_RADIO_NONTARGET,"Button",BS_AUTORADIOBUTTON,56,
+                    85,34,10
+END
+
+IDD_TAB_YAHOO_BOOKMARKS DIALOG DISCARDABLE  0, 0, 187, 110
+STYLE DS_CONTROL | WS_CHILD
+FONT 9, "Tahoma"
+BEGIN
+    LTEXT           "Yahoo! ID",IDC_STATIC,7,7,32,8
+    EDITTEXT        IDC_EDIT_USERNAME,17,17,163,15,ES_AUTOHSCROLL
+    LTEXT           "Password",IDC_STATIC,7,40,32,8
+    EDITTEXT        IDC_EDIT_PASSWORD,17,50,163,15,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    GROUPBOX        "Simultaneous bookmark target",IDC_STATIC,7,73,173,28,
+                    WS_GROUP
+    CONTROL         "Yes",IDC_RADIO_TARGET,"Button",BS_AUTORADIOBUTTON,20,85,
+                    29,10
+    CONTROL         "No",IDC_RADIO_NONTARGET,"Button",BS_AUTORADIOBUTTON,56,
+                    85,34,10
+END
+
+IDD_TAB_TIMELOG DIALOG DISCARDABLE  0, 0, 187, 110
+STYLE DS_CONTROL | WS_CHILD
+FONT 9, "Tahoma"
+BEGIN
+    LTEXT           "Account Name",IDC_STATIC,7,7,47,8
+    EDITTEXT        IDC_EDIT_USERNAME,17,17,163,15,ES_AUTOHSCROLL
+    LTEXT           "Password",IDC_STATIC,7,40,32,8
+    EDITTEXT        IDC_EDIT_PASSWORD,17,50,163,15,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    GROUPBOX        "Simultaneous bookmark target",IDC_STATIC,7,73,173,28,
+                    WS_GROUP
+    CONTROL         "Yes",IDC_RADIO_TARGET,"Button",BS_AUTORADIOBUTTON,20,85,
+                    29,10
+    CONTROL         "No",IDC_RADIO_NONTARGET,"Button",BS_AUTORADIOBUTTON,56,
+                    85,34,10
+END
+
+IDD_CAPTCHA_DIALOG DIALOG DISCARDABLE  0, 0, 139, 209
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Are You Human? (Sorry, We Have to Ask)"
+FONT 9, "Tahoma"
+BEGIN
+    CONTROL         183,IDC_STATIC,"Static",SS_BITMAP | SS_NOTIFY,7,7,126,33
+    LTEXT           "Please enter the text you see on the above:",IDC_STATIC,
+                    7,36,119,17
+    EDITTEXT        IDC_EDIT_CAPTCHA,7,55,125,15,ES_AUTOHSCROLL
+    LTEXT           "Story Title",IDC_STATIC,7,75,36,8
+    EDITTEXT        IDC_EDIT_TITLE,7,85,125,15,ES_AUTOHSCROLL
+    LTEXT           "Comment",IDC_STATIC,7,105,33,8
+    EDITTEXT        IDC_EDIT_COMMENT,7,115,125,35,ES_MULTILINE | 
+                    ES_AUTOHSCROLL | ES_WANTRETURN
+    LTEXT           "Topic",IDC_STATIC,7,155,19,8
+    COMBOBOX        IDC_COMBO_TOPIC,7,165,125,197,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+    DEFPUSHBUTTON   "OK",IDOK,45,187,50,15
+END
+
+IDD_TAB_DIGG DIALOG DISCARDABLE  0, 0, 187, 110
+STYLE DS_CONTROL | WS_CHILD
+FONT 9, "Tahoma"
+BEGIN
+    LTEXT           "User Name",IDC_STATIC,7,7,35,8
+    EDITTEXT        IDC_EDIT_USERNAME,17,17,163,15,ES_AUTOHSCROLL
+    LTEXT           "Password",IDC_STATIC,7,40,32,8
+    EDITTEXT        IDC_EDIT_PASSWORD,17,50,163,15,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    GROUPBOX        "Simultaneous bookmark target",IDC_STATIC,7,73,173,28,
+                    WS_GROUP
+    CONTROL         "Yes",IDC_RADIO_TARGET,"Button",BS_AUTORADIOBUTTON,20,85,
+                    29,10
+    CONTROL         "No",IDC_RADIO_NONTARGET,"Button",BS_AUTORADIOBUTTON,56,
+                    85,34,10
+END
+
+IDD_TAB_TUMBLR DIALOG DISCARDABLE  0, 0, 187, 137
+STYLE DS_CONTROL | WS_CHILD
+FONT 9, "Tahoma"
+BEGIN
+    LTEXT           "E-mail address",IDC_STATIC,7,7,44,8
+    EDITTEXT        IDC_EDIT_USERNAME,17,17,163,15,ES_AUTOHSCROLL
+    LTEXT           "Password",IDC_STATIC,7,40,32,8
+    EDITTEXT        IDC_EDIT_PASSWORD,17,50,163,15,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    LTEXT           "target tumbleblog",IDC_STATIC,7,73,58,8
+    EDITTEXT        IDC_EDIT_BLOGNAME,17,83,95,15,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_BORDER
+    PUSHBUTTON      "edit",IDC_BUTTON_SELECT_TARGET,139,80,33,15
+    GROUPBOX        "Simultaneous bookmark target",IDC_STATIC,7,100,173,28,
+                    WS_GROUP
+    CONTROL         "Yes",IDC_RADIO_TARGET,"Button",BS_AUTORADIOBUTTON,20,
+                    112,29,10
+    CONTROL         "No",IDC_RADIO_NONTARGET,"Button",BS_AUTORADIOBUTTON,56,
+                    112,34,10
+END
+
+IDD_TAB_DIIGO DIALOG DISCARDABLE  0, 0, 187, 110
+STYLE DS_CONTROL | WS_CHILD
+FONT 9, "Tahoma"
+BEGIN
+    LTEXT           "User Name",IDC_STATIC,7,7,35,8
+    EDITTEXT        IDC_EDIT_USERNAME,17,17,163,15,ES_AUTOHSCROLL
+    LTEXT           "Password",IDC_STATIC,7,40,32,8
+    EDITTEXT        IDC_EDIT_PASSWORD,17,50,163,15,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    GROUPBOX        "Simultaneous bookmark target",IDC_STATIC,7,73,173,28,
+                    WS_GROUP
+    CONTROL         "Yes",IDC_RADIO_TARGET,"Button",BS_AUTORADIOBUTTON,20,85,
+                    29,10
+    CONTROL         "No",IDC_RADIO_NONTARGET,"Button",BS_AUTORADIOBUTTON,56,
+                    85,34,10
+END
+
+IDD_BLOGID_DIALOG DIALOG DISCARDABLE  0, 0, 187, 139
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Select a target blog"
+FONT 9, "Tahoma"
+BEGIN
+    LTEXT           "Select a target blog to post bookmarks",IDC_STATIC,7,7,
+                    135,8
+    LISTBOX         IDC_LIST_BLOGID,7,19,173,91,LBS_NOINTEGRALHEIGHT | 
+                    LBS_WANTKEYBOARDINPUT | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "OK",IDOK,78,118,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,130,118,50,14
+END
+
+IDD_INPUT_PIN DIALOG DISCARDABLE  0, 0, 183, 117
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Allow to access Twitter via OAuth"
+FONT 9, "Tahoma"
+BEGIN
+    LTEXT           "You can grant access to bookey, if you want.  \r\n\r\nPush 'Allow' button on your browser, copy six digits from browser, paste it below, and push 'OK' button on this dialog. ",
+                    IDC_STATIC,7,7,169,41
+    EDITTEXT        IDC_EDIT_PIN,26,57,121,14,ES_AUTOHSCROLL
+    LTEXT           "Or push 'Cancel' button on this dialog.   ",IDC_STATIC,
+                    7,81,128,8
+    DEFPUSHBUTTON   "OK",IDOK,38,98,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,93,98,50,14
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,21,9
+ PRODUCTVERSION 1,0,21,9
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "Comments", "Support for Hatena Bookmark, del.icio.us, MM/Memo, DrecomRSS, Flog, Buzzurl, nifty Clip, livedoor Clip, 1470.net, newsing, POOKMARK Airlines, Faves.com, JoltMark, Blogpet bookmarks, Yahoo! Bookmarks, Twitter, Timelog, Digg, .....\0"
+            VALUE "CompanyName", "Watching Balloon (KANSOKU-KIKYU) http://watcher.moe-nifty.com/\0"
+            VALUE "FileDescription", "bookey - management tool for social bookmarks \0"
+            VALUE "FileVersion", "1, 0, 21, 9\0"
+            VALUE "InternalName", "bookey\0"
+            VALUE "LegalCopyright", "Copyright (C) 2005, 2006, 2007, 2008, 2009 tsupo\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "bookey.EXE\0"
+            VALUE "PrivateBuild", "\0"
+            VALUE "ProductName", "bookey: written by H.Tsujimura (a.k.a. tsupo)\0"
+            VALUE "ProductVersion", "1, 0, 21, 9\0"
+            VALUE "SpecialBuild", "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 224
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 97
+    END
+
+    IDD_SETTING_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 188
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 444
+    END
+
+    IDD_PROCEEDING_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 166
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 42
+    END
+
+    IDD_BOOKEY_FORM, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 208
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 151
+    END
+
+    IDD_BOOKEY_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 284
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 184
+    END
+
+    IDD_DELETE_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 154
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 142
+    END
+
+    IDD_DELETE_DIALOG3, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 140
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 118
+    END
+
+    IDD_DELETE_DIALOG4, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 279
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 124
+    END
+
+    IDD_EDIT_BOOKMARK_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 324
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 272
+    END
+
+    IDD_SYNC_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 236
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 153
+    END
+
+    IDD_TAB_POOKMARK, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 103
+    END
+
+    IDD_TAB_NIFTY, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 150
+    END
+
+    IDD_TAB_NEWSING, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 233
+    END
+
+    IDD_TAB_MMMEMO, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 120
+    END
+
+    IDD_TAB_LOCALOPML, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 91
+    END
+
+    IDD_TAB_LIVEDOOR, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 136
+    END
+
+    IDD_TAB_JOLTMARK, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 103
+    END
+
+    IDD_TAB_HATENA, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 164
+    END
+
+    IDD_TAB_FLOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 102
+    END
+
+    IDD_TAB_ECNAVI, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 295
+    END
+
+    IDD_TAB_DRECOM, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 103
+    END
+
+    IDD_TAB_DELICIOUS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 105
+    END
+
+    IDD_TAB_BLUEDOT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 103
+    END
+
+    IDD_TAB_BLOGPET, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 164
+    END
+
+    IDD_TAB_1470NET, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 280
+    END
+
+    IDD_DELETE_TAGS_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 184
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 104
+    END
+
+    IDD_REPLACE_TAGS_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 196
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 173
+    END
+
+    IDD_DIALOG_PROXY_INFO, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 176
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 152
+    END
+
+    IDD_TAB_FC2BOOKMARK, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 103
+    END
+
+    IDD_TAB_TWITTER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 197
+    END
+
+    IDD_TAB_YJ_BOOKMARK, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 103
+    END
+
+    IDD_TAB_YAHOO_BOOKMARKS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 103
+    END
+
+    IDD_TAB_TIMELOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 103
+    END
+
+    IDD_CAPTCHA_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 132
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 202
+    END
+
+    IDD_TAB_DIGG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 103
+    END
+
+    IDD_TAB_TUMBLR, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 130
+    END
+
+    IDD_TAB_DIIGO, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 103
+    END
+
+    IDD_BLOGID_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 132
+    END
+
+    IDD_INPUT_PIN, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 176
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 112
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_BOOKEY_DIALOG DLGINIT
+BEGIN
+    IDC_COMBO_BOOKMARK1, 0x403, 12, 0
+0x6564, 0x2e6c, 0x6369, 0x6f69, 0x752e, 0x0073, 
+    IDC_COMBO_BOOKMARK1, 0x403, 21, 0
+0x6c42, 0x6575, 0x4420, 0x746f, 0x2820, 0x6146, 0x6576, 0x2e73, 0x6f63, 
+0x296d, "\000" 
+    IDC_COMBO_BOOKMARK1, 0x403, 16, 0
+0x6148, 0x6574, 0x616e, 0x4220, 0x6f6f, 0x6d6b, 0x7261, 0x006b, 
+    IDC_COMBO_BOOKMARK1, 0x403, 8, 0
+0x4d4d, 0x4d2f, 0x6d65, 0x006f, 
+    IDC_COMBO_BOOKMARK1, 0x403, 9, 0
+0x3431, 0x3037, 0x6e2e, 0x7465, "\000" 
+    IDC_COMBO_BOOKMARK1, 0x403, 18, 0
+0x7244, 0x6365, 0x6d6f, 0x5220, 0x5353, 0x4328, 0x696c, 0x2170, 0x0029, 
+
+    IDC_COMBO_BOOKMARK1, 0x403, 5, 0
+0x6c46, 0x676f, "\000" 
+    IDC_COMBO_BOOKMARK1, 0x403, 8, 0
+0x7542, 0x7a7a, 0x7275, 0x006c, 
+    IDC_COMBO_BOOKMARK1, 0x403, 14, 0
+0x696c, 0x6576, 0x6f64, 0x726f, 0x6320, 0x696c, 0x0070, 
+    IDC_COMBO_BOOKMARK1, 0x403, 12, 0
+0x6e40, 0x6669, 0x7974, 0x6320, 0x696c, 0x0070, 
+    IDC_COMBO_BOOKMARK1, 0x403, 18, 0
+0x4f50, 0x4b4f, 0x414d, 0x4b52, 0x4120, 0x7269, 0x696c, 0x656e, 0x0073, 
+
+    IDC_COMBO_BOOKMARK1, 0x403, 9, 0
+0x6f4a, 0x746c, 0x614d, 0x6b72, "\000" 
+    IDC_COMBO_BOOKMARK1, 0x403, 18, 0
+0x6c42, 0x676f, 0x6550, 0x2074, 0x6f62, 0x6b6f, 0x616d, 0x6b72, 0x0073, 
+
+    IDC_COMBO_BOOKMARK1, 0x403, 12, 0
+0x4346, 0x4232, 0x4f4f, 0x4d4b, 0x5241, 0x004b, 
+    IDC_COMBO_BOOKMARK1, 0x403, 23, 0
+0x6159, 0x6f68, 0x216f, 0x4a20, 0x7061, 0x6e61, 0x4220, 0x6f6f, 0x6d6b, 
+0x7261, 0x736b, "\000" 
+    IDC_COMBO_BOOKMARK1, 0x403, 17, 0
+0x6159, 0x6f68, 0x216f, 0x4220, 0x6f6f, 0x6d6b, 0x7261, 0x736b, "\000" 
+    IDC_COMBO_BOOKMARK1, 0x403, 6, 0
+0x6944, 0x6769, 0x006f, 
+    IDC_COMBO_BOOKMARK1, 0x403, 10, 0
+0x504f, 0x4c4d, 0x6620, 0x6c69, 0x0065, 
+    IDC_COMBO_BOOKMARK1, 0x403, 21, 0
+0x454e, 0x5354, 0x4143, 0x4550, 0x312d, 0x6820, 0x6d74, 0x206c, 0x6966, 
+0x656c, "\000" 
+    IDC_COMBO_BOOKMARK1, 0x403, 16, 0
+0x706f, 0x7265, 0x3661, 0x612e, 0x7264, 0x6620, 0x6c69, 0x0065, 
+    IDC_COMBO_BOOKMARK1, 0x403, 35, 0
+0x5352, 0x2f53, 0x7441, 0x6d6f, 0x6620, 0x6565, 0x2064, 0x7266, 0x6d6f, 
+0x4820, 0x7461, 0x6e65, 0x2061, 0x6f42, 0x6b6f, 0x616d, 0x6b72, "\000" 
+    IDC_COMBO_BOOKMARK1, 0x403, 29, 0
+0x5352, 0x2053, 0x6566, 0x6465, 0x6620, 0x6f72, 0x206d, 0x696c, 0x6576, 
+0x6f64, 0x726f, 0x6320, 0x696c, 0x2070, "\000" 
+    IDC_COMBO_BOOKMARK1, 0x403, 28, 0
+0x6564, 0x2e6c, 0x6369, 0x6f69, 0x752e, 0x2073, 0x7028, 0x736f, 0x7374, 
+0x612f, 0x6c6c, 0x2029, 0x4d58, 0x004c, 
+    IDC_COMBO_BOOKMARK2, 0x403, 12, 0
+0x6564, 0x2e6c, 0x6369, 0x6f69, 0x752e, 0x0073, 
+    IDC_COMBO_BOOKMARK2, 0x403, 21, 0
+0x6c42, 0x6575, 0x4420, 0x746f, 0x2820, 0x6146, 0x6576, 0x2e73, 0x6f63, 
+0x296d, "\000" 
+    IDC_COMBO_BOOKMARK2, 0x403, 16, 0
+0x6148, 0x6574, 0x616e, 0x4220, 0x6f6f, 0x6d6b, 0x7261, 0x006b, 
+    IDC_COMBO_BOOKMARK2, 0x403, 8, 0
+0x4d4d, 0x4d2f, 0x6d65, 0x006f, 
+    IDC_COMBO_BOOKMARK2, 0x403, 9, 0
+0x3431, 0x3037, 0x6e2e, 0x7465, "\000" 
+    IDC_COMBO_BOOKMARK2, 0x403, 18, 0
+0x7244, 0x6365, 0x6d6f, 0x5220, 0x5353, 0x4328, 0x696c, 0x2170, 0x0029, 
+
+    IDC_COMBO_BOOKMARK2, 0x403, 5, 0
+0x6c46, 0x676f, "\000" 
+    IDC_COMBO_BOOKMARK2, 0x403, 8, 0
+0x7542, 0x7a7a, 0x7275, 0x006c, 
+    IDC_COMBO_BOOKMARK2, 0x403, 14, 0
+0x696c, 0x6576, 0x6f64, 0x726f, 0x6320, 0x696c, 0x0070, 
+    IDC_COMBO_BOOKMARK2, 0x403, 12, 0
+0x6e40, 0x6669, 0x7974, 0x6320, 0x696c, 0x0070, 
+    IDC_COMBO_BOOKMARK2, 0x403, 18, 0
+0x4f50, 0x4b4f, 0x414d, 0x4b52, 0x4120, 0x7269, 0x696c, 0x656e, 0x0073, 
+
+    IDC_COMBO_BOOKMARK2, 0x403, 9, 0
+0x6f4a, 0x746c, 0x614d, 0x6b72, "\000" 
+    IDC_COMBO_BOOKMARK2, 0x403, 18, 0
+0x6c42, 0x676f, 0x6550, 0x2074, 0x6f62, 0x6b6f, 0x616d, 0x6b72, 0x0073, 
+
+    IDC_COMBO_BOOKMARK2, 0x403, 12, 0
+0x4346, 0x4232, 0x4f4f, 0x4d4b, 0x5241, 0x004b, 
+    IDC_COMBO_BOOKMARK2, 0x403, 23, 0
+0x6159, 0x6f68, 0x216f, 0x4a20, 0x7061, 0x6e61, 0x4220, 0x6f6f, 0x6d6b, 
+0x7261, 0x736b, "\000" 
+    IDC_COMBO_BOOKMARK2, 0x403, 17, 0
+0x6159, 0x6f68, 0x216f, 0x4220, 0x6f6f, 0x6d6b, 0x7261, 0x736b, "\000" 
+    IDC_COMBO_BOOKMARK2, 0x403, 6, 0
+0x6944, 0x6769, 0x006f, 
+    IDC_COMBO_BOOKMARK2, 0x403, 10, 0
+0x504f, 0x4c4d, 0x6620, 0x6c69, 0x0065, 
+    IDC_COMBO_BOOKMARK2, 0x403, 21, 0
+0x454e, 0x5354, 0x4143, 0x4550, 0x312d, 0x6820, 0x6d74, 0x206c, 0x6966, 
+0x656c, "\000" 
+    IDC_COMBO_BOOKMARK2, 0x403, 16, 0
+0x706f, 0x7265, 0x3661, 0x612e, 0x7264, 0x6620, 0x6c69, 0x0065, 
+    IDC_COMBO_BOOKMARK2, 0x403, 28, 0
+0x6564, 0x2e6c, 0x6369, 0x6f69, 0x752e, 0x2073, 0x7028, 0x736f, 0x7374, 
+0x612f, 0x6c6c, 0x2029, 0x4d58, 0x004c, 
+    0
+END
+
+IDD_DELETE_DIALOG DLGINIT
+BEGIN
+    IDC_COMBO_DELETELIST, 0x403, 12, 0
+0x6564, 0x2e6c, 0x6369, 0x6f69, 0x752e, 0x0073, 
+    IDC_COMBO_DELETELIST, 0x403, 21, 0
+0x6c42, 0x6575, 0x4420, 0x746f, 0x2820, 0x6146, 0x6576, 0x2e73, 0x6f63, 
+0x296d, "\000" 
+    IDC_COMBO_DELETELIST, 0x403, 16, 0
+0x6148, 0x6574, 0x616e, 0x4220, 0x6f6f, 0x6d6b, 0x7261, 0x006b, 
+    IDC_COMBO_DELETELIST, 0x403, 8, 0
+0x4d4d, 0x4d2f, 0x6d65, 0x006f, 
+    IDC_COMBO_DELETELIST, 0x403, 9, 0
+0x3431, 0x3037, 0x6e2e, 0x7465, "\000" 
+    IDC_COMBO_DELETELIST, 0x403, 18, 0
+0x7244, 0x6365, 0x6d6f, 0x5220, 0x5353, 0x4328, 0x696c, 0x2170, 0x0029, 
+
+    IDC_COMBO_DELETELIST, 0x403, 5, 0
+0x6c46, 0x676f, "\000" 
+    IDC_COMBO_DELETELIST, 0x403, 8, 0
+0x7542, 0x7a7a, 0x7275, 0x006c, 
+    IDC_COMBO_DELETELIST, 0x403, 14, 0
+0x696c, 0x6576, 0x6f64, 0x726f, 0x6320, 0x696c, 0x0070, 
+    IDC_COMBO_DELETELIST, 0x403, 12, 0
+0x6e40, 0x6669, 0x7974, 0x6320, 0x696c, 0x0070, 
+    IDC_COMBO_DELETELIST, 0x403, 18, 0
+0x4f50, 0x4b4f, 0x414d, 0x4b52, 0x4120, 0x7269, 0x696c, 0x656e, 0x0073, 
+
+    IDC_COMBO_DELETELIST, 0x403, 9, 0
+0x6f4a, 0x746c, 0x614d, 0x6b72, "\000" 
+    IDC_COMBO_DELETELIST, 0x403, 18, 0
+0x6c42, 0x676f, 0x6550, 0x2074, 0x6f62, 0x6b6f, 0x616d, 0x6b72, 0x0073, 
+
+    IDC_COMBO_DELETELIST, 0x403, 12, 0
+0x4346, 0x4232, 0x4f4f, 0x4d4b, 0x5241, 0x004b, 
+    IDC_COMBO_DELETELIST, 0x403, 23, 0
+0x6159, 0x6f68, 0x216f, 0x4a20, 0x7061, 0x6e61, 0x4220, 0x6f6f, 0x6d6b, 
+0x7261, 0x736b, "\000" 
+    IDC_COMBO_DELETELIST, 0x403, 17, 0
+0x6159, 0x6f68, 0x216f, 0x4220, 0x6f6f, 0x6d6b, 0x7261, 0x736b, "\000" 
+    IDC_COMBO_DELETELIST, 0x403, 6, 0
+0x6944, 0x6769, 0x006f, 
+    IDC_COMBO_DELETELIST, 0x403, 11, 0
+0x6f6c, 0x6163, 0x206c, 0x504f, 0x4c4d, "\000" 
+    0
+END
+
+IDD_EDIT_BOOKMARK_DIALOG DLGINIT
+BEGIN
+    IDC_COMBO_CATEGORY, 0x403, 3, 0
+0x5449, "\000" 
+    IDC_COMBO_CATEGORY, 0x403, 14, 0
+0x6e45, 0x6574, 0x7472, 0x6961, 0x6d6e, 0x6e65, 0x0074, 
+    IDC_COMBO_CATEGORY, 0x403, 8, 0
+0x6353, 0x6569, 0x636e, 0x0065, 
+    IDC_COMBO_CATEGORY, 0x403, 7, 0
+0x6552, 0x6967, 0x6e6f, "\000" 
+    IDC_COMBO_CATEGORY, 0x403, 7, 0
+0x6f53, 0x6963, 0x6c61, "\000" 
+    IDC_COMBO_CATEGORY, 0x403, 7, 0
+0x6f43, 0x756c, 0x6e6d, "\000" 
+    IDC_COMBO_CATEGORY, 0x403, 14, 0
+0x654e, 0x7377, 0x6f20, 0x2066, 0x6564, 0x7461, 0x0068, 
+    IDC_COMBO_CATEGORY, 0x403, 18, 0
+0x7543, 0x746c, 0x7275, 0x2065, 0x202f, 0x6853, 0x776f, 0x6962, 0x007a, 
+
+    IDC_COMBO_CATEGORY, 0x403, 5, 0
+0x6c42, 0x676f, "\000" 
+    IDC_COMBO_CATEGORY, 0x403, 21, 0
+0x6345, 0x6e6f, 0x6d6f, 0x2079, 0x202f, 0x614d, 0x616e, 0x6567, 0x656d, 
+0x746e, "\000" 
+    IDC_COMBO_CATEGORY, 0x403, 9, 0
+0x6f50, 0x696c, 0x6974, 0x7363, "\000" 
+    IDC_COMBO_CATEGORY, 0x403, 7, 0
+0x7053, 0x726f, 0x7374, "\000" 
+    IDC_COMBO_CATEGORY, 0x403, 12, 0
+0x6f42, 0x6b6f, 0x7220, 0x7665, 0x6569, 0x0077, 
+    IDC_COMBO_CATEGORY, 0x403, 14, 0
+0x6e49, 0x6574, 0x6e72, 0x7461, 0x6f69, 0x616e, 0x006c, 
+    IDC_COMBO_CATEGORY, 0x403, 11, 0
+0x6554, 0x6863, 0x6f6e, 0x6f6c, 0x7967, "\000" 
+    IDC_COMBO_CATEGORY2, 0x403, 9, 0
+0x6f43, 0x706d, 0x7475, 0x7265, "\000" 
+    IDC_COMBO_CATEGORY2, 0x403, 20, 0
+0x7542, 0x6973, 0x656e, 0x7373, 0x2f20, 0x5020, 0x6c6f, 0x7469, 0x6369, 
+0x0073, 
+    IDC_COMBO_CATEGORY2, 0x403, 5, 0
+0x654e, 0x7377, "\000" 
+    IDC_COMBO_CATEGORY2, 0x403, 6, 0
+0x6944, 0x7261, 0x0079, 
+    IDC_COMBO_CATEGORY2, 0x403, 15, 0
+0x6853, 0x776f, 0x6962, 0x207a, 0x202f, 0x6449, 0x6c6f, "\000" 
+    IDC_COMBO_CATEGORY2, 0x403, 16, 0
+0x6548, 0x6c61, 0x6874, 0x2f20, 0x4220, 0x6165, 0x7475, 0x0079, 
+    IDC_COMBO_CATEGORY2, 0x403, 16, 0
+0x6946, 0x646e, 0x4520, 0x706d, 0x6f6c, 0x6d79, 0x6e65, 0x0074, 
+    IDC_COMBO_CATEGORY2, 0x403, 8, 0
+0x6f47, 0x7275, 0x656d, 0x0074, 
+    IDC_COMBO_CATEGORY2, 0x403, 6, 0
+0x754d, 0x6973, 0x0063, 
+    IDC_COMBO_CATEGORY2, 0x403, 6, 0
+0x6f4d, 0x6976, 0x0065, 
+    IDC_COMBO_CATEGORY2, 0x403, 19, 0
+0x6f42, 0x6b6f, 0x2073, 0x202f, 0x654e, 0x7377, 0x6170, 0x6570, 0x7372, 
+"\000" 
+    IDC_COMBO_CATEGORY2, 0x403, 16, 0
+0x6f43, 0x696d, 0x7363, 0x2f20, 0x4120, 0x696e, 0x656d, 0x0073, 
+    IDC_COMBO_CATEGORY2, 0x403, 3, 0
+0x5654, "\000" 
+    IDC_COMBO_CATEGORY2, 0x403, 5, 0
+0x6147, 0x656d, "\000" 
+    IDC_COMBO_CATEGORY2, 0x403, 15, 0
+0x6550, 0x7374, 0x2f20, 0x4120, 0x696e, 0x616d, 0x736c, "\000" 
+    IDC_COMBO_CATEGORY2, 0x403, 15, 0
+0x6f48, 0x6262, 0x2079, 0x202f, 0x7053, 0x726f, 0x7374, "\000" 
+    IDC_COMBO_CATEGORY2, 0x403, 11, 0
+0x6143, 0x2072, 0x202f, 0x6942, 0x656b, "\000" 
+    IDC_COMBO_CATEGORY2, 0x403, 28, 0
+0x694c, 0x6566, 0x2f20, 0x4320, 0x6e6f, 0x7573, 0x656d, 0x2072, 0x6c45, 
+0x6365, 0x7274, 0x6e6f, 0x6369, 0x0073, 
+    IDC_COMBO_CATEGORY2, 0x403, 23, 0
+0x7254, 0x7661, 0x6c65, 0x2f20, 0x5220, 0x6765, 0x6f69, 0x616e, 0x206c, 
+0x6e49, 0x6f66, "\000" 
+    IDC_COMBO_CATEGORY2, 0x403, 14, 0
+0x7241, 0x7374, 0x2f20, 0x4420, 0x7365, 0x6769, 0x006e, 
+    IDC_COMBO_CATEGORY2, 0x403, 23, 0
+0x6445, 0x6375, 0x7461, 0x6f69, 0x206e, 0x202f, 0x6552, 0x6566, 0x6572, 
+0x636e, 0x7365, "\000" 
+    IDC_COMBO_CATEGORY2, 0x403, 19, 0
+0x6e41, 0x6d69, 0x7461, 0x6f69, 0x736e, 0x2f20, 0x4620, 0x616c, 0x6873, 
+"\000" 
+    IDC_COMBO_CATEGORY2, 0x403, 6, 0
+0x6f54, 0x6c6f, 0x0073, 
+    IDC_COMBO_CATEGORY2, 0x403, 13, 0
+0x7553, 0x6d6d, 0x7261, 0x2079, 0x6953, 0x6574, "\000" 
+    IDC_COMBO_CATEGORY2, 0x403, 6, 0
+0x6f4a, 0x656b, 0x0073, 
+    IDC_COMBO_CATEGORY2, 0x403, 5, 0
+0x6f4c, 0x6576, "\000" 
+    IDC_COMBO_CATEGORY2, 0x403, 16, 0
+0x6146, 0x6873, 0x6f69, 0x206e, 0x202f, 0x7242, 0x6e61, 0x0064, 
+    IDC_COMBO_CATEGORY2, 0x403, 10, 0
+0x764f, 0x6165, 0x7372, 0x6165, 0x0073, 
+    0
+END
+
+IDD_SYNC_DIALOG DLGINIT
+BEGIN
+    IDC_BM1, 0x403, 12, 0
+0x6564, 0x2e6c, 0x6369, 0x6f69, 0x752e, 0x0073, 
+    IDC_BM1, 0x403, 21, 0
+0x6c42, 0x6575, 0x4420, 0x746f, 0x2820, 0x6146, 0x6576, 0x2e73, 0x6f63, 
+0x296d, "\000" 
+    IDC_BM1, 0x403, 16, 0
+0x6148, 0x6574, 0x616e, 0x4220, 0x6f6f, 0x6d6b, 0x7261, 0x006b, 
+    IDC_BM1, 0x403, 8, 0
+0x4d4d, 0x4d2f, 0x6d65, 0x006f, 
+    IDC_BM1, 0x403, 9, 0
+0x3431, 0x3037, 0x6e2e, 0x7465, "\000" 
+    IDC_BM1, 0x403, 18, 0
+0x7244, 0x6365, 0x6d6f, 0x5220, 0x5353, 0x4328, 0x696c, 0x2170, 0x0029, 
+
+    IDC_BM1, 0x403, 5, 0
+0x6c46, 0x676f, "\000" 
+    IDC_BM1, 0x403, 8, 0
+0x7542, 0x7a7a, 0x7275, 0x006c, 
+    IDC_BM1, 0x403, 14, 0
+0x696c, 0x6576, 0x6f64, 0x726f, 0x6320, 0x696c, 0x0070, 
+    IDC_BM1, 0x403, 11, 0
+0x696e, 0x7466, 0x2079, 0x6c63, 0x7069, "\000" 
+    IDC_BM1, 0x403, 18, 0
+0x4f50, 0x4b4f, 0x414d, 0x4b52, 0x4120, 0x7269, 0x696c, 0x656e, 0x0073, 
+
+    IDC_BM1, 0x403, 9, 0
+0x6f4a, 0x746c, 0x614d, 0x6b72, "\000" 
+    IDC_BM1, 0x403, 18, 0
+0x6c42, 0x676f, 0x6550, 0x2074, 0x6f62, 0x6b6f, 0x616d, 0x6b72, 0x0073, 
+
+    IDC_BM1, 0x403, 12, 0
+0x4346, 0x4232, 0x4f4f, 0x4d4b, 0x5241, 0x004b, 
+    IDC_BM1, 0x403, 23, 0
+0x6159, 0x6f68, 0x216f, 0x4a20, 0x7061, 0x6e61, 0x4220, 0x6f6f, 0x6d6b, 
+0x7261, 0x736b, "\000" 
+    IDC_BM1, 0x403, 17, 0
+0x6159, 0x6f68, 0x216f, 0x4220, 0x6f6f, 0x6d6b, 0x7261, 0x736b, "\000" 
+    IDC_BM1, 0x403, 6, 0
+0x6944, 0x6769, 0x006f, 
+    IDC_BM1, 0x403, 11, 0
+0x6f4c, 0x6163, 0x206c, 0x504f, 0x4c4d, "\000" 
+    IDC_BM2, 0x403, 12, 0
+0x6564, 0x2e6c, 0x6369, 0x6f69, 0x752e, 0x0073, 
+    IDC_BM2, 0x403, 21, 0
+0x6c42, 0x6575, 0x4420, 0x746f, 0x2820, 0x6146, 0x6576, 0x2e73, 0x6f63, 
+0x296d, "\000" 
+    IDC_BM2, 0x403, 16, 0
+0x6148, 0x6574, 0x616e, 0x4220, 0x6f6f, 0x6d6b, 0x7261, 0x006b, 
+    IDC_BM2, 0x403, 8, 0
+0x4d4d, 0x4d2f, 0x6d65, 0x006f, 
+    IDC_BM2, 0x403, 9, 0
+0x3431, 0x3037, 0x6e2e, 0x7465, "\000" 
+    IDC_BM2, 0x403, 18, 0
+0x7244, 0x6365, 0x6d6f, 0x5220, 0x5353, 0x4328, 0x696c, 0x2170, 0x0029, 
+
+    IDC_BM2, 0x403, 5, 0
+0x6c46, 0x676f, "\000" 
+    IDC_BM2, 0x403, 8, 0
+0x7542, 0x7a7a, 0x7275, 0x006c, 
+    IDC_BM2, 0x403, 14, 0
+0x696c, 0x6576, 0x6f64, 0x726f, 0x6320, 0x696c, 0x0070, 
+    IDC_BM2, 0x403, 11, 0
+0x696e, 0x7466, 0x2079, 0x6c63, 0x7069, "\000" 
+    IDC_BM2, 0x403, 18, 0
+0x4f50, 0x4b4f, 0x414d, 0x4b52, 0x4120, 0x7269, 0x696c, 0x656e, 0x0073, 
+
+    IDC_BM2, 0x403, 9, 0
+0x6f4a, 0x746c, 0x614d, 0x6b72, "\000" 
+    IDC_BM2, 0x403, 18, 0
+0x6c42, 0x676f, 0x6550, 0x2074, 0x6f62, 0x6b6f, 0x616d, 0x6b72, 0x0073, 
+
+    IDC_BM2, 0x403, 12, 0
+0x4346, 0x4232, 0x4f4f, 0x4d4b, 0x5241, 0x004b, 
+    IDC_BM2, 0x403, 23, 0
+0x6159, 0x6f68, 0x216f, 0x4a20, 0x7061, 0x6e61, 0x4220, 0x6f6f, 0x6d6b, 
+0x7261, 0x736b, "\000" 
+    IDC_BM2, 0x403, 17, 0
+0x6159, 0x6f68, 0x216f, 0x4220, 0x6f6f, 0x6d6b, 0x7261, 0x736b, "\000" 
+    IDC_BM2, 0x403, 6, 0
+0x6944, 0x6769, 0x006f, 
+    IDC_BM2, 0x403, 11, 0
+0x6f4c, 0x6163, 0x206c, 0x504f, 0x4c4d, "\000" 
+    0
+END
+
+IDD_DELETE_TAGS_DIALOG DLGINIT
+BEGIN
+    IDC_COMBO_DELETELIST_TAGS, 0x403, 12, 0
+0x6564, 0x2e6c, 0x6369, 0x6f69, 0x752e, 0x0073, 
+    IDC_COMBO_DELETELIST_TAGS, 0x403, 16, 0
+0x6148, 0x6574, 0x616e, 0x4220, 0x6f6f, 0x6d6b, 0x7261, 0x006b, 
+    IDC_COMBO_DELETELIST_TAGS, 0x403, 12, 0
+0x6e40, 0x6669, 0x7974, 0x6320, 0x696c, 0x0070, 
+    0
+END
+
+IDD_REPLACE_TAGS_DIALOG DLGINIT
+BEGIN
+    IDC_COMBO_DELETELIST_TAGS, 0x403, 12, 0
+0x6564, 0x2e6c, 0x6369, 0x6f69, 0x752e, 0x0073, 
+    IDC_COMBO_DELETELIST_TAGS, 0x403, 21, 0
+0x6c42, 0x6575, 0x4420, 0x746f, 0x2820, 0x6146, 0x6576, 0x2e73, 0x6f63, 
+0x296d, "\000" 
+    IDC_COMBO_DELETELIST_TAGS, 0x403, 16, 0
+0x6148, 0x6574, 0x616e, 0x4220, 0x6f6f, 0x6d6b, 0x7261, 0x006b, 
+    IDC_COMBO_DELETELIST_TAGS, 0x403, 12, 0
+0x6e40, 0x6669, 0x7974, 0x6320, 0x696c, 0x0070, 
+    0
+END
+
+IDD_CAPTCHA_DIALOG DLGINIT
+BEGIN
+    IDC_COMBO_TOPIC, 0x403, 19, 0
+0x6554, 0x6863, 0x6f6e, 0x6f6c, 0x7967, 0x2d20, 0x4120, 0x7070, 0x656c, 
+"\000" 
+    IDC_COMBO_TOPIC, 0x403, 20, 0
+0x6554, 0x6863, 0x6f6e, 0x6f6c, 0x7967, 0x2d20, 0x4420, 0x7365, 0x6769, 
+0x006e, 
+    IDC_COMBO_TOPIC, 0x403, 21, 0
+0x6554, 0x6863, 0x6f6e, 0x6f6c, 0x7967, 0x2d20, 0x4720, 0x6461, 0x6567, 
+0x7374, "\000" 
+    IDC_COMBO_TOPIC, 0x403, 22, 0
+0x6554, 0x6863, 0x6f6e, 0x6f6c, 0x7967, 0x2d20, 0x4820, 0x7261, 0x7764, 
+0x7261, 0x0065, 
+    IDC_COMBO_TOPIC, 0x403, 32, 0
+0x6554, 0x6863, 0x6f6e, 0x6f6c, 0x7967, 0x2d20, 0x5420, 0x6365, 0x2068, 
+0x6e49, 0x7564, 0x7473, 0x7972, 0x4e20, 0x7765, 0x0073, 
+    IDC_COMBO_TOPIC, 0x403, 24, 0
+0x6554, 0x6863, 0x6f6e, 0x6f6c, 0x7967, 0x2d20, 0x4c20, 0x6e69, 0x7875, 
+0x552f, 0x696e, 0x0078, 
+    IDC_COMBO_TOPIC, 0x403, 23, 0
+0x6554, 0x6863, 0x6f6e, 0x6f6c, 0x7967, 0x2d20, 0x4d20, 0x6369, 0x6f72, 
+0x6f73, 0x7466, "\000" 
+    IDC_COMBO_TOPIC, 0x403, 18, 0
+0x6554, 0x6863, 0x6f6e, 0x6f6c, 0x7967, 0x2d20, 0x4d20, 0x646f, 0x0073, 
+
+    IDC_COMBO_TOPIC, 0x403, 25, 0
+0x6554, 0x6863, 0x6f6e, 0x6f6c, 0x7967, 0x2d20, 0x5020, 0x6f72, 0x7267, 
+0x6d61, 0x696d, 0x676e, "\000" 
+    IDC_COMBO_TOPIC, 0x403, 22, 0
+0x6554, 0x6863, 0x6f6e, 0x6f6c, 0x7967, 0x2d20, 0x5320, 0x6365, 0x7275, 
+0x7469, 0x0079, 
+    IDC_COMBO_TOPIC, 0x403, 22, 0
+0x6554, 0x6863, 0x6f6e, 0x6f6c, 0x7967, 0x2d20, 0x5320, 0x666f, 0x7774, 
+0x7261, 0x0065, 
+    IDC_COMBO_TOPIC, 0x403, 24, 0
+0x6554, 0x6863, 0x6f6e, 0x6f6c, 0x7967, 0x2d20, 0x5420, 0x6365, 0x2068, 
+0x6544, 0x6c61, 0x0073, 
+    IDC_COMBO_TOPIC, 0x403, 38, 0
+0x6f57, 0x6c72, 0x2064, 0x2026, 0x7542, 0x6973, 0x656e, 0x7373, 0x2d20, 
+0x4220, 0x7375, 0x6e69, 0x7365, 0x2073, 0x2026, 0x6946, 0x616e, 0x636e, 
+0x0065, 
+    IDC_COMBO_TOPIC, 0x403, 34, 0
+0x6f57, 0x6c72, 0x2064, 0x2026, 0x7542, 0x6973, 0x656e, 0x7373, 0x2d20, 
+0x5020, 0x6c6f, 0x7469, 0x6369, 0x6c61, 0x4e20, 0x7765, 0x0073, 
+    IDC_COMBO_TOPIC, 0x403, 39, 0
+0x6f57, 0x6c72, 0x2064, 0x2026, 0x7542, 0x6973, 0x656e, 0x7373, 0x2d20, 
+0x3220, 0x3030, 0x2038, 0x2e55, 0x2e53, 0x4520, 0x656c, 0x7463, 0x6f69, 
+0x736e, "\000" 
+    IDC_COMBO_TOPIC, 0x403, 37, 0
+0x6f57, 0x6c72, 0x2064, 0x2026, 0x7542, 0x6973, 0x656e, 0x7373, 0x2d20, 
+0x5020, 0x6c6f, 0x7469, 0x6369, 0x6c61, 0x4f20, 0x6970, 0x696e, 0x6e6f, 
+"\000" 
+    IDC_COMBO_TOPIC, 0x403, 30, 0
+0x6f57, 0x6c72, 0x2064, 0x2026, 0x7542, 0x6973, 0x656e, 0x7373, 0x2d20, 
+0x5720, 0x726f, 0x646c, 0x4e20, 0x7765, 0x0073, 
+    IDC_COMBO_TOPIC, 0x403, 32, 0
+0x6f57, 0x6c72, 0x2064, 0x2026, 0x7542, 0x6973, 0x656e, 0x7373, 0x2d20, 
+0x4f20, 0x6666, 0x6562, 0x7461, 0x4e20, 0x7765, 0x0073, 
+    IDC_COMBO_TOPIC, 0x403, 19, 0
+0x6956, 0x6564, 0x736f, 0x2d20, 0x4120, 0x696e, 0x616d, 0x6974, 0x6e6f, 
+"\000" 
+    IDC_COMBO_TOPIC, 0x403, 16, 0
+0x6956, 0x6564, 0x736f, 0x2d20, 0x4320, 0x6d6f, 0x6465, 0x0079, 
+    IDC_COMBO_TOPIC, 0x403, 21, 0
+0x6956, 0x6564, 0x736f, 0x2d20, 0x4520, 0x7564, 0x6163, 0x6974, 0x6e6f, 
+0x6c61, "\000" 
+    IDC_COMBO_TOPIC, 0x403, 16, 0
+0x6956, 0x6564, 0x736f, 0x2d20, 0x4720, 0x6d61, 0x6e69, 0x0067, 
+    IDC_COMBO_TOPIC, 0x403, 15, 0
+0x6956, 0x6564, 0x736f, 0x2d20, 0x4d20, 0x7375, 0x6369, "\000" 
+    IDC_COMBO_TOPIC, 0x403, 16, 0
+0x6956, 0x6564, 0x736f, 0x2d20, 0x5020, 0x6f65, 0x6c70, 0x0065, 
+    IDC_COMBO_TOPIC, 0x403, 16, 0
+0x6956, 0x6564, 0x736f, 0x2d20, 0x5320, 0x6f70, 0x7472, 0x0073, 
+    IDC_COMBO_TOPIC, 0x403, 18, 0
+0x7053, 0x726f, 0x7374, 0x2d20, 0x4220, 0x7361, 0x6265, 0x6c61, 0x006c, 
+
+    IDC_COMBO_TOPIC, 0x403, 20, 0
+0x7053, 0x726f, 0x7374, 0x2d20, 0x4220, 0x7361, 0x656b, 0x6274, 0x6c61, 
+0x006c, 
+    IDC_COMBO_TOPIC, 0x403, 17, 0
+0x7053, 0x726f, 0x7374, 0x2d20, 0x4520, 0x7478, 0x6572, 0x656d, "\000" 
+    IDC_COMBO_TOPIC, 0x403, 30, 0
+0x7053, 0x726f, 0x7374, 0x2d20, 0x4620, 0x6f6f, 0x6274, 0x6c61, 0x206c, 
+0x202d, 0x5355, 0x432f, 0x6e61, 0x6461, 0x0061, 
+    IDC_COMBO_TOPIC, 0x403, 14, 0
+0x7053, 0x726f, 0x7374, 0x2d20, 0x4720, 0x6c6f, 0x0066, 
+    IDC_COMBO_TOPIC, 0x403, 16, 0
+0x7053, 0x726f, 0x7374, 0x2d20, 0x4820, 0x636f, 0x656b, 0x0079, 
+    IDC_COMBO_TOPIC, 0x403, 20, 0
+0x7053, 0x726f, 0x7374, 0x2d20, 0x4d20, 0x746f, 0x726f, 0x7073, 0x726f, 
+0x0074, 
+    IDC_COMBO_TOPIC, 0x403, 16, 0
+0x7053, 0x726f, 0x7374, 0x2d20, 0x5320, 0x636f, 0x6563, 0x0072, 
+    IDC_COMBO_TOPIC, 0x403, 16, 0
+0x7053, 0x726f, 0x7374, 0x2d20, 0x5420, 0x6e65, 0x696e, 0x0073, 
+    IDC_COMBO_TOPIC, 0x403, 22, 0
+0x7053, 0x726f, 0x7374, 0x2d20, 0x4f20, 0x6874, 0x7265, 0x5320, 0x6f70, 
+0x7472, 0x0073, 
+    IDC_COMBO_TOPIC, 0x403, 16, 0
+0x6353, 0x6569, 0x636e, 0x2065, 0x202d, 0x7053, 0x6361, 0x0065, 
+    IDC_COMBO_TOPIC, 0x403, 22, 0
+0x6353, 0x6569, 0x636e, 0x2065, 0x202d, 0x6e45, 0x6976, 0x6f72, 0x6d6e, 
+0x6e65, 0x0074, 
+    IDC_COMBO_TOPIC, 0x403, 17, 0
+0x6353, 0x6569, 0x636e, 0x2065, 0x202d, 0x6548, 0x6c61, 0x6874, "\000" 
+    IDC_COMBO_TOPIC, 0x403, 27, 0
+0x6353, 0x6569, 0x636e, 0x2065, 0x202d, 0x6547, 0x656e, 0x6172, 0x206c, 
+0x6353, 0x6569, 0x636e, 0x7365, "\000" 
+    IDC_COMBO_TOPIC, 0x403, 26, 0
+0x6e45, 0x6574, 0x7472, 0x6961, 0x6d6e, 0x6e65, 0x2074, 0x202d, 0x6543, 
+0x656c, 0x7262, 0x7469, 0x0079, 
+    IDC_COMBO_TOPIC, 0x403, 23, 0
+0x6e45, 0x6574, 0x7472, 0x6961, 0x6d6e, 0x6e65, 0x2074, 0x202d, 0x6f4d, 
+0x6976, 0x7365, "\000" 
+    IDC_COMBO_TOPIC, 0x403, 22, 0
+0x6e45, 0x6574, 0x7472, 0x6961, 0x6d6e, 0x6e65, 0x2074, 0x202d, 0x754d, 
+0x6973, 0x0063, 
+    IDC_COMBO_TOPIC, 0x403, 27, 0
+0x6e45, 0x6574, 0x7472, 0x6961, 0x6d6e, 0x6e65, 0x2074, 0x202d, 0x6554, 
+0x656c, 0x6976, 0x6973, 0x6e6f, "\000" 
+    IDC_COMBO_TOPIC, 0x403, 23, 0
+0x6147, 0x696d, 0x676e, 0x2d20, 0x4920, 0x646e, 0x7375, 0x7274, 0x2079, 
+0x654e, 0x7377, "\000" 
+    IDC_COMBO_TOPIC, 0x403, 28, 0
+0x6147, 0x696d, 0x676e, 0x2d20, 0x5020, 0x616c, 0x6179, 0x6c62, 0x2065, 
+0x6557, 0x2062, 0x6147, 0x656d, 0x0073, 
+    IDC_COMBO_TOPIC, 0x403, 18, 0
+0x6147, 0x696d, 0x676e, 0x2d20, 0x5020, 0x2043, 0x6147, 0x656d, 0x0073, 
+
+    IDC_COMBO_TOPIC, 0x403, 22, 0
+0x6147, 0x696d, 0x676e, 0x2d20, 0x4e20, 0x6e69, 0x6574, 0x646e, 0x206f, 
+0x6957, 0x0069, 
+    IDC_COMBO_TOPIC, 0x403, 23, 0
+0x6147, 0x696d, 0x676e, 0x2d20, 0x5020, 0x616c, 0x5379, 0x6174, 0x6974, 
+0x6e6f, 0x3320, "\000" 
+    IDC_COMBO_TOPIC, 0x403, 18, 0
+0x6147, 0x696d, 0x676e, 0x2d20, 0x5820, 0x6f62, 0x2078, 0x3633, 0x0030, 
+
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDP_OLE_INIT_FAILED     "OLE initialization failed. Make sure that the OLE libraries are the correct version."
+    IDS_ABOUTBOX            "About bookey (&A)..."
+    IDS_REGISTER            "registeration"
+    IDS_DELETE              "deletion"
+    IDS_SYNCHRONIZE         "synchronous"
+    IDS_REGISTER4           "register"
+    IDS_DIRECTION           " -> "
+    IDS_DOUBLE_DIRECTION    "<->"
+    IDS_MENU_TURN_ON        "Turn ON again (&A)"
+    IDS_MENU_TURN_OFF       "Turn OFF temporarily (&Z)"
+    IDS_MENU_PASTE          "Paste (&P)"
+    IDS_BTN_PUT_BOOKMARKS   "Put bookmarks"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_FILETYPE_OPML       "OPML file (*.opml)|*.opml||"
+    IDS_OPFAIL_OPML         "Cannot open OPML file.    "
+    IDS_RDFAIL_OPML         "OPML file reading failure"
+    IDS_WRFAIL_OPML         "OPML file writing failure"
+    IDS_FILETYPE_HTML       "HTML file (*.html;*.htm)|*.html; *.htm||"
+    IDS_OPFAIL_HTML         "Cannot open HTML file.    "
+    IDS_RDFAIL_HTML         "HTML file reading failure"
+    IDS_WRFAIL_HTML         "HTML file writing failure"
+    IDS_FILETYPE_OPERA_6    "Opera bookmark file (*.adr)|*.adr||"
+    IDS_OPFAIL_ADR          "Cannot open ADR file.    "
+    IDS_RDFAIL_ADR          "ADR file reading failure"
+    IDS_WRFAIL_ADR          "ADR file writing failure"
+    IDS_FILETYPE_XML        "XML file (*.xml)|*.xml||"
+    IDS_OPFAIL_XML          "Cannot open XML file.    "
+    IDS_RDFAIL_XML          "XML file reading failure"
+    IDS_WRFAIL_XML          "XML file writing failure"
+END
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    IDR_MAINFRAME           "bookey\n\nBookey\n\n\nBookey.Document\nBookey Document"
+    IDS_ABOUT_SUPPORT       "Support (Official Blog)"
+    IDS_ABOUT_COMMUNITY     "Community (Hatene Bookmark)"
+    IDS_ABOUT_COMMUNITY2    "Community (wakoopa)"
+    IDS_ABOUT_SUPPORT2      "Support (Google Sites)"
+    IDS_MANAGE_BOOKMARKS    "Manage Bookmarks"
+    IDS_EDIT_SETTING        "Edit Settings"
+END
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    AFX_IDS_APP_TITLE       "bookey"
+    AFX_IDS_IDLEMESSAGE     "Ready"
+    IDS_BOOKEY_MAIL_ADDR    "mailto:tsupo@na.rim.or.jp"
+    IDS_BOOKEY_WEB_URL      "http://watcher.moe-nifty.com/memo/2005/10/bookey.html"
+    IDS_BOOKEY_VERSION      "0.63b"
+    IDS_BOOKEY_RESOURCE_XML "http://watcher.moe-nifty.com/memo/files/bookey.xml"
+    IDS_BOOKEY_COMMUNITY    "http://b.hatena.ne.jp/entry/http://watcher.moe-nifty.com/memo/2005/10/bookey.html"
+    IDS_BOOKEY_COMMUNITY2   "http://wakoopa.com/software/bookey"
+    IDS_BOOKEY_SUPPORT      "http://sites.google.com/site/tsujimura543/bookey"
+    IDS_BOOKEY_API_ID       "50NP47Gxg66ooD6dCztU.vFKbF7Q66X.bkQFoB0Dv_5cQryvB3smnpCO8Mw-"
+    IDS_CREDIT_YAHOOJAPAN_URL "http://developer.yahoo.co.jp/about"
+    IDS_TWITTER_OA001       "=<:+RSES5%a;W3wHx&<z3g3WsK.{%7;^lItt_JZ4G%:uH4zB)\\XwH.7>h]K""7/OHaaCVf:"
+    IDS_TWITTER_OA002       "Q\\g|/-G@XeSRi>Nzsw}.Ca]<d7+w9w(5RM?lMVd"
+    IDS_URL_TWITTER_REQUEST_TOKEN "http://twitter.com/oauth/request_token"
+    IDS_URL_TWITTER_ACCESS_TOKEN "http://twitter.com/oauth/access_token"
+    IDS_URL_TWITTER_AUTHORIZE "http://twitter.com/oauth/authorize"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
+    ID_INDICATOR_KANA       "KANA"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_FILE_NEW             "Create a new document\nNew"
+    ID_FILE_OPEN            "Open an existing document\nOpen"
+    ID_FILE_CLOSE           "Close the active document\nClose"
+    ID_FILE_SAVE            "Save the active document\nSave"
+    ID_FILE_SAVE_AS         "Save the active document with a new name\nSave As"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_APP_ABOUT            "Display program information, version number and copyright\nAbout"
+    ID_APP_EXIT             "Quit the application; prompts to save documents\nExit"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_FILE_MRU_FILE1       "Open the specified file"
+    ID_FILE_MRU_FILE2       "Open the specified file"
+    ID_FILE_MRU_FILE3       "Open the specified file"
+    ID_FILE_MRU_FILE4       "Open the specified file"
+    ID_FILE_MRU_FILE5       "Open the specified file"
+    ID_FILE_MRU_FILE6       "Open the specified file"
+    ID_FILE_MRU_FILE7       "Open the specified file"
+    ID_FILE_MRU_FILE8       "Open the specified file"
+    ID_FILE_MRU_FILE9       "Open the specified file"
+    ID_FILE_MRU_FILE10      "Open the specified file"
+    ID_FILE_MRU_FILE11      "Open the specified file"
+    ID_FILE_MRU_FILE12      "Open the specified file"
+    ID_FILE_MRU_FILE13      "Open the specified file"
+    ID_FILE_MRU_FILE14      "Open the specified file"
+    ID_FILE_MRU_FILE15      "Open the specified file"
+    ID_FILE_MRU_FILE16      "Open the specified file"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_NEXT_PANE            "Switch to the next window pane\nNext Pane"
+    ID_PREV_PANE            "Switch back to the previous window pane\nPrevious Pane"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_WINDOW_SPLIT         "Split the active window into panes\nSplit"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_EDIT_CLEAR           "Erase the selection\nErase"
+    ID_EDIT_CLEAR_ALL       "Erase everything\nErase All"
+    ID_EDIT_COPY            "Copy the selection and put it on the Clipboard\nCopy"
+    ID_EDIT_CUT             "Cut the selection and put it on the Clipboard\nCut"
+    ID_EDIT_FIND            "Find the specified text\nFind"
+    ID_EDIT_PASTE           "Insert Clipboard contents\nPaste"
+    ID_EDIT_REPEAT          "Repeat the last action\nRepeat"
+    ID_EDIT_REPLACE         "Replace specific text with different text\nReplace"
+    ID_EDIT_SELECT_ALL      "Select the entire document\nSelect All"
+    ID_EDIT_UNDO            "Undo the last action\nUndo"
+    ID_EDIT_REDO            "Redo the previously undone action\nRedo"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_SCSIZE          "Change the window size"
+    AFX_IDS_SCMOVE          "Change the window position"
+    AFX_IDS_SCMINIMIZE      "Reduce the window to an icon"
+    AFX_IDS_SCMAXIMIZE      "Enlarge the window to full size"
+    AFX_IDS_SCNEXTWINDOW    "Switch to the next document window"
+    AFX_IDS_SCPREVWINDOW    "Switch to the previous document window"
+    AFX_IDS_SCCLOSE         "Close the active window and prompts to save the documents"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_SCRESTORE       "Restore the window to normal size"
+    AFX_IDS_SCTASKLIST      "Activate Task List"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_TGT_HATENA_BOOKMARK "Hatena Bookmark"
+    IDS_TGT_DELICIOUS       "del.icio.us"
+    IDS_TGT_MMMEMO          "MM/Memo"
+    IDS_TGT_DRECOM_RSS      "Drecom RSS(Clip!)"
+    IDS_TGT_FLOG            "Flog"
+    IDS_TGT_LIVEDOOR_CLIP   "livedoor clip"
+    IDS_TGT_ECNAVI_CLIP     "Buzzurl"
+    IDS_TGT_NIFTY_CLIP      "@nifty clip"
+    IDS_TGT_1470NET         "1470.net"
+    IDS_TGT_NEWSING         "newsing"
+    IDS_TGT_POOKMARK        "POOKMARK Airlines"
+    IDS_TGT_BLUEDOT         "Blue Dot (Faves.com)"
+    IDS_TGT_JOLTMARK        "JoltMark"
+    IDS_TGT_BLOGPET         "BlogPet bookmarks"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_TGT_OPML            "OPML file"
+    IDS_TGT_LOCAL_OPML      "local OPML"
+    IDS_TGT_NETSCAPE_1      "NETSCAPE-1 html file"
+    IDS_TGT_OPERA_6         "opera6.adr file"
+    IDS_TGT_HATENA_FEED     "RSS/Atom feed from Hatena Bookmark"
+    IDS_TGT_LIVEDOOR_FEED   "RSS feed from livedoor clip"
+    IDS_TGT_FC2_BOOKMARK    "FC2BOOKMARK"
+    IDS_TGT_TWITTER         "Twitter"
+    IDS_TGT_DELICIOUS_XML   "del.icio.us (posts/all) XML"
+    IDS_TGT_YJ_BOOKMARK     "Yahoo! Japan Bookmarks"
+    IDS_TGT_YAHOO_BOOKMARKS "Yahoo! Bookmarks"
+    IDS_TGT_TIMELOG         "Timelog"
+    IDS_TGT_DIGG            "digg"
+    IDS_TGT_HATENA_STAR     "Hatena Star"
+    IDS_TGT_TUMBLR          "tumblr"
+    IDS_TGT_DIIGO           "Diigo"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_DSC_YJBOOKMARK      "Input your ID and password of Yahoo! Japan for 'YJ! Bookmarks'"
+    IDS_DSC_YAHOO_BOOKMARKS "Input your Yahoo! ID and password for 'Yahoo! Bookmarks'"
+    IDS_DSC_TIMELOG         "Input your account name and password for 'Timelog'"
+    IDS_DSC_TUMBLR          "Input your E-mail address and password for 'tumblr'"
+    IDS_DSC_DIGG            "Input your account name and password for 'digg'"
+    IDS_DSC_DIIGO           "Input your account name and password for 'Diigo'"
+    IDS_TTL_SYNC_TARGET     "Simultaneous bookmark target"
+    IDS_TXT_SYNC_TARGET     "Do you make '%s' to a simultaneous registration object?    "
+    IDS_TTL_BROKEN_SETTING  "Invalid configuration file"
+    IDS_TXT_BROKEN_SETTING  "The configuration file is broken.\r\nSet the password for '%s' again.  "
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_TTL_CANCEL_LOGIN_INFO "Login information setting discontinuance"
+    IDS_TXT_CANCEL_LOGIN_INFO 
+                            "Is the setting of login information discontinued?    "
+    IDS_TTL_CANCEL_PROCEDURE "%s discontinuance"
+    IDS_TXT_CANCEL_PROCEDURE "Is the %s of the bookmark discontinued?   "
+    IDS_TTL_EXECUTE_PROCEDURE ":: %s bookmarks"
+    IDS_TXT_EXECUTE_PROCEDURE "Do you %s this bookmark?    "
+    IDS_BTN_EXECUTE_PROCEDURE "%s this"
+    IDS_BTN_EXECUTE_PROCEDURE_ALL "%s all"
+    IDS_BTN_SKIP_PROCEDURE  "Skip"
+    IDS_BTN_CANCEL_PROCEDURE "Abort"
+    IDS_TTL_NO_SETTING_LOCAL_OPML "Local OPML file name unsetting"
+    IDS_TXT_NO_SETTING_LOCAL_OPML 
+                            "The local OPML file name is not set. \r\nSet the local OPML file name.   "
+    IDS_TTL_SYNCHRONIZE     "Synchronizing bookmarks"
+    IDS_TXT_SYNCHRONIZE     "Searching for bookmarks that should synchronize ..."
+    IDS_TXT_START_SYNCHRONIZING "Synchronize bookmarks %s    "
+    IDS_TXT_CONTINUE_SYNCHRONIZING "Synchronizing: %s ..."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_TXT_NO_SYNCHRONIZING "No bookmarks needing to synchronize %s     "
+    IDS_TXT_END_SYNCHONIZING "Finished Synchronization %s   "
+    IDS_TTL_PUT_ALL_BOOKMARKS "Synchronize all bookmarks: %s"
+    IDS_TXT_PUT_ALL_BOOKMARKS 
+                            "Do you want to register all bookmarks of the remainder at a dash?    "
+    IDS_TTL_FAILURE_GET_BOOKMARKS_NOT_EXIST 
+                            "Getting bookmarks failed. (or, no bookmarks exist)"
+    IDS_TXT_FAILURE_GET_BOOKMARKS_NOT_EXIST 
+                            "%s: Cannot get bookmarks.\r\n\r\nRetry again?                                                            (-> Push 'Yes')\r\nStart synchronization without getting bookmarks?  (-> Push 'No')\r\nAbort synchronization?                                            (-> Push 'Cancel')   "
+    IDS_TTL_FAILURE_GET_BOOKMARKS "Getting bookmarks failed."
+    IDS_TXT_FAILURE_GET_BOOKMARKS "Cannot get bookmarks.        "
+    IDS_TTL_DELETE_ALL_BOOKMARKS "Delete all bookmarks"
+    IDS_TXT_DELETE_ALL_BOOKMARKS 
+                            "Do you want to delete all bookmarks, really?       "
+    IDS_TTL_DELETE_ALL      "Delete all bookmarks"
+    IDS_TXT_DELETE_ALL      "Do you want to delete all bookmarks of the remainder at a dash?    "
+    IDS_TXT_CONTINUE_DELETING "Deleting bookmarks ...    "
+    IDS_TTL_FAILURE_DELETE_BOOKMARKS "Deleting bookmarks failed."
+    IDS_TXT_FAILURE_DELETE_BOOKMARKS 
+                            "Cannot delete bookmarks    \r\nContinue deleting?"
+    IDS_TXT_GET_BOOKMARKS   "Preparing to get bookmarks ...   "
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_TXT_CONTINUE_GETTING_BOOKMARKS "Getting bookmarks ...    "
+    IDS_TXT_CONTINUE_LOGIN  "Login ...   "
+    IDS_TXT_CONTINUE_GETTING_FOLDER "Getting folder information ...    "
+    IDS_TXT_CONTINUE_CHECKING_TYPEKEY "Checking TypeKey autehtication ...    "
+    IDS_TTL_MEMORY_EXHAUSTED "Memory exhausted."
+    IDS_TXT_MEMORY_EXHAUSTED 
+                            "Cannot allocate memory necessary for working.     "
+    IDS_TTL_FAILURE_GET_BOOKMARK_INFO "Getting bookmarks failed."
+    IDS_TXT_FAILURE_GET_BOOKMARK_INFO 
+                            "Only %d in %d all was able to be acquired.    "
+    IDS_TTL_CONTINUE_PUTTING_BOOKMARKS "Putting bookmarks"
+    IDS_TXT_CONTINUE_PUTTING_BOOKMARKS "Putting into %s ...    "
+    IDS_TXT_CONTINUE_PUTTING_BOOKMARK_INFO "Putting bookmarks ...   "
+    IDS_TTL_CONTINUE_ANALYSING "Getting tag suggestion"
+    IDS_TXT_CONTINUE_ANALYSING "Exectuting morphological analysis ..."
+    IDS_TTL_GETTING_BOOKMARK_USERS 
+                            "Getting number of users who registered this web page"
+    IDS_TXT_GETTING_HATENA_USERS "Checking 'Hatena Bookmark' ..."
+    IDS_TXT_GETTING_DELICIOUS_USERS "Checking 'del.icio.us' ..."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_BTN_SAVE_BOOKMARKS  "Save bookmarks"
+    IDS_BTN_IMPORT_A        "Import to '%s' from bookmarks existed '%s' only"
+    IDS_BTN_IMPORT_AB       "Import to '%s' from '%s', and import to '%s' from '%s'"
+    IDS_MENU_TURN_ON2       "Turn ON temporarily (&A)"
+    IDS_MENU_TURN_OFF2      "Turn OFF again (&Z)"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_TXT_GETTING_MMMEMO_USERS "Checking 'MM/Memo' ..."
+    IDS_TXT_GETTING_ECNAVI_USERS "Checking 'Buzzurl' ..."
+    IDS_TTL_URL_CHECK_RESULT "Result of checking URL"
+    IDS_TXT_INVALID_URL     "Invalid URL    \r\n"
+    IDS_TXT_ADD_COLLECTON   "Do you want to add this item to your collection in 'Hatena Bookmark' ?"
+    IDS_TXT_TEMPORARY_OFF   "temporarily OFF"
+    IDS_TTL_UNSETTING       "Login information unsetting"
+    IDS_TXT_UNSETTING       "If you want to use 'Simultaneous bookmark' operation, and execute 'Configure settings' first."
+    IDS_TTL_CONTINUE_GETTING_TITLE "Getting title"
+    IDS_TXT_CONTINUE_GETTING_TITLE 
+                            "Getting title (and tag suggestions, if necessary) via 'Hatena Bookmark' ..."
+    IDS_TTL_BUSY_GETTING    "Now, putting bookmarks ..."
+    IDS_TXT_BUSY_GETTING    "It is still working the registration of the previous bookmark.     \r\nTry again later."
+    IDS_TXT_BUSY_BUSY       "It is still working the registration of the previous bookmark.     \r\nWait a minute, and try again.\r\n\r\nOr, abort 'bookey' forcely when not ending however much it waits.    "
+    IDS_TXT_CONTINUE_PROCEEDING "Proceeding ..."
+    IDS_TTL_CONTINUE_GET_TAG_LIST "Getting list of tags"
+    IDS_TXT_CONTINUE_GET_TAG_LIST 
+                            "Getting list of tags from target bookmark ..."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_DSC_HATENA_BOOKMARK "Input your Hatena ID and password for 'Hatena Bookmark'."
+    IDS_DSC_DELICIOUS       "Input your account name and password for 'del.icio.us'."
+    IDS_DSC_MMMEMO          "Input your TypeKey ID and password for 'MM/Memo'."
+    IDS_DSC_DRECOM_RSS      "Input your E-mail address and password for 'Drecom Account'."
+    IDS_DSC_FLOG            "Input your E-mail address and password for 'Flog'."
+    IDS_DSC_LIVEDOOR_CLIP   "Input your livedoor ID and password for 'livedoor clip'."
+    IDS_DSC_ECNAVI_CLIP     "Input your E-mail adderess and password for 'Buzzurl'."
+    IDS_DSC_NIFTY_CLIP      "Input your ID (@nifty ID or PLEASY ID) and password for 'nifty clip'."
+    IDS_DSC_1470NET         "Input your TypeKey ID and password for '1470.net'."
+    IDS_DSC_POOKMARK        "Input your JugemKey ID and password for 'POOKMARK Airlines'."
+    IDS_DSC_BLUEDOT         "Input your accout name and password for 'Blue Dot (Faves.com)'."
+    IDS_DSC_JOLTMARK        "Inout your account name and password for 'JoltMark'."
+    IDS_DSC_FC2_BOOKMARK    "Input your E-mail address and password for 'FC2BOOKMARK'."
+    IDS_DSC_BLOGPET         "Input your account name and password for 'BlogPet'."
+    IDS_DSC_TWITTER         "Input your E-mail address and password for 'Twitter'"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_TTL_CONTINUE_DELETE_TAGS "Deleting tags"
+    IDS_TXT_CONTINUE_DELETE_TAGS "Deleting tags from target bookmark ..."
+    IDS_TTL_CONTINUE_REPLACE_TAGS "Replacing tags"
+    IDS_TXT_CONTINUE_REPLACE_TAGS "Replacing from old tag to new tag ..."
+    IDS_TXT_GETTING_LIVEDOORCLIP_USERS "Checking 'livedoor clip' ..."
+    IDS_TXT_GETTING_DIGG_USERS "Checking 'digg' ..."
+    IDS_TXT_TEMPORARY_ON    "temporarily ON"
+    IDS_TTL_GETTING_NUM_OF_STARS "Getting the number of Stars"
+    IDS_TXT_GETTING_HATENA_STAR_USERS "Checking 'Hatena Star' ...    "
+    IDS_TXT_GETTING_NIFTYCLIP_USERS "Checking '@nifty clip' ..."
+    IDS_URL_NIFTYCLIP       "http://clip.nifty.com/"
+    IDS_ACCESSTOKEN_ACQUIRED "[Access Token: acquired]"
+    IDS_ACCESSTOKEN_UNTAKEN "[Access Token: untaken]"
+    IDS_TXT_TWITTER_STOP_OAUTH "Stopped access to Twitter by bookey.   "
+    IDS_TXT_TWITTER_ALLOW_OAUTH 
+                            "You can grant access to bookey, if you want.  \r\nPush 'Allow' button on your browser, and push 'OK' button on this dialog.  \r\nOr push 'Cancel' button on this dialog.   "
+    IDS_TXT_SELECT_BLOG     "Select a blog to post bookmarks    "
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_TWITTER_ALLOW_OAUTH "Allow bookey access?"
+    IDS_TWITTER_STOP_OAUTH  "Stopped access to Twitter"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_TTL_SELECT_BLOG     "No blog selected"
+    IDS_DEFAULT_TARGET      "(primary)"
+    IDS_TXT_INPUT_PIN       "Input six digits as PIN for exchanging OAuth token   "
+    IDS_TTL_INPUT_PIN       "Input number"
+END
+
+#endif    // 英語 (ｱﾒﾘｶ) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_JPN)
+#ifdef _WIN32
+LANGUAGE 17, 1
+#pragma code_page(932)
+#endif //_WIN32
+#include "res\bookey.rc2"  // Microsoft Visual C++ 以外のツールで編集されたリソース
+#include "l.jpn\afxres.rc"          // 標準のコンポーネント
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
