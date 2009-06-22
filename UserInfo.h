@@ -5,6 +5,12 @@
  *
  * $Log: /comm/bookey/UserInfo.h $
  * 
+ * 3     09/06/22 22:31 tsupo
+ * 0.63c版
+ * 
+ * 57    09/06/22 17:56 Tsujimura543
+ * 日本語モード←→英語モード切替関連、修正
+ * 
  * 2     09/05/29 8:43 tsupo
  * 0.62版
  * 
@@ -254,6 +260,8 @@ public:
     void    Init( bool isTarget, CString username, CString password );
     void    Init( bool isTarget ) { m_isTarget = isTarget; }
     void    Init( enum bookmarkType bmType );
+
+    void    ReInit();
 
     void    GetUserInfo( CString &username,
                          CString &password,

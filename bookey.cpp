@@ -5,6 +5,12 @@
  *
  * $Log: /comm/bookey/bookey.cpp $
  * 
+ * 3     09/06/22 22:31 tsupo
+ * 0.63c版
+ * 
+ * 85    09/06/22 17:56 Tsujimura543
+ * 日本語モード←→英語モード切替関連、修正
+ * 
  * 2     09/05/29 8:43 tsupo
  * 0.62版
  * 
@@ -297,7 +303,7 @@
 
 #ifndef	lint
 static char	*rcs_id =
-"$Header: /comm/bookey/bookey.cpp 2     09/05/29 8:43 tsupo $";
+"$Header: /comm/bookey/bookey.cpp 3     09/06/22 22:31 tsupo $";
 #endif
 
 #ifdef _DEBUG
@@ -416,6 +422,33 @@ void CBookeyApp::Initialize()
     sigHead.LoadString( IDS_TWITTER_OA001 );
     sigTail.LoadString( IDS_TWITTER_OA002 );
     SetSigInfo( m_tcKey, m_tcSecret, sigHead, sigTail );
+}
+
+void    CBookeyApp::ReInitialize()
+{
+    m_hatena.ReInit();
+    m_delicious.ReInit();
+    m_mmMemo.ReInit();
+    m_drecomRss.ReInit();
+    m_flog.ReInit();
+    m_livedoorClip.ReInit();
+    m_ecNaviClip.ReInit();
+    m_niftyClip.ReInit();
+    m_next1470net.ReInit();
+    m_newsing.ReInit();
+    m_pookmark.ReInit();
+    m_blueDot.ReInit();
+    m_joltMark.ReInit();
+    m_fc2bookmark.ReInit();
+    m_blogPet.ReInit();
+    m_twitter.ReInit();
+    m_yjBookmark.ReInit();
+    m_yahooBookmarks.ReInit();
+    m_timelog.ReInit();
+    m_digg.ReInit();
+    m_tumblr.ReInit();
+    m_diigo.ReInit();
+    m_localOpml.ReInit();
 }
 
 /////////////////////////////////////////////////////////////////////////////

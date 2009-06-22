@@ -5,6 +5,12 @@
  *
  * $Log: /comm/bookey/UserInfo.cpp $
  * 
+ * 4     09/06/22 22:31 tsupo
+ * 0.63c版
+ * 
+ * 131   09/06/22 17:56 Tsujimura543
+ * 日本語モード←→英語モード切替関連、修正
+ * 
  * 3     09/06/18 0:53 tsupo
  * 0.63b版
  * 
@@ -527,7 +533,7 @@ extern "C" {
 
 #ifndef	lint
 static char	*rcs_id =
-"$Header: /comm/bookey/UserInfo.cpp 3     09/06/18 0:53 tsupo $";
+"$Header: /comm/bookey/UserInfo.cpp 4     09/06/22 22:31 tsupo $";
 #endif
 
 #ifdef _DEBUG
@@ -824,6 +830,95 @@ void    CUserInfo::Init( enum bookmarkType bmType )
     }
 }
 
+void    CUserInfo::ReInit()
+{
+    switch ( m_bmType ) {
+    case BK_HATENA:
+        m_bmName.LoadString( IDS_TGT_HATENA_BOOKMARK );
+        break;
+    case BK_DELICIOUS:
+        m_bmName.LoadString( IDS_TGT_DELICIOUS );
+        break;
+    case BK_MM_MEMO:
+        m_bmName.LoadString( IDS_TGT_MMMEMO );
+        break;
+    case BK_DRECOM_RSS:
+        m_bmName.LoadString( IDS_TGT_DRECOM_RSS );
+        break;
+    case BK_FLOG:
+        m_bmName.LoadString( IDS_TGT_FLOG );
+        break;
+    case BK_LIVEDOOR_CLIP:
+        m_bmName.LoadString( IDS_TGT_LIVEDOOR_CLIP );
+        break;
+    case BK_ECNAVI_CLIP:
+        m_bmName.LoadString( IDS_TGT_ECNAVI_CLIP );
+        break;
+    case BK_NIFTY_CLIP:
+        m_bmName.LoadString( IDS_TGT_NIFTY_CLIP );
+        break;
+    case BK_JOLTMARK:
+        m_bmName.LoadString( IDS_TGT_JOLTMARK );
+        break;
+    case BK_1470NET:
+        m_bmName.LoadString( IDS_TGT_1470NET );
+        break;
+    case BK_NEWSING:
+        m_bmName.LoadString( IDS_TGT_NEWSING );
+        break;
+    case BK_POOKMARK:
+        m_bmName.LoadString( IDS_TGT_POOKMARK );
+        break;
+    case BK_BLUEDOT:
+        m_bmName.LoadString( IDS_TGT_BLUEDOT );
+        break;
+    case BK_FC2BOOKMARK:
+        m_bmName.LoadString( IDS_TGT_FC2_BOOKMARK );
+        break;
+    case BK_BLOGPET:
+        m_bmName.LoadString( IDS_TGT_BLOGPET );
+        break;
+    case BK_TWITTER:
+        m_bmName.LoadString( IDS_TGT_TWITTER );
+        break;
+    case BK_YJ_BOOKMARK:
+        m_bmName.LoadString( IDS_TGT_YJ_BOOKMARK );
+        break;
+    case BK_YAHOO_BOOKMARKS:
+        m_bmName.LoadString( IDS_TGT_YAHOO_BOOKMARKS );
+        break;
+    case BK_TIMELOG:
+        m_bmName.LoadString( IDS_TGT_TIMELOG );
+        break;
+    case BK_DIGG:
+        m_bmName.LoadString( IDS_TGT_DIGG );
+        break;
+    case BK_TUMBLR:
+        m_bmName.LoadString( IDS_TGT_TUMBLR );
+        break;
+    case BK_DIIGO:
+        m_bmName.LoadString( IDS_TGT_DIIGO );
+        break;
+    case BK_LOCAL_OPML:
+        m_bmName.LoadString( IDS_TGT_LOCAL_OPML );
+        break;
+    case BK_NETSCAPE_BOOKMARK_FILE_1:
+        m_bmName.LoadString( IDS_TGT_NETSCAPE_1 );
+        break;
+    case BK_OPERA6_ADR:
+        m_bmName.LoadString( IDS_TGT_OPERA_6 );
+        break;
+    case BK_HATENA_BOOKMARK_ATOM:
+        m_bmName.LoadString( IDS_TGT_HATENA_FEED );
+        break;
+    case BK_LIVEDOOR_CLIP_RSS:
+        m_bmName.LoadString( IDS_TGT_LIVEDOOR_FEED );
+        break;
+    case BK_DELICIOUS_XML:
+        m_bmName.LoadString( IDS_TGT_DELICIOUS_XML );
+        break;
+    }
+}
 
 /*
  *  ユーザ情報取得

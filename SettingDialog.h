@@ -3,7 +3,10 @@
  *      SettingDialog クラスの宣言およびインターフェイスの定義
  *          written by H.Tsujimura  28 Jul 2006
  *
- * $Log: /comm/bookey/SettingDialog.h $
+ * $Log: /makeRSS/bookey/SettingDialog.h $
+ * 
+ * 24    09/06/22 18:04 Tsujimura543
+ * タブの位置を上辺(横・上)から右辺(縦・下)に変更
  * 
  * 1     09/05/14 3:48 tsupo
  * (1) ビルド環境のディレクトリ構造を整理
@@ -187,8 +190,8 @@ private:
     SettingDialog( SettingDialog &dlg );
     SettingDialog   operator = ( SettingDialog &dlg );
 
-    int     m_width;
-    int     m_height;
+ // int     m_width;
+ // int     m_height;
     int     m_base;
     int     m_dialogWidth;
     bool    m_resized;

@@ -5,6 +5,12 @@
  *
  * $Log: /comm/bookey/bookey.h $
  * 
+ * 2     09/06/22 22:31 tsupo
+ * 0.63c版
+ * 
+ * 71    09/06/22 17:56 Tsujimura543
+ * 日本語モード←→英語モード切替関連、修正
+ * 
  * 1     09/05/14 3:48 tsupo
  * (1) ビルド環境のディレクトリ構造を整理
  * (2) VSSサーバ拠点を変更
@@ -382,6 +388,7 @@ public:
     // 初期化 (InitInstance() から呼び出せない処理を、InitInstance()
     // に代わって呼び出す)
     void    Initialize();
+    void    ReInitialize();
 
     /* 再設定 */
     void    ResetUserInfo( bool &needToSave );

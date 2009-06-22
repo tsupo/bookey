@@ -5,6 +5,12 @@
  *
  * $Log: /comm/bookey/bookeyView.cpp $
  * 
+ * 3     09/06/22 22:31 tsupo
+ * 0.63c版
+ * 
+ * 123   09/06/22 17:56 Tsujimura543
+ * 日本語モード←→英語モード切替関連、修正
+ * 
  * 2     09/06/18 0:53 tsupo
  * 0.63b版
  * 
@@ -443,7 +449,7 @@
 
 #ifndef	lint
 static char	*rcs_id =
-"$Header: /comm/bookey/bookeyView.cpp 2     09/06/18 0:53 tsupo $";
+"$Header: /comm/bookey/bookeyView.cpp 3     09/06/22 22:31 tsupo $";
 #endif
 
 #ifdef _DEBUG
@@ -574,6 +580,7 @@ void CBookeyView::OnInitialUpdate()
     p = (CButton *)GetDlgItem( IDC_CHECK_LANGUAGE );
     p->SetCheck( l != bp->m_langCode ? 1 : 0 );
     setLanguageCode( bp->m_langCode );
+    bp->ReInitialize();
 #endif
 
     CStatic *sp = (CStatic *)GetDlgItem( IDC_WAITING );
@@ -1551,4 +1558,5 @@ void CBookeyView::OnCheckLanguage()
     } 
     setLanguageCode( bp->m_langCode );
     SaveSetting();
+    bp->ReInitialize();
 }

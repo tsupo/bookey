@@ -5,6 +5,12 @@
  *
  * $Log: /comm/bookey/SettingDialog.cpp $
  * 
+ * 2     09/06/22 22:31 tsupo
+ * 0.63c版
+ * 
+ * 27    09/06/22 18:04 Tsujimura543
+ * タブの位置を上辺(横・上)から右辺(縦・下)に変更
+ * 
  * 1     09/05/14 3:48 tsupo
  * (1) ビルド環境のディレクトリ構造を整理
  * (2) VSSサーバ拠点を変更
@@ -94,7 +100,7 @@
 
 #ifndef	lint
 static char	*rcs_id =
-"$Header: /comm/bookey/SettingDialog.cpp 1     09/05/14 3:48 tsupo $";
+"$Header: /comm/bookey/SettingDialog.cpp 2     09/06/22 22:31 tsupo $";
 #endif
 
 #ifdef _DEBUG
@@ -140,8 +146,8 @@ SettingDialog::SettingDialog(CWnd* pParent /*=NULL*/)
 
     m_1470net     = false;
     m_numOfTabs   = 0;
-    m_width       = 0;
-    m_height      = 0;
+ // m_width       = 0;
+ // m_height      = 0;
     m_base        = 0;
     m_dialogWidth = 0;
     m_resized     = false;
@@ -174,7 +180,7 @@ int SettingDialog::DispCurrentTab( int activeTab /* = 0 */ )
             m_dlg[i]->ShowWindow( SW_HIDE );
 
     m_dlg[m_activePage]->ShowWindow( SW_SHOW );
-
+  /*
     if ( (m_height <= DISPLAY_HEIGHT_LIMIT) && !m_resized ) {
         // 小さいサイズのダイアログを表示する
         CRect   rcClient;
@@ -191,7 +197,7 @@ int SettingDialog::DispCurrentTab( int activeTab /* = 0 */ )
 
         m_resized = true;
     }
-
+  */
     return ( m_activePage );
 }
 
@@ -209,7 +215,7 @@ END_MESSAGE_MAP()
 BOOL SettingDialog::OnInitDialog()
 {
 	CDialog::OnInitDialog();
-
+  /*
     if ( m_height <= DISPLAY_HEIGHT_LIMIT ) {
         int     height      = 0;
         int     width       = 0;
@@ -260,7 +266,7 @@ BOOL SettingDialog::OnInitDialog()
             bp->EnableWindow();
      // }
     }
-
+  */
     return TRUE;
 }
 
@@ -312,7 +318,7 @@ void SettingDialog::OnSize(UINT nType, int cx, int cy)
     CRect   rcClient;
     GetClientRect( &rcClient );
     m_tabSetting.MoveWindow( &rcClient );
-
+  /*
     CRect   rcTabCtrl;
     m_tabSetting.GetClientRect( &rcTabCtrl );
 
@@ -335,6 +341,7 @@ void SettingDialog::OnSize(UINT nType, int cx, int cy)
 
     for ( int i = 0; i < nPages; i++ )
         m_dlg[i]->MoveWindow( &rcTabDisp );
+  */
 }
 
 int SettingDialog::OnCreate(LPCREATESTRUCT lpCreateStruct) 
@@ -342,16 +349,17 @@ int SettingDialog::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	if (CDialog::OnCreate(lpCreateStruct) == -1)
 		return -1;
 
-    m_width  = GetSystemMetrics(SM_CXSCREEN);
-    m_height = GetSystemMetrics(SM_CYSCREEN);
+ // m_width  = GetSystemMetrics(SM_CXSCREEN);
+ // m_height = GetSystemMetrics(SM_CYSCREEN);
 
     BOOL    bResult;
-    if ( m_height <= DISPLAY_HEIGHT_LIMIT )
-        bResult = m_tabSetting.Create( WS_CHILD | WS_VISIBLE,
-                                       CRect(0, 0, 0, 0), this,
-                                       IDD_SETTING_DIALOG );
-    else
-        bResult = m_tabSetting.Create( WS_CHILD | WS_VISIBLE | TCS_MULTILINE,
+ // if ( m_height <= DISPLAY_HEIGHT_LIMIT )
+ //     bResult = m_tabSetting.Create( WS_CHILD | WS_VISIBLE,
+ //                                    CRect(0, 0, 0, 0), this,
+ //                                    IDD_SETTING_DIALOG );
+ // else
+        bResult = m_tabSetting.Create( WS_CHILD | WS_VISIBLE | TCS_MULTILINE |
+                                       TCS_VERTICAL | TCS_BOTTOM,
                                        CRect(0, 0, 0, 0), this,
                                        IDD_SETTING_DIALOG );
     if ( bResult == FALSE )
