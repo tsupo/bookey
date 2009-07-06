@@ -1057,8 +1057,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,0,22,1
- PRODUCTVERSION 1,0,22,1
+ FILEVERSION 1,0,22,2
+ PRODUCTVERSION 1,0,22,2
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -1076,14 +1076,14 @@ BEGIN
             VALUE "Comments", "はてなブックマーク、del.icio.us、MM/Memo、ドリコムRSS、Flog、Buzzurl、ニフティクリップ、livedoorクリップ、1470.netリニューアル版、newsing、POOKMARK Airlines、Faves.com、JoltMark、Blogpetブックマーク、Yahoo! ブックマークなどに対応。\0"
             VALUE "CompanyName", "観測気球  http://watcher.moe-nifty.com/\0"
             VALUE "FileDescription", "ソーシャルブックマーク管理ツール bookey\0"
-            VALUE "FileVersion", "1, 0, 22, 1\0"
+            VALUE "FileVersion", "1, 0, 22, 2\0"
             VALUE "InternalName", "bookey\0"
             VALUE "LegalCopyright", "Copyright (C) 2005, 2006, 2007, 2008, 2009 tsupo\0"
             VALUE "LegalTrademarks", "\0"
             VALUE "OriginalFilename", "bookey.EXE\0"
             VALUE "PrivateBuild", "\0"
             VALUE "ProductName", "bookey: written by H.Tsujimura (a.k.a. tsupo)\0"
-            VALUE "ProductVersion", "1, 0, 22, 1\0"
+            VALUE "ProductVersion", "1, 0, 22, 2\0"
             VALUE "SpecialBuild", "\0"
         END
     END
@@ -2038,7 +2038,7 @@ BEGIN
     AFX_IDS_IDLEMESSAGE     "レディ"
     IDS_BOOKEY_MAIL_ADDR    "mailto:tsupo@na.rim.or.jp"
     IDS_BOOKEY_WEB_URL      "http://watcher.moe-nifty.com/memo/2005/10/bookey.html"
-    IDS_BOOKEY_VERSION      "0.63c"
+    IDS_BOOKEY_VERSION      "0.63d"
     IDS_BOOKEY_RESOURCE_XML "http://watcher.moe-nifty.com/memo/files/bookey.xml"
     IDS_BOOKEY_COMMUNITY    "http://b.hatena.ne.jp/entry/http://watcher.moe-nifty.com/memo/2005/10/bookey.html"
     IDS_BOOKEY_COMMUNITY2   "http://wakoopa.com/software/bookey"
@@ -3318,8 +3318,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,0,22,1
- PRODUCTVERSION 1,0,22,1
+ FILEVERSION 1,0,22,2
+ PRODUCTVERSION 1,0,22,2
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -3337,14 +3337,14 @@ BEGIN
             VALUE "Comments", "Support for Hatena Bookmark, del.icio.us, MM/Memo, DrecomRSS, Flog, Buzzurl, nifty Clip, livedoor Clip, 1470.net, newsing, POOKMARK Airlines, Faves.com, JoltMark, Blogpet bookmarks, Yahoo! Bookmarks, Twitter, Timelog, Digg, .....\0"
             VALUE "CompanyName", "Watching Balloon (KANSOKU-KIKYU) http://watcher.moe-nifty.com/\0"
             VALUE "FileDescription", "bookey - management tool for social bookmarks \0"
-            VALUE "FileVersion", "1, 0, 22, 1\0"
+            VALUE "FileVersion", "1, 0, 22, 2\0"
             VALUE "InternalName", "bookey\0"
             VALUE "LegalCopyright", "Copyright (C) 2005, 2006, 2007, 2008, 2009 tsupo\0"
             VALUE "LegalTrademarks", "\0"
             VALUE "OriginalFilename", "bookey.EXE\0"
             VALUE "PrivateBuild", "\0"
             VALUE "ProductName", "bookey: written by H.Tsujimura (a.k.a. tsupo)\0"
-            VALUE "ProductVersion", "1, 0, 22, 1\0"
+            VALUE "ProductVersion", "1, 0, 22, 2\0"
             VALUE "SpecialBuild", "\0"
         END
     END
@@ -4253,7 +4253,7 @@ BEGIN
     AFX_IDS_IDLEMESSAGE     "Ready"
     IDS_BOOKEY_MAIL_ADDR    "mailto:tsupo@na.rim.or.jp"
     IDS_BOOKEY_WEB_URL      "http://watcher.moe-nifty.com/memo/2005/10/bookey.html"
-    IDS_BOOKEY_VERSION      "0.63c"
+    IDS_BOOKEY_VERSION      "0.63d"
     IDS_BOOKEY_RESOURCE_XML "http://watcher.moe-nifty.com/memo/files/bookey.xml"
     IDS_BOOKEY_COMMUNITY    "http://b.hatena.ne.jp/entry/http://watcher.moe-nifty.com/memo/2005/10/bookey.html"
     IDS_BOOKEY_COMMUNITY2   "http://wakoopa.com/software/bookey"

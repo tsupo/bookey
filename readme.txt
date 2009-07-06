@@ -1,7 +1,7 @@
 bookey -- ソーシャルブックマーク管理ツール
   作者: tsupo (H.Tsujimura,  mailto: tsupo@na.rim.or.jp)
-  パッケージ作成日: 2009年6月22日
-  パッケージ版数:   0.63c
+  パッケージ作成日: 2009年7月3日
+  パッケージ版数:   0.63d
 
   このパッケージの説明:
 
@@ -770,6 +770,7 @@ bookey -- ソーシャルブックマーク管理ツール
         http://github.com/tsupo/bookey/tree
 
   更新情報:
+    Ver 0.63d 2009年 7月 3日 「はてなブックマーク」への投稿時の UserAgentを変更
     Ver 0.63c 2009年 6月22日 「設定」ダイアログのタブの位置を上辺から右辺に変更
                              した
     Ver 0.63b 2009年 6月16日 (1) 登録しようとしている URL の長さが384バイト以上
@@ -2133,4 +2134,4 @@ bookey -- ソーシャルブックマーク管理ツール
     Ver 0.02  2005年10月 7日  はてなブックマークとdel.icio.usの同期をサポート
     Ver 0.01  2005年 9月30日  最初の版 ブックマークの取得、登録、削除をサポート
 
-$Header: /comm/bookey/readme.txt 5     09/06/22 22:05 tsupo $
+$Header: /makeRSS/bookey/readme.txt 85    09/07/03 20:43 Tsujimura543 $

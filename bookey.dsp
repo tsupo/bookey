@@ -54,7 +54,7 @@ BSC32=bscmake.exe
 # ADD BSC32 /nologo
 LINK32=link.exe
 # ADD BASE LINK32 /nologo /subsystem:windows /machine:I386
-# ADD LINK32 xmlRPC.lib shlwapi.lib wininet.lib /nologo /version:0.225 /subsystem:windows /machine:I386 /libpath:"..\xmlRPC\Release"
+# ADD LINK32 xmlRPC.lib shlwapi.lib wininet.lib /nologo /version:0.226 /subsystem:windows /machine:I386 /libpath:"..\xmlRPC\Release"
 # SUBTRACT LINK32 /debug
 
 !ELSEIF  "$(CFG)" == "bookey - Win32 Debug"
@@ -82,7 +82,7 @@ BSC32=bscmake.exe
 # ADD BSC32 /nologo
 LINK32=link.exe
 # ADD BASE LINK32 /nologo /subsystem:windows /debug /machine:I386 /pdbtype:sept
-# ADD LINK32 xmlRPC.lib shlwapi.lib wininet.lib /nologo /version:0.225 /subsystem:windows /incremental:no /debug /machine:I386 /pdbtype:sept /libpath:"..\xmlRPC\Debug"
+# ADD LINK32 xmlRPC.lib shlwapi.lib wininet.lib /nologo /version:0.226 /subsystem:windows /incremental:no /debug /machine:I386 /pdbtype:sept /libpath:"..\xmlRPC\Debug"
 # SUBTRACT LINK32 /map
 
 !ENDIF 

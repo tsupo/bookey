@@ -3,7 +3,10 @@
  *      SettingDialog クラスの宣言およびインターフェイスの定義
  *          written by H.Tsujimura  28 Jul 2006
  *
- * $Log: /makeRSS/bookey/SettingDialog.h $
+ * $Log: /comm/bookey/SettingDialog.h $
+ * 
+ * 2     09/07/07 2:15 tsupo
+ * 0.63c版
  * 
  * 24    09/06/22 18:04 Tsujimura543
  * タブの位置を上辺(横・上)から右辺(縦・下)に変更
